@@ -1,0 +1,16 @@
+{
+  "name": "DuArts",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.0beta6",
+    "jade": "*",
+    "stylus": "*",
+    "async": "~0.2.5",
+    "underscore": "~1.4.4",
+    "mongoose": "~3.5.5"
+  }
+}
