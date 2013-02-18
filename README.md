@@ -43,7 +43,9 @@ You can find most of what you need in the page above. Focus on Backbone, jQuery,
 ### HTML + CSS
 
 [A Beginner’s Guide to HTML & CSS](http://learn.shayhowe.com/html-css/)
+
 [An Advanced Guide to HTML & CSS](http://learn.shayhowe.com/advanced-html-css/)
+
 [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines/)
 
 [Async]: https://github.com/caolan/async
