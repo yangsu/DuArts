@@ -3,27 +3,27 @@
  * GET home page.
  */
 
+var fs = require('fs');
+var _ = require('underscore');
+
+var text = fs.readFileSync('data/month.pretty.json', 'ascii');
+var json = JSON.parse(text);
+var eventData = json.events;
+var events = _.chain(eventData).map(function(event) {
+  event = event.event;
+  return {
+    title: event.summary,
+    date: event.start.shortdate
+  };
+}).sortBy(function(event) {
+  return event.date;
+})
+.reverse()
+.value();
+
 var data = [{
-  header: 'This Week',
-  events: [{
-    title: 'DUI Performance',
-    date: '1/22'
-  }, {
-    title: 'Duke Arts Festival',
-    date: '1/23'
-  }, {
-    title: 'African Diaspora',
-    date: '1/29'
-  }]
-}, {
-  header: 'Next Week',
-  events: [{
-    title: 'Duke Chamber Players Concert',
-    date: '1/22'
-  }, {
-    title: 'Duke Arts Festival',
-    date: '1/31'
-  }]
+  header: 'This Month',
+  events: events
 }];
 
 exports.index = function(req, res) {
