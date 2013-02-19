@@ -5,3 +5,6 @@ body {
 a {
   color: #00b7ff;
 }
+.listimg {
+  max-width: 400px;
+}

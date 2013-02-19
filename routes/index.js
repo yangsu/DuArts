@@ -14,6 +14,7 @@ var events = _.chain(eventData).map(function(event) {
   return {
     guid: event.guid,
     title: event.summary,
+    image: event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text,
     date: event.start.shortdate
   };
 }).sortBy(function(event) {
