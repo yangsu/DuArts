@@ -11,55 +11,28 @@ block content
             - var lic4 = page == 'l4' ? ca : c
             - var lic5 = page == 'l5' ? ca : c
 
-      li(class=lic1)
-        a(href='home', data-transition='fade')
-          img.tab-icon(src='http://maker.github.com/ratchet/img/icon-home.png')
-          .tab-label Home
-      li(class=lic2)
-        a(href='profile', data-transition='fade')
-          img.tab-icon(src='http://maker.github.com/ratchet/img/icon-profile.png')
-          .tab-label Profile
-      li(class=lic3)
-        a(href='l3', data-transition='fade')
-          img.tab-icon(src='http://maker.github.com/ratchet/img/icon-messages.png')
-          .tab-label Label
-      li(class=lic4)
-        a(href='l4', data-transition='fade')
-          img.tab-icon(src='http://maker.github.com/ratchet/img/icon-hamburger.png')
-          .tab-label Label
-      li(class=lic5)
-        a(href='l5', data-transition='fade')
-          img.tab-icon(src='http://maker.github.com/ratchet/img/icon-settings.png')
-          .tab-label Label
+            li(class=lic1)
+                a(href='home', data-transition='fade')
+                    img.tab-icon(src='http://maker.github.com/ratchet/img/icon-home.png')
+                    .tab-label Home
+            li(class=lic2)
+                a(href='profile', data-transition='fade')
+                    img.tab-icon(src='http://maker.github.com/ratchet/img/icon-profile.png')
+                    .tab-label Profile
+            li(class=lic3)
+                a(href='l3', data-transition='fade')
+                    img.tab-icon(src='http://maker.github.com/ratchet/img/icon-messages.png')
+                    .tab-label Label
+            li(class=lic4)
+                a(href='l4', data-transition='fade')
+                    img.tab-icon(src='http://maker.github.com/ratchet/img/icon-hamburger.png')
+                    .tab-label Label
+            li(class=lic5)
+                a(href='l5', data-transition='fade')
+                    img.tab-icon(src='http://maker.github.com/ratchet/img/icon-settings.png')
+                    .tab-label Label
+
     // Wrap all non-bar HTML in the .content div (this is actually what scrolls)
     .content
-        .content-padded
-            ul.segmented-controller
-                li.active
-                    a(href='#item1') Article 1
-                li
-                    a(href='#item2') Article 2
-                li
-                    a(href='#item3') Article 3
-            ul.inset.list
-                li#item1.segmented-controller-item.active
-                    | Hello World! This is pretty cool - Jonathan
-                    |
-                li#item2.segmented-controller-item
-                    | Ut enim ad minim veniam,
-                    | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    | consequat.
-                li#item3.segmented-controller-item
-                    | Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    | cillum dolore eu fugiat nulla pariatur.
-        .slider
-            ul
-                li
-                    img(src='images/slide-1.jpg')
-                    span.slide-text ← Slide me
-                li
-                    img(src='images/slide-2.jpg')
-                li
-                    img(src='images/slide-3.jpg')
         .content-padded
             include eventlists
