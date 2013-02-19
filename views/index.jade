@@ -1,17 +1,87 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  .container
-    .hero-unit
-      h1 Cheerio!
-      p You now have
+  header.bar-title
+    h1.title Duke Arts
+  nav.bar-tab
+    ul.tab-inner
+      li.tab-item.active
+        a(href='template1.html', data-transition='fade')
+          img.tab-icon(src='http://maker.github.com/ratchet/img/icon-home.png')
+          .tab-label Label
+      li.tab-item
+        a(href='template2.html', data-transition='fade')
+          img.tab-icon(src='http://maker.github.com/ratchet/img/icon-profile.png')
+          .tab-label Label
+      li.tab-item
+        a(href='template3.html', data-transition='fade')
+          img.tab-icon(src='http://maker.github.com/ratchet/img/icon-messages.png')
+          .tab-label Label
+      li.tab-item
+        a(href='template4.html', data-transition='fade')
+          img.tab-icon(src='http://maker.github.com/ratchet/img/icon-hamburger.png')
+          .tab-label Label
+      li.tab-item
+        a(href='template5.html', data-transition='fade')
+          img.tab-icon(src='http://maker.github.com/ratchet/img/icon-settings.png')
+          .tab-label Label
+  // Wrap all non-bar HTML in the .content div (this is actually what scrolls)
+  .content
+    .content-padded
+      ul.segmented-controller
+        li.active
+          a(href='#item1') Article 1
+        li
+          a(href='#item2') Article 2
+        li
+          a(href='#item3') Article 3
+      ul.inset.list
+        li#item1.segmented-controller-item.active
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          | tempor incididunt ut labore et dolore magna aliqua.
+        li#item2.segmented-controller-item
+          | Ut enim ad minim veniam,
+          | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          | consequat.
+        li#item3.segmented-controller-item
+          | Duis aute irure dolor in reprehenderit in voluptate velit esse
+          | cillum dolore eu fugiat nulla pariatur.
+    .slider
       ul
-        li HTML5 Boilerplate
-        li jQuery
-        li Backbone.js
-        li Lodash
-        li Mocha
-      p installed.
-      h3 Enjoy coding! - Yeoman
+        li
+          img(src='images/slide-1.jpg')
+          span.slide-text ← Slide me
+        li
+          img(src='images/slide-2.jpg')
+        li
+          img(src='images/slide-3.jpg')
+    .content-padded
+    ul.list.inset
+      li.list-divider This Week
+      li
+        a(href='index.html', data-transition='slide-in')
+          | DUI Performance
+          span.chevron
+          span.count 1/22
+      li
+        a(href='index.html', data-transition='slide-in')
+          | Duke Arts Festival
+          span.chevron
+          span.count 1/23
+      li
+        a(href='index.html', data-transition='slide-in')
+          | African Diaspora
+          span.chevron
+          span.count 1/29
+    ul.list.inset
+      li.list-divider Next Week
+      li
+        a(href='index.html', data-transition='slide-in')
+          | Duke Chamber Players Concert
+          span.chevron
+          span.count 1/22
+      li
+        a(href='index.html', data-transition='slide-in')
+          | Duke Arts Festival
+          span.chevron
+          span.count 1/31
