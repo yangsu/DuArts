@@ -2,7 +2,7 @@
 
 Mobile Web App for Duke Arts
 
-## Installation Instructions:
+## Installation Instructions
 
 Make sure you have node and npm installed. If you don't have it yet, go to [nodejs.org][Node.js]
 
@@ -11,6 +11,21 @@ git clone git@github.com:yangsu/DuArts.git
 cd DuArts
 npm install -d
 ```
+## Running the App
+
+In your application directory
+
+```bash
+node app.js
+```
+
+Open up **Chrome** (for the easiest configuration).
+Go to [http://localhost:3000](http://localhost:3000)
+Right click on the webpage and click on **Inspect Element**
+Click on the gear icon at the bottom right corner of the popped up window
+A settings page will pop up. Configure the options as shown below.
+
+![Settings](http://f.cl.ly/items/0v2u3B3g0f0H072S3u3a/Screen%20Shot%202013-02-19%20at%2012.00.38%20PM.png)
 
 ## Tech Stack
 
