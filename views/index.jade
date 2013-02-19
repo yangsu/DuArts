@@ -31,35 +31,35 @@ block content
         a(href='l5', data-transition='fade')
           img.tab-icon(src='http://maker.github.com/ratchet/img/icon-settings.png')
           .tab-label Label
-  // Wrap all non-bar HTML in the .content div (this is actually what scrolls)
-  .content
-    .content-padded
-      ul.segmented-controller
-        li.active
-          a(href='#item1') Article 1
-        li
-          a(href='#item2') Article 2
-        li
-          a(href='#item3') Article 3
-      ul.inset.list
-        li#item1.segmented-controller-item.active
-          | Hello World! This is pretty cool - Jonathan
-          |
-        li#item2.segmented-controller-item
-          | Ut enim ad minim veniam,
-          | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          | consequat.
-        li#item3.segmented-controller-item
-          | Duis aute irure dolor in reprehenderit in voluptate velit esse
-          | cillum dolore eu fugiat nulla pariatur.
-    .slider
-      ul
-        li
-          img(src='images/slide-1.jpg')
-          span.slide-text ← Slide me
-        li
-          img(src='images/slide-2.jpg')
-        li
-          img(src='images/slide-3.jpg')
-    .content-padded
-      include eventlists
+    // Wrap all non-bar HTML in the .content div (this is actually what scrolls)
+    .content
+        .content-padded
+            ul.segmented-controller
+                li.active
+                    a(href='#item1') Article 1
+                li
+                    a(href='#item2') Article 2
+                li
+                    a(href='#item3') Article 3
+            ul.inset.list
+                li#item1.segmented-controller-item.active
+                    | Hello World! This is pretty cool - Jonathan
+                    |
+                li#item2.segmented-controller-item
+                    | Ut enim ad minim veniam,
+                    | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    | consequat.
+                li#item3.segmented-controller-item
+                    | Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    | cillum dolore eu fugiat nulla pariatur.
+        .slider
+            ul
+                li
+                    img(src='images/slide-1.jpg')
+                    span.slide-text ← Slide me
+                li
+                    img(src='images/slide-2.jpg')
+                li
+                    img(src='images/slide-3.jpg')
+        .content-padded
+            include eventlists
