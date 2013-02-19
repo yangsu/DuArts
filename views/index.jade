@@ -1,15 +1,15 @@
 extends layout
 
 block content
-  nav.bar-tab
-    ul.tab-inner
-      - var c = 'tab-item'
-      - var ca = c + ' active'
-      - var lic1 = page == 'home' || page == '' ? ca : c
-      - var lic2 = page == 'profile' ? ca : c
-      - var lic3 = page == 'l3' ? ca : c
-      - var lic4 = page == 'l4' ? ca : c
-      - var lic5 = page == 'l5' ? ca : c
+    nav.bar-tab
+        ul.tab-inner
+            - var c = 'tab-item'
+            - var ca = c + ' active'
+            - var lic1 = page == 'home' || page == '' ? ca : c
+            - var lic2 = page == 'profile' ? ca : c
+            - var lic3 = page == 'l3' ? ca : c
+            - var lic4 = page == 'l4' ? ca : c
+            - var lic5 = page == 'l5' ? ca : c
 
       li(class=lic1)
         a(href='home', data-transition='fade')
@@ -44,7 +44,7 @@ block content
       ul.inset.list
         li#item1.segmented-controller-item.active
           | Hello World! This is pretty cool - Jonathan
-          | 
+          |
         li#item2.segmented-controller-item
           | Ut enim ad minim veniam,
           | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
