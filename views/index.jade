@@ -5,24 +5,32 @@ block content
     h1.title Duke Arts
   nav.bar-tab
     ul.tab-inner
-      li.tab-item.active
-        a(href='template1.html', data-transition='fade')
+      - var c = 'tab-item'
+      - var ca = c + ' active'
+      - var lic1 = page == 'home' || page == '' ? ca : c
+      - var lic2 = page == 'profile' ? ca : c
+      - var lic3 = page == 'l3' ? ca : c
+      - var lic4 = page == 'l4' ? ca : c
+      - var lic5 = page == 'l5' ? ca : c
+
+      li(class=lic1)
+        a(href='home', data-transition='fade')
           img.tab-icon(src='http://maker.github.com/ratchet/img/icon-home.png')
-          .tab-label Label
-      li.tab-item
-        a(href='template2.html', data-transition='fade')
+          .tab-label Home
+      li(class=lic2)
+        a(href='profile', data-transition='fade')
           img.tab-icon(src='http://maker.github.com/ratchet/img/icon-profile.png')
-          .tab-label Label
-      li.tab-item
-        a(href='template3.html', data-transition='fade')
+          .tab-label Profile
+      li(class=lic3)
+        a(href='l3', data-transition='fade')
           img.tab-icon(src='http://maker.github.com/ratchet/img/icon-messages.png')
           .tab-label Label
-      li.tab-item
-        a(href='template4.html', data-transition='fade')
+      li(class=lic4)
+        a(href='l4', data-transition='fade')
           img.tab-icon(src='http://maker.github.com/ratchet/img/icon-hamburger.png')
           .tab-label Label
-      li.tab-item
-        a(href='template5.html', data-transition='fade')
+      li(class=lic5)
+        a(href='l5', data-transition='fade')
           img.tab-icon(src='http://maker.github.com/ratchet/img/icon-settings.png')
           .tab-label Label
   // Wrap all non-bar HTML in the .content div (this is actually what scrolls)
@@ -59,29 +67,29 @@ block content
     ul.list.inset
       li.list-divider This Week
       li
-        a(href='index.html', data-transition='slide-in')
+        a(href='', data-transition='slide-in')
           | DUI Performance
           span.chevron
           span.count 1/22
       li
-        a(href='index.html', data-transition='slide-in')
+        a(href='', data-transition='slide-in')
           | Duke Arts Festival
           span.chevron
           span.count 1/23
       li
-        a(href='index.html', data-transition='slide-in')
+        a(href='', data-transition='slide-in')
           | African Diaspora
           span.chevron
           span.count 1/29
     ul.list.inset
       li.list-divider Next Week
       li
-        a(href='index.html', data-transition='slide-in')
+        a(href='', data-transition='slide-in')
           | Duke Chamber Players Concert
           span.chevron
           span.count 1/22
       li
-        a(href='index.html', data-transition='slide-in')
+        a(href='', data-transition='slide-in')
           | Duke Arts Festival
           span.chevron
           span.count 1/31
