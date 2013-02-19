@@ -1,6 +1,10 @@
 extends layout
 
 block content
-    .content.event
-        h2.title= event.summary
-        p= event.description
+    .content
+        .content-padded
+            h2.title= event.summary
+            p= event.description
+            - var img = event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text
+            if img
+                img(src='#{img}')
