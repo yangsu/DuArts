@@ -66,7 +66,7 @@
     popover.parentNode.appendChild(backdrop);
   });
 
-  // window.addEventListener('click', function (e) { if (getPopover(e)) e.preventDefault(); });
+  window.addEventListener('click', function (e) { if (getPopover(e)) e.preventDefault(); });
 
 }();
 /* ----------------------------------
@@ -482,7 +482,7 @@
   window.addEventListener('touchstart', function () { isScrolling = false; });
   window.addEventListener('touchmove', function () { isScrolling = true; })
   window.addEventListener('touchend', touchend);
-  // window.addEventListener('click', function (e) { if (getTarget(e)) e.preventDefault(); });
+  window.addEventListener('click', function (e) { if (getTarget(e)) e.preventDefault(); });
   window.addEventListener('popstate', popstate);
 
 }();/* ----------------------------------
@@ -530,7 +530,7 @@
     targetBody.classList.add(className)
   });
 
-  // window.addEventListener('click', function (e) { if (getTarget(e.target)) e.preventDefault(); });
+  window.addEventListener('click', function (e) { if (getTarget(e.target)) e.preventDefault(); });
 }();/* ----------------------------------
  * SLIDER v1.0.0
  * Licensed under The MIT License
