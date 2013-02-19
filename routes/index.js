@@ -20,8 +20,8 @@ var events = _.chain(eventData).map(function(event) {
 }).sortBy(function(event) {
   return event.date;
 })
-.reverse()
-.slice(0, 20)
+// .reverse()
+.slice(0, 100)
 .value();
 
 var map = _.reduce(eventData, function(memo, event) {
