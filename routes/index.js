@@ -21,6 +21,7 @@ var events = _.chain(eventData).map(function(event) {
   return event.date;
 })
 .reverse()
+.slice(0, 20)
 .value();
 
 var map = _.reduce(eventData, function(memo, event) {
