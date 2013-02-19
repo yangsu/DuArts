@@ -1,8 +1,6 @@
 extends layout
 
 block content
-  header.bar-title
-    h1.title Duke Arts
   nav.bar-tab
     ul.tab-inner
       - var c = 'tab-item'
@@ -64,4 +62,4 @@ block content
         li
           img(src='images/slide-3.jpg')
     .content-padded
-    include eventlists
+      include eventlists

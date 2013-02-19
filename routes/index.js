@@ -12,6 +12,7 @@ var eventData = json.events;
 var events = _.chain(eventData).map(function(event) {
   event = event.event;
   return {
+    guid: event.guid,
     title: event.summary,
     date: event.start.shortdate
   };
@@ -20,6 +21,12 @@ var events = _.chain(eventData).map(function(event) {
 })
 .reverse()
 .value();
+
+var map = _.reduce(eventData, function(memo, event) {
+  event = event.event;
+  memo[event.guid] = event;
+  return memo;
+}, {});
 
 var data = [{
   header: 'This Month',
@@ -39,10 +46,16 @@ exports.notfound = function(req, res) {
 };
 
 exports.page = function(req, res) {
-  console.log(req.params);
   res.render('index', {
     title: 'Duke Arts',
     page: req.params.page,
     data: data
+  });
+};
+
+exports.event = function(req, res) {
+  res.render('eventPage', {
+    title: 'Duke Arts',
+    event: map[req.params.guid]
   });
 };
