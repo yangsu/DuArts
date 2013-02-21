@@ -11,4 +11,5 @@ window.public = {
 
 $(document).ready(function(){
   public.init();
+  new FingerBlast('.content');
 });
