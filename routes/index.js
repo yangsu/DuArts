@@ -61,3 +61,9 @@ exports.event = function(req, res) {
     event: map[req.params.guid]
   });
 };
+
+exports.calendar = function(req, res) {
+  res.render('calendar', {
+    title: 'Duke Arts'
+  });
+};

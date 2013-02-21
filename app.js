@@ -28,8 +28,10 @@ app.configure('development', function() {
 
 app.get('/', routes.index);
 app.get('/404', routes.notfound);
+app.get('/calendar', routes.calendar);
 app.get('/:page', routes.page);
 app.get('/event/:guid', routes.event);
+
 
 
 
