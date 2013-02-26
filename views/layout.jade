@@ -43,8 +43,8 @@ html.no-js
 
     body
         header.bar-title
-            h1.title Duke Arts
-        nav.bar-standard
+            a.button(href='#')
+                | Left
             ul.segmented-controller
                 li.active
                     a(href='/') Events
@@ -58,6 +58,8 @@ html.no-js
                     a(href='/orgs') Orgs
                 li
                     a(href='/search') Search
+            a.button(href='#')
+                | Right
 
         block content
 
