@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  $('#map').css('height', ($(window).height() - 43) + 'px');
+
   var map = new GMaps({
     div: '#map',
     lat: 36.0001922,
