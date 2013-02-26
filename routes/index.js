@@ -91,3 +91,21 @@ exports.aroundme = function(req, res) {
     markers: markers
   });
 };
+
+exports.venues = function(req, res) {
+  res.render('venues', {
+    title: 'Duke Arts'
+  });
+};
+
+exports.orgs = function(req, res) {
+  res.render('orgs', {
+    title: 'Duke Arts'
+  });
+};
+
+exports.search = function(req, res) {
+  res.render('search', {
+    title: 'Duke Arts'
+  });
+};
