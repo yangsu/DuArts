@@ -101,3 +101,9 @@ exports.orgs = function(req, res) {
     title: 'Duke Arts'
   });
 };
+
+exports.search = function(req, res) {
+  res.render('search', {
+    title: 'Duke Arts'
+  });
+};
