@@ -47,9 +47,9 @@ html.no-js
         nav.bar-standard
             ul.segmented-controller
                 li.active
-                    a(href='#') Events
+                    a(href='/') Events
                 li
-                    a(href='#') Around Me
+                    a(href='/aroundme') Around Me
                 li
                     a(href='/calendar') Calendar
                 li
@@ -74,6 +74,8 @@ html.no-js
         script(src='/javascripts/models/application-model.js')
         script(src='/javascripts/collections/application-collection.js')
         script(src='/javascripts/routes/application-router.js')
+
+        block scripts
 
         script
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

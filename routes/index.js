@@ -14,6 +14,7 @@ var events = _.chain(eventData).map(function(event) {
     guid: event.guid,
     title: event.summary,
     image: event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text,
+    location: event.location && event.location.link && event.location.link.indexOf('=') >= 0 && event.location.link.split('=').slice(-1)[0],
     date: event.start.shortdate
   };
 }).sortBy(function(event) {
@@ -38,6 +39,14 @@ var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.marker = function(req, res) {
   res.json(markers[req.params.mid]);
+};
+
+exports.events = function(req, res) {
+  res.json(events);
+};
+
+exports.markers = function(req, res) {
+  res.json(markers);
 };
 
 exports.index = function(req, res) {
@@ -72,5 +81,13 @@ exports.event = function(req, res) {
 exports.calendar = function(req, res) {
   res.render('calendar', {
     title: 'Duke Arts'
+  });
+};
+
+exports.aroundme = function(req, res) {
+  res.render('aroundme', {
+    title: 'Around Me',
+    events: events,
+    markers: markers
   });
 };
