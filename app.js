@@ -32,8 +32,8 @@ app.get('/calendar', routes.calendar);
 app.get('/aroundme', routes.aroundme);
 app.get('/events', routes.events);
 app.get('/markers', routes.markers);
-
 app.get('/marker/:mid', routes.marker);
+app.get('/calendarJQ', routes.calendar);
 app.get('/:page', routes.page);
 app.get('/event/:guid', routes.event);
 

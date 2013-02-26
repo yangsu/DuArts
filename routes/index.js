@@ -79,7 +79,7 @@ exports.event = function(req, res) {
 };
 
 exports.calendar = function(req, res) {
-  res.render('calendar', {
+  res.render('calendarJQ', {
     title: 'Duke Arts'
   });
 };

@@ -1,0 +1,27 @@
+extends layout
+
+block head
+  link(rel='stylesheet', type='text/css', href='/datepicker/jquery.mobile-1.0a3.min.css')
+  link(rel='stylesheet', type='text/css', href='/datepicker/jquery.ui.datepicker.mobile.css')
+  
+
+block content
+  br
+  br
+  br
+  br
+
+  form(action='#', method='get')
+    div(data-role='fieldcontain')
+      label(for='date') Date Input:
+      input#date(type='date', name='date', value='')
+
+block script
+  script
+    $( document ).bind( "mobileinit", function(){
+    $.mobile.page.prototype.options.degradeInputs.date = true;
+    })
+  script(type='text/javascript', src='/datepicker/jquery.mobile-1.0a3.min.js')
+  script(type='text/javascript', src='/datepicker/jquery.ui.datepicker.js')
+  script(type='text/javascript', src='/datepicker/jquery.ui.datepicker.mobile.js')
+
