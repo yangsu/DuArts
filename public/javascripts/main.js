@@ -9,7 +9,7 @@ window.public = {
   }
 };
 
-$(document).ready(function(){
+$(document).ready(function() {
   public.init();
   new FingerBlast('body');
 });

@@ -6,8 +6,7 @@
 var fs = require('fs');
 var _ = require('underscore');
 
-var text = fs.readFileSync('data/month.pretty.json', 'ascii');
-var json = JSON.parse(text);
+var json = JSON.parse(fs.readFileSync('data/month.pretty.json', 'ascii'));
 var eventData = json.events;
 var events = _.chain(eventData).map(function(event) {
   event = event.event;
@@ -35,6 +34,12 @@ var data = [{
   events: events
 }];
 
+var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
+
+exports.marker = function(req, res) {
+  res.json(markers[req.params.mid]);
+};
+
 exports.index = function(req, res) {
   res.render('index', {
     title: 'Express',
@@ -56,9 +61,11 @@ exports.page = function(req, res) {
 };
 
 exports.event = function(req, res) {
+  var event = map[req.params.guid];
   res.render('eventPage', {
     title: 'Duke Arts',
-    event: map[req.params.guid]
+    event: event,
+    loc: (!!event.location && !!event.location.link) ? markers[event.location.link.split('=').slice(-1)[0]] : null
   });
 };
 

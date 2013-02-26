@@ -14,11 +14,21 @@ block content
             if event.location
                 #map(style="height: 400px")
                 script
-                    map = new GMaps({
-                        div: '#map',
-                        lat: 36.0001922,
-                        lng: -78.937401
-                    });
+                    window.onload = function() {
+                        map = new GMaps({
+                            div: '#map',
+                            lat: #{loc.lat || 36.0001922},
+                            lng: #{loc.lng || -78.937401}
+                        });
+                        map.addMarker({
+                            lat: #{loc.lat || 36.0001922},
+                            lng: #{loc.lng || -78.937401},
+                            title: '#{loc.markerName}',
+                            click: function(e) {
+                                alert('You clicked in this marker');
+                            }
+                        });
+                    };
 
                 if event.location.subaddress
                     script
