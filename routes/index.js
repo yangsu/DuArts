@@ -89,5 +89,15 @@ exports.aroundme = function(req, res) {
     title: 'Around Me',
     events: events,
     markers: markers
+
+exports.venues = function(req, res) {
+  res.render('venues', {
+    title: 'Duke Arts'
+  });
+};
+
+exports.orgs = function(req, res) {
+  res.render('orgs', {
+    title: 'Duke Arts'
   });
 };
