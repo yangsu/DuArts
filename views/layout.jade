@@ -43,23 +43,34 @@ html.no-js
 
     body
         header.bar-title
-            a.button(href='#')
-                | Left
-            ul.segmented-controller
-                li.active
-                    a(href='/') Events
-                li
-                    a(href='/aroundme') Around Me
-                li
-                    a(href='/calendarJQ') Calendar
-                li
-                    a(href='/venues') Venues
-                li
-                    a(href='/orgs') Orgs
-                li
-                    a(href='/search') Search
-            a.button(href='#')
-                | Right
+            img.title(src='http://www.aaronrales.com/assets/duke_arts_logo.png')
+        header.nav
+            nav.bar-tab
+                ul.tab-inner
+                    li.tab-item.active
+                        a(href='/')
+                            img.tab-icon(src='/img/icon-events.png')
+                            .tab-label Events
+                    li.tab-item
+                        a(href='/aroundme')
+                            img.tab-icon(src='/img/icon-venues.png')
+                            .tab-label Venues
+                    li.tab-item
+                        a(href='/calendarJQ')
+                            img.tab-icon(src='/img/icon-orgs.png')
+                            .tab-label Organization
+                    li.tab-item
+                        a(href='venues')
+                            img.tab-icon(src='/img/icon-around.png')
+                            .tab-label Around Me
+                    li.tab-item
+                        a(href='orgs')
+                            img.tab-icon(src='/img/icon-cal.png')
+                            .tab-label Calendar
+
+
+
+        
 
         block content
 
