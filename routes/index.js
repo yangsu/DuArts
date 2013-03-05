@@ -114,3 +114,9 @@ exports.search = function(req, res) {
     title: 'Duke Arts'
   });
 };
+
+exports.pageaud = function(req, res) {
+  res.render('pageaud', {
+    title: 'Duke Arts'
+  });
+};
