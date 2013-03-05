@@ -63,6 +63,7 @@ exports.notfound = function(req, res) {
 
 exports.page = function(req, res) {
   res.render('index', {
+    path: 'events',
     title: 'Duke Arts',
     page: req.params.page,
     data: data
@@ -80,12 +81,14 @@ exports.event = function(req, res) {
 
 exports.calendar = function(req, res) {
   res.render('calendar', {
+    path: 'calendar',
     title: 'Duke Arts'
   });
 };
 
 exports.aroundme = function(req, res) {
   res.render('aroundme', {
+    path: 'aroundme',
     title: 'Around Me',
     events: events,
     markers: markers
@@ -94,12 +97,14 @@ exports.aroundme = function(req, res) {
 
 exports.venues = function(req, res) {
   res.render('venues', {
+    path: 'venues',
     title: 'Duke Arts'
   });
 };
 
 exports.orgs = function(req, res) {
   res.render('orgs', {
+    path: 'orgs',
     title: 'Duke Arts'
   });
 };

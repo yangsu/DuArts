@@ -47,23 +47,29 @@ html.no-js
         header.nav
             nav.bar-tab
                 ul.tab-inner
-                    li.tab-item.active
+                    - var path = arguments[0].path || 'events'
+                    - var eventsActive = (path == 'events') ? 'active' : ''
+                    - var calendarActive = (path == 'calendar') ? 'active' : ''
+                    - var aroundmeActive = (path == 'aroundme') ? 'active' : ''
+                    - var venuesActive = (path == 'venues') ? 'active' : ''
+                    - var orgsActive = (path == 'orgs') ? 'active' : ''
+                    li.tab-item(class='#{eventsActive}')
                         a(href='/')
                             img.tab-icon(src='/img/icon-events.png')
                             .tab-label Events
-                    li.tab-item
+                    li.tab-item(class='#{venuesActive}')
                         a(href='/venues')
                             img.tab-icon(src='/img/icon-venues.png')
                             .tab-label Venues
-                    li.tab-item
+                    li.tab-item(class='#{orgsActive}')
                         a(href='/orgs')
                             img.tab-icon(src='/img/icon-orgs.png')
                             .tab-label Organization
-                    li.tab-item
+                    li.tab-item(class='#{aroundmeActive}')
                         a(href='/aroundme')
                             img.tab-icon(src='/img/icon-around.png')
                             .tab-label Around Me
-                    li.tab-item
+                    li.tab-item(class='#{calendarActive}')
                         a(href='/calendar')
                             img.tab-icon(src='/img/icon-cal.png')
                             .tab-label Calendar
