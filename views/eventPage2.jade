@@ -1,0 +1,80 @@
+extends layout
+
+
+extends scripts
+    script(type='text/javascript', charset='utf-8')
+      function ExpandOn(topicID){
+      var expand=document.getElementById(topicID);
+      if(!expand)return true;
+      if(expand.style.display=="none"){
+      expand.style.display="block"
+      }
+      return true;
+      }
+      function ExpandOff(topicID){
+      var expand=document.getElementById(topicID);
+      if(!expand)return true;
+      if(expand.style.display=="block"){
+      expand.style.display="none"
+      }
+      return true;
+      }
+      function ExpandToggle(topicID){
+      var expand=document.getElementById(topicID);
+      if(!expand)return true;
+      if(expand.style.display=="none"){
+      expand.style.display="block"
+      } else {
+      expand.style.display="none"
+      }
+      return true;
+      }
+
+block head
+block content
+  #head-img
+	//
+	   EVENT DATE 
+	#event-date
+	  .month Feb
+	  .date 27
+	//
+	   EVENT IMAGE 
+	#image
+	  img.featured-img(src='img/music_jazzat.jpg')
+      //
+         EVENT CONTENT 
+      .content-padded
+        //
+           EVENT HEADER 
+        #event-header-left
+          h2 Jazz @ the Mary Lou
+          h3 By Mary Lou Williams Center
+        #event-header-right
+          h2  
+          h3 9:30 PM
+        //
+           EVENT FIRST LINES OF DESCRIPTION 
+        p(style='clear: both;')
+          | Fill your Wednesday evenings with live jazz and the exquisite company of jazz lovers from the campus and community in an energetic and engaging atmosphere.
+          span.expand(onclick='return ExpandToggle(\'more\')') More »
+        //
+           EVENT MORE INFO 
+        #more(style='display: none;')
+          p
+            | Enjoy live performances by local musicians as well as Duke music students, with special guest artists all brought together by John Brown, Director of the Duke Jazz Studies Program.Jazz @ begins at 9:30pm and ends at 12:30am. Feel free to stay for just one set or for the entire evening.
+          p
+            | Comfortable attire and open to the public. Light hors d¿oeuvres and liquid refreshment will be provided with the option to enjoy late night fare and drinks in the Faculty Commons provided by Plate & Pitchfork. Below you will find the dates that Jazz is set for the 2010-2011 Academic Year.Jazz @ is co-sponsored with DUU and Jazz Studies (Music Department).
+      //
+         END EVENT CONTENT 
+      .map-link
+        img.event-map(src='img/event-map.png')
+        #gotomap
+          a#gotomaplink(href='#') GO TO MAP
+      ul.list.inset
+        li
+          strong Additional Information
+          span.chevron
+        //
+           
+          
