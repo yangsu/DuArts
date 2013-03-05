@@ -1,3 +1,5 @@
 duarts.on('push', function(path) {
-  $('#calendar').datepicker();
+  if (path == '/calendar') {
+    $('#calendar').datepicker();
+  }
 });
