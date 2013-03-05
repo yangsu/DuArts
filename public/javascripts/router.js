@@ -1,4 +1,1 @@
-window.addEventListener('push', function() {
-  var path = window.location.pathname;
-  duarts.trigger('push', path);
-});
+window.addEventListener('push', duarts.triggerRoute);
