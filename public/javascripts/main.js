@@ -1,5 +1,5 @@
 
-window.public = {
+window.duarts = {
   Models: {},
   Collections: {},
   Views: {},
@@ -10,6 +10,6 @@ window.public = {
 };
 
 $(document).ready(function() {
-  public.init();
+  duarts.init();
   new FingerBlast('body');
 });

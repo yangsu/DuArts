@@ -1,3 +1,3 @@
-public.Routers.ApplicationRouter = Backbone.Router.extend({
+duarts.Routers.ApplicationRouter = Backbone.Router.extend({
 
 });

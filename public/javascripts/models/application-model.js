@@ -1,3 +1,3 @@
-public.Models.ApplicationModel = Backbone.Model.extend({
+duarts.Models.ApplicationModel = Backbone.Model.extend({
 
 });

@@ -1,5 +1,5 @@
-public.Collections.ApplicationCollection = Backbone.Collection.extend({
+duarts.Collections.ApplicationCollection = Backbone.Collection.extend({
 
-  model: public.Models.ApplicationModel
+  model: duarts.Models.ApplicationModel
 
 });

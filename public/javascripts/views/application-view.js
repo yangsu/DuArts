@@ -1,4 +1,4 @@
-public.Views.applicationView = Backbone.View.extend({
+duarts.Views.applicationView = Backbone.View.extend({
 
   //template: application
 
