@@ -1,22 +1,11 @@
 extends layout
 
 block head
-    script(src='/javascripts/prototype.js')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/calendarview.css')
-    script(src='/javascripts/calendarview.js')
+    link(rel='stylesheet', href='/stylesheets/smoothness/jquery-ui-1.10.1.custom.min.css')
 
 block content
-    div(style='float: left; width: 50%;')
-            div(style='height: 400px; background-color: #efefef; padding: 10px; -webkit-border-radius: 12px; -moz-border-radius: 12px; margin-right: 10px;')
-                    h3(style='text-align: center; background-color: white; -webkit-border-radius: 10px; -moz-border-radius: 10px; margin-top: 0px; margin-bottom: 20px; padding: 8px;')
-                        | Embedded Calendar
-                    #embeddedExample(style='')
-                    #embeddedCalendar(style='margin-left: auto; margin-right: auto;')
-                        br
-                        #embeddedDateField.dateField
-                            | Select Date
-                        br
+    #calendar
     script
         window.onload = function() {
-            Calendar.setup({dateField:'embeddedDateField',parentElement:'embeddedCalendar'});
+             $( "#calendar" ).datepicker();
         };
