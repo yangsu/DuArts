@@ -120,3 +120,9 @@ exports.pageaud = function(req, res) {
     title: 'Duke Arts'
   });
 };
+
+exports.jazz = function(req, res) {
+  res.render('jazz', {
+    title: 'Duke Arts'
+  });
+};

@@ -38,6 +38,7 @@ app.get('/venues', routes.venues);
 app.get('/orgs', routes.orgs);
 app.get('/search', routes.search);
 app.get('/pageaud', routes.pageaud);
+app.get('/jazz', routes.jazz);
 app.get('/:page', routes.page);
 app.get('/event/:guid', routes.event);
 
