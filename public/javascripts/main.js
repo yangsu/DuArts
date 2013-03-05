@@ -9,6 +9,8 @@ window.duarts = {
   }
 };
 
+_.extend(duarts, Backbone.Events);
+
 $(document).ready(function() {
   duarts.init();
   new FingerBlast('body');
