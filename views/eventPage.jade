@@ -1,47 +1,63 @@
 extends layout
 
 block content
-    .content
-        .content-padded
-            h2.title= event.summary
-            - var img = event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text
-            if img
-                img(src='#{img}')
-            p= event.description
-            //-     iframe(src='#{event.location.link}&em=1', width='100%', height='100%', frameborder='0', scrolling='no', border='0', style='border: 0px solid #fff; margin: 0; padding: 0;')
-            //-         p Your browser does not support iframes.
+    #head-img
+        #event-date
+            .month= event.start.monthname
+            .date= event.start.day
+        - var img = event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text
+        if img
+            #image
+                img.featured-img(src='#{img}')
 
-            if event.location
-                #map(style="height: 400px")
-                script
-                    window.onload = function() {
-                        map = new GMaps({
-                            div: '#map',
-                            lat: #{loc.lat || 36.0001922},
-                            lng: #{loc.lng || -78.937401}
-                        });
-                        map.addMarker({
-                            lat: #{loc.lat || 36.0001922},
-                            lng: #{loc.lng || -78.937401},
-                            title: '#{loc.markerName}',
-                            click: function(e) {
-                                alert('You clicked in this marker');
-                            }
-                        });
-                    };
+    #event-header-left
+        h2= event.summary
+    #event-header-right
+        h3= event.start.time
 
-                if event.location.subaddress
-                    script
-                        GMaps.geocode({
-                            address: '#{event.location.subaddress}',
-                            callback: function (results, status) {
-                                if(status == 'OK') {
-                                    var latlng = results[0].geometry.location;
-                                    map.setCenter(latlng.lat(), latlng.lng());
-                                    map.addMarker({
-                                        lat: latlng.lat(),
-                                        lng: latlng.lng()
-                                    });
-                                }
-                            }
-                        });
+    p= event.description.slice(0, 100) + '...'
+
+    span.expand More »
+
+    #more.hidden
+        p= event.description
+
+    ul.list.inset
+        li
+            strong Additional Information
+            span.chevron
+
+    if event.location
+        #map(style="height: 400px")
+        script
+            window.onload = function() {
+                map = new GMaps({
+                    div: '#map',
+                    lat: #{loc.lat || 36.0001922},
+                    lng: #{loc.lng || -78.937401}
+                });
+                map.addMarker({
+                    lat: #{loc.lat || 36.0001922},
+                    lng: #{loc.lng || -78.937401},
+                    title: '#{loc.markerName}',
+                    click: function(e) {
+                        alert('You clicked in this marker');
+                    }
+                });
+            };
+
+        if event.location.subaddress
+            script
+                GMaps.geocode({
+                    address: '#{event.location.subaddress}',
+                    callback: function (results, status) {
+                        if(status == 'OK') {
+                            var latlng = results[0].geometry.location;
+                            map.setCenter(latlng.lat(), latlng.lng());
+                            map.addMarker({
+                                lat: latlng.lat(),
+                                lng: latlng.lng()
+                            });
+                        }
+                    }
+                });
