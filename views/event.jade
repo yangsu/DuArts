@@ -2,8 +2,8 @@ li
     a(href='event/#{event.guid}', data-transition='slide-in', data-guid='#{event.guid}')
         | #{event.title}
 
-        if event.image
-            div
-                img.listimg(src='#{event.image}')
+        //- if event.image
+        //-     div
+        //-         img.listimg(src='#{event.image}')
         span.chevron
         span.count= event.date
