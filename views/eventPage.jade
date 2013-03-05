@@ -17,7 +17,7 @@ block content
 
     p= event.description.slice(0, 100) + '...'
 
-    span.expand More »
+    a.expand(href='#', data-target='#more') More »
 
     #more.hidden
         p= event.description
