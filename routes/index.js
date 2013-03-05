@@ -17,10 +17,12 @@ var events = _.chain(eventData).map(function(event) {
     location: event.location && event.location.link && event.location.link.indexOf('=') >= 0 && event.location.link.split('=').slice(-1)[0],
     date: event.start.shortdate
   };
+}).filter(function(event) {
+  return !!(event.image);
 }).sortBy(function(event) {
   return event.date;
 })
-// .reverse()
+.reverse()
 .slice(0, 15)
 .value();
 
