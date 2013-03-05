@@ -1,3 +1,4 @@
+# Macs
 .DS_Store
 
 lib-cov
@@ -13,8 +14,14 @@ pids
 logs
 results
 
+# NPM
 npm-debug.log
 
+# Node
 node_modules
 
+# Sublime
 *.sublime-workspace
+
+# Stylus
+style.css
