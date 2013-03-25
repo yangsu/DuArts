@@ -10,11 +10,6 @@ var Event = require('../db').Event;
 
 var venuesData = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
 
-var venues_import = [{
-  header: 'Venues',
-  events: venues
-}];
-
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.index = function(req, res) {
