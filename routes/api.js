@@ -1,12 +1,6 @@
 var _ = require('underscore');
 var async = require('async');
-var mongoose = require('mongoose');
-
-mongoose.connect('localhost', 'duarts');
-
-var schema = mongoose.Schema({}, { strict: false });
-
-var Event = mongoose.model('Event', schema);
+var Event = require('../db.js').Event;
 
 var chunkSize = 10;
 

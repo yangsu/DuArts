@@ -5,60 +5,45 @@
 
 var fs = require('fs');
 var _ = require('underscore');
+var async = require('async');
+var Event = require('../db').Event;
 
 var venuesData = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
 
-var json = JSON.parse(fs.readFileSync('data/month.pretty.json', 'ascii'));
-var eventData = json.events;
-var events = _.chain(eventData).map(function(event) {
-  event = event.event;
-  return {
-    guid: event.guid,
-    title: event.summary,
-    image: event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text,
-    location: event.location && event.location.link && event.location.link.indexOf('=') >= 0 && event.location.link.split('=').slice(-1)[0],
-    date: event.start.shortdate
-  };
-}).filter(function(event) {
-  return !!(event.image);
-}).sortBy(function(event) {
-  return event.date;
-})
-.reverse()
-.slice(0, 15)
-.value();
-
-var map = _.reduce(eventData, function(memo, event) {
-  event = event.event;
-  memo[event.guid] = event;
-  return memo;
-}, {});
-
-var data = [{
-  header: 'This Month',
-  events: events
+var venues_import = [{
+  header: 'Venues',
+  events: venues
 }];
 
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
+
+exports.index = function(req, res) {
+  Event.find({}, null, {
+      limit: 50,
+      skip: 0
+  }, function (err, data) {
+      if (err) {
+          res.json(err);
+      } else {
+          res.render('index', {
+            path: 'events',
+            title: 'Duke Arts',
+            page: 'home',
+            data: [{
+              header: 'This Month',
+              events: data
+            }]
+          });
+      }
+  });
+};
 
 exports.marker = function(req, res) {
   res.json(markers[req.params.mid]);
 };
 
-exports.events = function(req, res) {
-  res.json(events);
-};
-
 exports.markers = function(req, res) {
   res.json(markers);
-};
-
-exports.index = function(req, res) {
-  res.render('index', {
-    title: 'Express',
-    page: 'home',
-    data: data
-  });
 };
 
 exports.notfound = function(req, res) {
@@ -66,20 +51,23 @@ exports.notfound = function(req, res) {
 };
 
 exports.page = function(req, res) {
-  res.render('index', {
-    path: 'events',
-    title: 'Duke Arts',
-    page: req.params.page,
-    data: data
-  });
-};
-
-exports.event = function(req, res) {
-  var event = map[req.params.guid];
-  res.render('eventPage', {
-    title: 'Duke Arts',
-    event: event,
-    loc: (!!event.location && !!event.location.link) ? markers[event.location.link.split('=').slice(-1)[0]] : null
+  Event.find({}, null, {
+      limit: 50,
+      skip: 0
+  }, function (err, data) {
+      if (err) {
+          res.json(err);
+      } else {
+          res.render('index', {
+            path: 'events',
+            title: 'Duke Arts',
+            page: req.params.page,
+            data: [{
+              header: 'This Month',
+              events: data
+            }]
+          });
+      }
   });
 };
 
@@ -93,9 +81,7 @@ exports.calendar = function(req, res) {
 exports.aroundme = function(req, res) {
   res.render('aroundme', {
     path: 'aroundme',
-    title: 'Around Me',
-    events: events,
-    markers: markers
+    title: 'Around Me'
   });
 };
 
@@ -129,5 +115,21 @@ exports.pageaud = function(req, res) {
 exports.jazz = function(req, res) {
   res.render('jazz', {
     title: 'Duke Arts'
+  });
+};
+
+
+exports.event = function(req, res) {
+  Event.find({
+    guid: req.params.guid
+  }, null, null, function (err, data) {
+      if (err) {
+          res.json(err);
+      } else {
+          res.render('eventPage', {
+            title: 'Duke Arts',
+            event: data
+          });
+      }
   });
 };
