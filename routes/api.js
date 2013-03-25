@@ -2,7 +2,7 @@ var _ = require('underscore');
 var async = require('async');
 var mongoose = require('mongoose');
 
-mongoose.connect('colab-sbx-03.oit.duke.edu', 'duarts');
+mongoose.connect('localhost', 'duarts');
 
 var schema = mongoose.Schema({}, { strict: false });
 
