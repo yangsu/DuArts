@@ -2,8 +2,10 @@ var _ = require('underscore')
   , async = require('async');
 
 var express = require('express')
-  , routes = require('./routes')
   , http = require('http');
+
+var routes = require('./routes')
+  , api = require('./routes/api');
 
 var app = express();
 
@@ -30,7 +32,7 @@ app.get('/', routes.index);
 app.get('/404', routes.notfound);
 app.get('/calendar', routes.calendar);
 app.get('/aroundme', routes.aroundme);
-app.get('/events', routes.events);
+app.get('/events', api.events);
 app.get('/markers', routes.markers);
 app.get('/marker/:mid', routes.marker);
 app.get('/calendar', routes.calendar);
@@ -39,10 +41,12 @@ app.get('/orgs', routes.orgs);
 app.get('/search', routes.search);
 app.get('/pageaud', routes.pageaud);
 app.get('/jazz', routes.jazz);
+
+app.get('/events.json', api.events);
+app.get('/events.json/:skip', api.events);
+
 app.get('/:page', routes.page);
 app.get('/event/:guid', routes.event);
-
-
 
 
 http.createServer(app).listen(app.get('port'), function() {
