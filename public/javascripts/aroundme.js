@@ -30,24 +30,21 @@ duarts.on('push', function(path) {
       }
     });
 
-    $.getJSON('/markers', function(markers) {
-      $.getJSON('/events', function(events) {
-        _.each(events, function(event) {
-          var locId = event.location;
-          var loc = markers[locId];
-          if (locId && loc) {
-            map.addMarker({
-              lat: loc.lat,
-              lng: loc.lng,
-              title: loc.markerName,
-              click: function(e) {
-                alert('You clicked in this marker');
-              }
-            });
+    $.getJSON('/events', function(events) {
+      var coords = _.chain(events)
+        .pluck('location')
+        .pluck('coordinate')
+        .compact()
+        .value();
+      _.each(coords, function(coord) {
+        map.addMarker({
+          lat: coord.lat,
+          lng: coord.lng,
+          title: coord.markerName,
+          click: function(e) {
+            alert('You clicked in this marker');
           }
-
         });
-
       });
     });
   }
