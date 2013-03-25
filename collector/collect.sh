@@ -20,6 +20,10 @@ URL=$DAYURL
 
 curl -H 'Accept: application/json' -s "$URL"  | python -mjson.tool > $OUTPUT
 
+# Print Date
+echo
+echo $(date)
+
 node processAndDumpToDb.js $OUTPUT
 
 # Clean up
