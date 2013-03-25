@@ -1,6 +1,7 @@
 li
+    - var event = e.toObject();
     a(href='event/#{event.guid}', data-transition='slide-in', data-guid='#{event.guid}')
-        | #{event.title}
+        | #{event.summary}
 
         //- if event.image
         //-     div
