@@ -6,6 +6,20 @@
 var fs = require('fs');
 var _ = require('underscore');
 
+var venues_json = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
+var venuesData = venues_json.venues;
+var venues = _.chain(venuesData).map(function(venue){
+  return {
+    title: venue.title,
+    desc: venue.desc,
+    img: venue.img,
+    location: venue.location,
+    link1: venue.link1,
+    link1: venue.link2,
+    link1: venue.link3
+  };
+});
+
 var json = JSON.parse(fs.readFileSync('data/month.pretty.json', 'ascii'));
 var eventData = json.events;
 var events = _.chain(eventData).map(function(event) {
@@ -35,6 +49,11 @@ var map = _.reduce(eventData, function(memo, event) {
 var data = [{
   header: 'This Month',
   events: events
+}];
+
+var venues_import = [{
+  header: 'Venues',
+  events: venues
 }];
 
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
@@ -100,7 +119,8 @@ exports.aroundme = function(req, res) {
 exports.venues = function(req, res) {
   res.render('venues', {
     path: 'venues',
-    title: 'Duke Arts'
+    title: 'Duke Arts',
+    data: venues_import
   });
 };
 

@@ -1,25 +1,32 @@
-[{
-    "title": "Page Auditorium",
-    "desc": "blah blah blah",
-    "img": "http://duke.edu/image1.png",
-    "location": "1224",
-    "link1": "http://duke.edu/link1",
-    "link2": "http://duke.edu/link2",
-    "link3": null
-}, {
-    "title": "Griffith Theater",
-    "desc": "desc here",
-    "img": "http://duke.edu/image2.png",
-    "location": "1554",
-    "link1": "http://duke.edu/link3",
-    "link2": null,
-    "link3": null
-}, {
-    "title": "Nasher",
-    "desc": "desc here2",
-    "img": "http://duke.edu/image3.png",
-    "location": "1524",
-    "link1": "http://duke.edu/link4",
-    "link2": null,
-    "link3": null
-}]
+{
+    "venues":
+    [{
+        "venue": {
+            "title": "Page Auditorium",
+            "desc": "blah blah blah",
+            "img": "http://duke.edu/image1.png",
+            "location": "1224",
+            "link1": "http://duke.edu/link1",
+            "link2": "http://duke.edu/link2",
+            "link3": null
+        },
+        "venue": {
+            "title": "Griffith Theater",
+            "desc": "desc here",
+            "img": "http://duke.edu/image2.png",
+            "location": "1554",
+            "link1": "http://duke.edu/link3",
+            "link2": null,
+            "link3": null
+        },
+        "venue": {
+            "title": "Nasher",
+            "desc": "desc here2",
+            "img": "http://duke.edu/image3.png",
+            "location": "1524",
+            "link1": "http://duke.edu/link4",
+            "link2": null,
+            "link3": null
+        }
+    }]
+}
