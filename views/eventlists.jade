@@ -3,7 +3,7 @@ each eventlist in data
         li.list-divider= eventlist.header
         each event in eventlist.events
             li
-                - var date = event.start.shortdate;
+                - var date = (eventlist.header == 'Today') ? event.start.time : event.start.shortdate;
                 a(href='event/#{event._id}', data-transition='slide-in', data-guid='#{event.guid}')
                     span.eventlabel #{event.summary}
                     span.chevron
