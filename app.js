@@ -37,6 +37,7 @@ app.get('/markers', routes.markers);
 app.get('/marker/:mid', routes.marker);
 app.get('/calendar', routes.calendar);
 app.get('/venues', routes.venues);
+app.get('/venues/:venueTitle', routes.venuePage);
 app.get('/orgs', routes.orgs);
 app.get('/search', routes.search);
 app.get('/pageaud', routes.pageaud);
