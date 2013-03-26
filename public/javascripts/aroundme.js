@@ -8,6 +8,8 @@ duarts.on('push', function(path) {
       lng: -78.937401
     });
 
+    var infoWindow = new google.maps.InfoWindow({});
+
     GMaps.geolocate({
       success: function(position) {
         var lat = position.coords.latitude,
@@ -31,18 +33,28 @@ duarts.on('push', function(path) {
     });
 
     $.getJSON('/events', function(events) {
-      var coords = _.chain(events)
-        .pluck('location')
-        .pluck('coordinate')
-        .compact()
+      var es = _.chain(events)
+        .map(function(event) {
+          return {
+            id: event._id,
+            name: event.summary,
+            location: event.location
+          };
+        })
+        .filter(function(event) {
+          return event.location && event.location.coordinate;
+        })
         .value();
-      _.each(coords, function(coord) {
+      _.each(es, function(event) {
+        var coord = event.location.coordinate;
         map.addMarker({
           lat: coord.lat,
           lng: coord.lng,
           title: coord.markerName,
-          click: function(e) {
-            alert('You clicked in this marker');
+          click: function(point) {
+            infoWindow.setContent(event.name + '<br><a href="/event/'+ event.id + '" data-transition="slide-in">Go to Event Page</a>');
+            infoWindow.setPosition(point.position);
+            infoWindow.open(map.map);
           }
         });
       });
