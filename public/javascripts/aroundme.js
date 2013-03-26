@@ -16,7 +16,7 @@ duarts.on('push', function(path) {
         map.drawOverlay({
           lat: lat,
           lng: lng,
-          content: '<div class="overlay">You are here<div class="overlay_arrow below"></div></div>'
+          content: '<div class="me-marker"></div>'
         });
       },
       error: function(error) {
