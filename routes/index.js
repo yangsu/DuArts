@@ -18,7 +18,7 @@ exports.index = function(req, res) {
     limit: 50,
     skip: 0
   })
-  .sort({'start.shortdate': -1})
+  .sort({'start.utcdate': -1})
   .execFind(function (err, data) {
     if (err) {
       res.json(err);
