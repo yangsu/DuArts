@@ -9,7 +9,7 @@ var async = require('async');
 var Event = require('../db').Event;
 
 var venuesData = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
-var orgsData = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
+var orgsData = JSON.parse(fs.readFileSync('data/orgs.json', 'ascii'));
 
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
@@ -110,12 +110,12 @@ exports.orgs = function(req, res) {
 };
 
 exports.orgPage = function(req, res) {
-  var title = req.params.venueTitle;
-  var orgInfo = _.find(orgsData, function (venue){
+  var title = req.params.orgTitle;
+  var orgInfo = _.find(orgsData, function (org){
     return org.title == title;
   });
-  res.render('prgsPage', {
-    path: 'orgsPage',
+  res.render('orgPage', {
+    path: 'orgPage',
     title: 'Duke Arts',
     data: orgInfo
   });
