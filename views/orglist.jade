@@ -1,0 +1,7 @@
+ul.list.inset
+    each orgItem in data
+        li
+            a(href='orgs/#{orgItem.title}', data-transition='slide-in')
+                | #{orgItem.title}
+            span.chevron
+

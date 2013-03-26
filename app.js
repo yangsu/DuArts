@@ -39,6 +39,7 @@ app.get('/calendar', routes.calendar);
 app.get('/venues', routes.venues);
 app.get('/venues/:venueTitle', routes.venuePage);
 app.get('/orgs', routes.orgs);
+app.get('/orgs/:orgTitle', routes.orgPage);
 app.get('/search', routes.search);
 app.get('/pageaud', routes.pageaud);
 app.get('/jazz', routes.jazz);
