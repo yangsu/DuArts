@@ -1,8 +1,7 @@
 ul.list.inset
     each venueItem in data
         li
-            //span= venueItem.title
-            a(href='venues/#{venueItem.title}', data-transition='slide-in', data-guid='#{venueItem.title}')
+            a(href='venues/#{venueItem.title}', data-transition='slide-in')
                 | #{venueItem.title}
             span.chevron
 

@@ -90,13 +90,13 @@ exports.venues = function(req, res) {
 
 exports.venuePage = function(req, res) {
   var title = req.params.venueTitle;
-  var venueInfo = _.find(venues, function (venue){
+  var venueInfo = _.find(venuesData, function (venue){
     return venue.title == title;
   });
   res.render('venuePage', {
     path: 'venuePage',
     title: 'Duke Arts',
-    data: venuesData
+    data: venueInfo
   });
 };
 
