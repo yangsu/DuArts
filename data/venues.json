@@ -1,7 +1,7 @@
 [{
     "title": "Page Auditorium",
     "desc": "blah blah blah",
-    "img": "img/Page-Auditorium.jpg",
+    "img": "/img/Page-Auditorium.jpg",
     "location": "1224",
     "link1": "http://duke.edu",
     "link1d": "Duke University Website",
