@@ -1,2 +1,10 @@
-each list in data
-    include eventlist
+each eventlist in data
+    ul.list.inset
+        li.list-divider= eventlist.header
+        each event in eventlist.events
+            li
+                - var date = event.start.shortdate;
+                a(href='event/#{event._id}', data-transition='slide-in', data-guid='#{event.guid}')
+                    span.eventlabel #{event.summary}
+                    span.chevron
+                    span.count= date
