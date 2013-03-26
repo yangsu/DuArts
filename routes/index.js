@@ -7,6 +7,7 @@ var fs = require('fs');
 var _ = require('underscore');
 var async = require('async');
 var Event = require('../db').Event;
+var util = require('../util');
 
 var venuesData = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
 var orgsData = JSON.parse(fs.readFileSync('data/orgs.json', 'ascii'));
@@ -15,7 +16,7 @@ var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.index = function(req, res) {
   var query = Event.find({}, null, {
-    limit: 50,
+    limit: 150,
     skip: 0
   })
   .sort({'start.utcdate': -1})
@@ -23,14 +24,12 @@ exports.index = function(req, res) {
     if (err) {
       res.json(err);
     } else {
+      // console.log();
       res.render('index', {
         path: 'events',
         title: 'Duke Arts',
         page: 'home',
-        data: [{
-          header: 'This Month',
-          events: data
-        }]
+        data: util.divideDate(data)
       });
     }
   });
