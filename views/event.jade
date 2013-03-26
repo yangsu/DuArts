@@ -1,5 +1,6 @@
 li
     - var event = e.toObject();
+    - var date = event.start.shortdate;
     a(href='event/#{event.guid}', data-transition='slide-in', data-guid='#{event.guid}')
         | #{event.summary}
 
@@ -7,4 +8,4 @@ li
         //-     div
         //-         img.listimg(src='#{event.image}')
         span.chevron
-        span.count= event.date
+        span.count= date
