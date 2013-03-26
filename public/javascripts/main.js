@@ -32,7 +32,7 @@ duarts.on('push', function(path) {
 $(document).ready(function() {
   duarts.init();
   duarts.triggerRoute();
-  new FingerBlast('body');
+  // new FingerBlast('body');
 
   var genN = function(selector) {
     var e = $(selector);
