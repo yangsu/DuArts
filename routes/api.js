@@ -7,7 +7,7 @@ var chunkSize = 100;
 exports.events = function (req, res) {
     var skip = req.params.skip || 0;
 
-    var query = Event.find({}, 'start', {
+    var query = Event.find({}, null, {
         limit: chunkSize,
         skip: skip
     })
