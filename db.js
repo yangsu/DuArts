@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 console.log('Init connection ... ');
 
-mongoose.connect('localhost', 'duarts');
+mongoose.connect('colab-sbx-03.oit.duke.edu', 'duarts');
 
 var emptySchema = mongoose.Schema({}, { strict: false });
 
