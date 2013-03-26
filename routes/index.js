@@ -141,8 +141,8 @@ exports.jazz = function(req, res) {
 
 
 exports.event = function(req, res) {
-  Event.find({
-    guid: req.params.guid
+  Event.findOne({
+    _id: req.params.id
   }, null, null, function (err, data) {
       if (err) {
           res.json(err);

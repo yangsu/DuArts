@@ -1,6 +1,8 @@
 extends layout
 
+
 block content
+    - var event = event.toObject();
     #head-img
         #event-date
             .month= event.start.monthname
@@ -28,6 +30,7 @@ block content
             span.chevron
 
     if event.location
+        - var loc = (event.location && event.location.coordinate) || {}
         #map(style="height: 400px")
         script
             window.onload = function() {

@@ -48,7 +48,7 @@ app.get('/events.json', api.events);
 app.get('/events.json/:skip', api.events);
 
 app.get('/:page', routes.page);
-app.get('/event/:guid', routes.event);
+app.get('/event/:id', routes.event);
 
 
 http.createServer(app).listen(app.get('port'), function() {
