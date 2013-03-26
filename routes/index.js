@@ -39,7 +39,8 @@ exports.index = function(req, res) {
         path: 'events',
         title: 'Duke Arts',
         page: 'home',
-        data: util.divideDate(data)
+        data: util.divideDate(data),
+        features: features
       });
     }
   });
@@ -51,15 +52,6 @@ exports.marker = function(req, res) {
 
 exports.markers = function(req, res) {
   res.json(markers);
-};
-
-exports.index = function(req, res) {
-  res.render('index', {
-    title: 'Express',
-    page: 'home',
-    data: data,
-    features: features
-  });
 };
 
 exports.notfound = function(req, res) {
