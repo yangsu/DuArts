@@ -20,3 +20,17 @@ exports.events = function (req, res) {
         }
     });
 };
+
+exports.eventlocation = function (req, res) {
+    var id = req.params.id;
+
+    var query = Event.findOne({
+        _id: id
+    }, 'location', null, function (err, data) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(data);
+        }
+    });
+};
