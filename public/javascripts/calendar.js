@@ -18,7 +18,10 @@ duarts.on('push', function(path) {
             time: event.end.time
           }
         },
-        description: event.description
+        description: event.description,
+        loc: {
+            address: event.location.address
+        }
       };
     });
 
