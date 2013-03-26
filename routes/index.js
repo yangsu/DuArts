@@ -14,23 +14,25 @@ var orgsData = JSON.parse(fs.readFileSync('data/orgs.json', 'ascii'));
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.index = function(req, res) {
-  Event.find({}, null, {
-      limit: 50,
-      skip: 0
-  }, function (err, data) {
-      if (err) {
-          res.json(err);
-      } else {
-          res.render('index', {
-            path: 'events',
-            title: 'Duke Arts',
-            page: 'home',
-            data: [{
-              header: 'This Month',
-              events: data
-            }]
-          });
-      }
+  var query = Event.find({}, null, {
+    limit: 50,
+    skip: 0
+  })
+  .sort({'start.shortdate': -1})
+  .execFind(function (err, data) {
+    if (err) {
+      res.json(err);
+    } else {
+      res.render('index', {
+        path: 'events',
+        title: 'Duke Arts',
+        page: 'home',
+        data: [{
+          header: 'This Month',
+          events: data
+        }]
+      });
+    }
   });
 };
 
