@@ -12,6 +12,16 @@ var util = require('../util');
 var venuesData = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
 var orgsData = JSON.parse(fs.readFileSync('data/orgs.json', 'ascii'));
 
+var features = JSON.parse(fs.readFileSync('data/features.json', 'ascii'));
+
+exports.features = function(req, res) {
+  res.render('features', {
+    title: 'Express',
+    page: 'features',
+    features: features
+  });
+};
+
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.index = function(req, res) {
@@ -41,6 +51,15 @@ exports.marker = function(req, res) {
 
 exports.markers = function(req, res) {
   res.json(markers);
+};
+
+exports.index = function(req, res) {
+  res.render('index', {
+    title: 'Express',
+    page: 'home',
+    data: data,
+    features: features
+  });
 };
 
 exports.notfound = function(req, res) {
