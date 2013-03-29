@@ -1,7 +1,7 @@
 [{
     "title": "Page Auditorium",
     "desc": "The 1,232-seat auditorium hosts numerous musical and stage performances, including many Duke Performances shows. Located next to the Duke Chapel, Page Auditorium is connected to Flowers Building and shares its entranceway. As you walk into the Bryan Center parking lot from Science Drive on West Campus, Page Auditorium is in front of you and off to your left. Walk up the stairs between the Duke Chapel and Page Auditorium to enter the main doors and for the box office. Note: The handicapped entrance and direct access to orchestra level seating is located at the side of the auditorium off of the Bryan Center parking lot.",
-    "img": "http://dukeperformances.duke.edu/sites/default/files/Page%20Auditorium.jpg",
+    "img": "/img/venues/Page-Auditorium.jpg",
     "location": "2929",
     "link1": "http://dukeperformances.duke.edu/venues/page-auditorium",
     "link1d": "To Duke Performances Website",
@@ -9,11 +9,11 @@
     "link2d": null,
     "link3": null,
     "link3d": null
-},
+}, 
 {
     "title": "Reynolds Theater",
     "desc": "As you walk into the Bryan Center parking lot, the Bryan Student Center on is the building to your right. Reynolds Theater is directly behind the Box Office in this building.",
-    "img": "http://dukeperformances.duke.edu/sites/default/files/Reynolds%20Theater.jpg",
+    "img": "/img/venues/Reynolds-Theater.jpg",
     "location": "2760",
     "link1": "http://dukeperformances.duke.edu/venues/reynolds-theater",
     "link1d": "To Duke Performances Website",
@@ -21,11 +21,11 @@
     "link2d": null,
     "link3": null,
     "link3d": null
-},
+}, 
 {
     "title": "Nelson Music Room",
-    "desc": "This 300-seat recital hall is located on Duke's East Campus off Main Street in the East Duke Building.",
-    "img": "http://dukeperformances.duke.edu/sites/default/files/Nelson%20Music%20Room.jpg",
+    "desc": "This 300-seat recital hall is located on Duke’s East Campus off Main Street in the East Duke Building.",
+    "img": "/img/venues/Nelson.jpg",
     "location": "2810",
     "link1": "http://dukeperformances.duke.edu/venues/nelson-music-room",
     "link1d": "To Duke Performances Website",
@@ -37,7 +37,7 @@
 {
     "title": "Sheafer Lab Theater",
     "desc": "Sheafer Theater is located on West Campus on the second level of the Bryan Center. It is a black box theater perfect for small-scale productions that demand intimacy between performer and audience. There are adjustable, portable seating platforms. Maximum 130 seats in flexible seating system.",
-    "img": "http://dukeperformances.duke.edu/sites/default/files/Sheafer%20Theater.jpg",
+    "img": "/img/venues/Sheafer.jpg",
     "location": "2760",
     "link1": "http://dukeperformances.duke.edu/venues/sheafer",
     "link1d": "To Duke Performances Website",
@@ -49,7 +49,7 @@
 {
     "title": "Duke Chapel",
     "desc": "Built between 1930 and 1935, Duke Chapel was the first building planned for the new West Campus, but the last one to be completed. It features a 210-foot tower, a 50-bell carillon, 77 stained glass windows, three pipe organs and seating for 1,600 people.",
-    "img": "http://dukeperformances.duke.edu/sites/default/files/Duke%20Chapel.jpg",
+    "img": "/img/venues/Duke-Chapel.jpg",
     "location": "2933",
     "link1": "http://dukeperformances.duke.edu/venues/duke-chapel",
     "link1d": "To Duke Performances Website",
@@ -61,7 +61,7 @@
 {
     "title": "Duke Gardens",
     "desc": "The Sarah P. Duke Gardens are located off of Anderson Street between Campus Drive and Erwin Road.  Performances are held on the lawn which is located directly behind the Doris Duke Center.",
-    "img": "http://dukeperformances.duke.edu/sites/default/files/Duke%20Gardens.jpg",
+    "img": "/img/venues/gardens.jpg",
     "location": "2934",
     "link1": "http://dukeperformances.duke.edu/venues/duke-gardens",
     "link1d": "To Duke Performances Website",
@@ -72,8 +72,8 @@
 },
 {
     "title": "Baldwin Auditorium",
-    "desc": "Named in 1964 for historian Alice Baldwin, the first dean of Duke's Woman's College, Baldwin's domed roof provides the dominant architectural statement on East Campus. The 900-seat auditorium is the site of musical performances ranging from jazz to chamber music.",
-    "img": null,
+    "desc": "Named in 1964 for historian Alice Baldwin, the first dean of Duke‘s Woman‘s College, Baldwin‘s domed roof provides the dominant architectural statement on East Campus. The 900-seat auditorium is the site of musical performances ranging from jazz to chamber music.",
+    "img": "/img/venues/baldwin.jpg",
     "location": "2926",
     "link1": "http://dukeperformances.duke.edu/directions/baldwin-auditorium",
     "link1d": "To Duke Performances Website",
@@ -85,39 +85,24 @@
 {
     "title": "Griffith Theater",
     "desc": "Located in the Bryan University Center, the Griffith Film Theater also serves as a large lecture hall.  Equipped with a theatrical film projection system, it is home to several campus film series incluing Freewater Films, Quad Flix, and the Screen Society.",
-    "img": null,
+    "img": "/img/venues/griffithfilmtheater.jpg",
     "location": "2760",
     "link1": "http://events.duke.edu/facility/griffith.php",
     "link1d": "To Duke Events Website",
     "link2": null,
     "link2d": null,
     "link3": null,
-    "link3d": null,
-    "parking": "Parking is available in the parking deck behind the Bryan Center within walking distance of the theatre. Visitors can park in the deck for a fee ($2 per hour) and special arrangements can be made for larger groups. "
+    "link3d": null
 },
 {
     "title": "Duke Coffeehouse",
-    "desc": "Tucked behind Wilson Dorm on East Campus, the Duke Coffeehouse is a mecca for alternative culture at Duke as well as a link between the University and the Durham community. The Coffeehouse was founded in 1981 by SHARE (Student Housing for Academic and Residential Experimentation, Duke's first non-Greek selective living group), and run by SHARE until 2003, when it reopened under the administrative umbrella of the Duke University Union. During the week, students study and socialize amidst the aroma of fresh brewed coffee. On the weekends, the Coffeehouse is transformed into a live venue for local and touring musicians, plays, open mics, student performances, and the occasional drag show.",
-    "img": "http://www.dukecoffeehouse.org/wp-content/uploads/2012/04/cropped-3272658909_48c037659a_z.jpg",
+    "desc": "Tucked behind Wilson Dorm on East Campus, the Duke Coffeehouse is a mecca for alternative culture at Duke as well as a link between the University and the Durham community. The Coffeehouse was founded in 1981 by SHARE (Student Housing for Academic and Residential Experimentation, Duke’s first non-Greek selective living group), and run by SHARE until 2003, when it reopened under the administrative umbrella of the Duke University Union. During the week, students study and socialize amidst the aroma of fresh brewed coffee. On the weekends, the Coffeehouse is transformed into a live venue for local and touring musicians, plays, open mics, student performances, and the occasional drag show.",
+    "img": "/img/venues/Coffeehouse.jpg",
     "location": "4744",
     "link1": "http://www.dukecoffeehouse.org/",
     "link1d": "To Duke Coffeehouse Website",
     "link2": null,
     "link2d": null,
     "link3": null,
-    "link3d": null,
-    "parking": null
-},
-{
-    "title": "Brody Theater",
-    "desc": "The Branson Building, named for William H. Branson, a trustee who died in 1899, the original building was a dorm for Trinity Park School.  The current building is constructed with materials from the original building when it was dismantled.  Brody Theater is a 70 seat arena stage located in the Branson Building.",
-    "img": null,
-    "location": null,
-    "link1": "http://events.duke.edu/facility/brody.php",
-    "link1d": "To Duke Events Website",
-    "link2": null,
-    "link2d": null,
-    "link3": null,
-    "link3d": null,
-    "parking": "Visitor parking is limited on East Campus. Parking arrangements can be made with consultation with the Event Management staff or Duke Parking Services."
+    "link3d": null
 }]
