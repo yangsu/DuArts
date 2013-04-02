@@ -12,6 +12,16 @@ var util = require('../util');
 var venuesData = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
 var orgsData = JSON.parse(fs.readFileSync('data/orgs.json', 'ascii'));
 
+var features = JSON.parse(fs.readFileSync('data/features.json', 'ascii'));
+
+exports.features = function(req, res) {
+  res.render('features', {
+    title: 'Express',
+    page: 'features',
+    features: features
+  });
+};
+
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.index = function(req, res) {
@@ -29,7 +39,8 @@ exports.index = function(req, res) {
         path: 'events',
         title: 'Duke Arts',
         page: 'home',
-        data: util.divideDate(data)
+        data: util.divideDate(data),
+        features: features
       });
     }
   });

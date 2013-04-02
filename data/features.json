@@ -1,0 +1,10 @@
+[{
+    "caption": "Feature Caption",
+    "img": "/img/feature-music.jpg"
+}, {
+    "caption": "Feature - Dance",
+    "img": "/img/feature-dance.jpg"
+}, {
+    "caption": "No image",
+    "img": "/img/no-image.jpg"
+}]

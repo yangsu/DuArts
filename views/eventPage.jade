@@ -2,34 +2,35 @@ extends layout
 
 
 block content
-    - var event = event.toObject();
-    #head-img
-        #event-date
-            .month= event.start.monthname
-            .date= event.start.day
-        - var img = event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text
-        if img
-            #image
-                img.featured-img(src='#{img}')
+    .eventpage
+        - var event = event.toObject();
+        #head-img
+            #event-date
+                .month= event.start.monthname
+                .date= event.start.day
+            - var img = event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text
+            if img
+                #image
+                    img.featured-img(src='#{img}')
 
-    #event-header-left
-        h2= event.summary
-    #event-header-right
-        h3= event.start.time
+        #event-header-left
+            h2= event.summary
+        #event-header-right
+            h3= event.start.time
 
-    p= event.description.slice(0, 100) + '...'
+        p= event.description.slice(0, 100) + '...'
 
-    a.expand(href='#', data-target='#more') More »
+        a.expand(href='#', data-target='#more') More »
 
-    #more.hidden
-        p= event.description
+        #more.hidden
+            p= event.description
 
-    ul.list.inset
-        li
-            strong Additional Information
-            span.chevron
+        ul.list.inset
+            li
+                strong Additional Information
+                span.chevron
 
-    if event.location
-        - var loc = (event.location && event.location.coordinate) || {}
-        #map(style="height: 400px")
-        script(async, defer)
+        if event.location
+            - var loc = (event.location && event.location.coordinate) || {}
+            #map(style="height: 200px")
+            script(async, defer)
