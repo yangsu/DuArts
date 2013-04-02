@@ -1,10 +1,22 @@
 duarts.on('push', function(path) {
+  var transformed;
   if (path == '/calendar') {
-    $('#calendar').datepicker();
+    $('#calendar').datepicker({
+       onSelect: function(){
+       var dateclick = $('#calendar').datepicker("getDate");
+       alert(dateclick);
+       }
+    });
   }
 
+/*  $('#calendar').bind('onSelect', function() {
+     var dateclick = $('#calendar').datepicker("getDate");
+     alert(dateclick);
+  });
+*/
+
   $.getJSON('/events', function(events) {
-    var transformed = _.map(events, function (event) {
+     transformed = _.map(events, function (event) {
       return {
         id: event._id,
         name: event.summary,
@@ -20,10 +32,12 @@ duarts.on('push', function(path) {
         },
         description: event.description,
         loc: {
-            address: event.location.address
+            address: event.location.address,
+            link: event.location.link
         }
       };
     });
 
   });
+
 });
