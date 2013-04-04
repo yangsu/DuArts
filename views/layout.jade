@@ -53,6 +53,7 @@ html.no-js
                     - var aroundmeActive = (path == 'aroundme') ? 'active' : ''
                     - var venuesActive = (path == 'venues') ? 'active' : ''
                     - var orgsActive = (path == 'orgs') ? 'active' : ''
+                    - var galleriesActive = (path == 'galleries') ? 'active' : ''
                     li.tab-item(class='#{eventsActive}')
                         a(href='/')
                             img.tab-icon(src='/img/icon-events.png')
@@ -61,10 +62,14 @@ html.no-js
                         a(href='/venues')
                             img.tab-icon(src='/img/icon-venues.png')
                             .tab-label Venues
+                    li.tab-item(class='#{galleriesActive}')
+                        a(href='/galleries')
+                            img.tab-icon(src='/img/icon-galleries.png')
+                            .tab-label Galleries
                     li.tab-item(class='#{orgsActive}')
                         a(href='/orgs')
                             img.tab-icon(src='/img/icon-orgs.png')
-                            .tab-label Organization
+                            .tab-label Groups
                     li.tab-item(class='#{aroundmeActive}')
                         a(href='/aroundme')
                             img.tab-icon(src='/img/icon-around.png')
