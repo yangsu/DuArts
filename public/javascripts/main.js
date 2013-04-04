@@ -19,13 +19,6 @@ window.addEventListener('push', duarts.triggerRoute);
 
 duarts.on('push', function(path) {
   if (path == '/') {
-    var $eventLists = $('.list.inset');
-    var $content = $('.content');
-    if ($eventLists.length >= 3) {
-        var todayOffset = $($eventLists[2]).offset().top;
-        var contentOffset = $content.offset().top;
-        $content.scrollTop(todayOffset - contentOffset)
-    }
   }
 });
 
