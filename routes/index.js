@@ -25,7 +25,9 @@ exports.features = function(req, res) {
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.index = function(req, res) {
-  var query = Event.find({}, null, {
+  var query = Event.find({
+    'categories.category.value': 'Arts'
+  }, null, {
     limit: 150,
     skip: 0
   })
