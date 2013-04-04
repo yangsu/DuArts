@@ -2,15 +2,16 @@ extends layout
 
 block content
     img.full-img(src=data.img)
-    h2= data.title
-    br
-    p= data.desc
-    br
-    a.button-block(href=data.link1)= data.link1d
-    a.button-block(href=data.link2)= data.link2d
-    a.button-block(href=data.link3)= data.link3d
-    br
-    a.button-block(href=) Show Events Here
-    br
+    #detail
+        h2= data.title
+        br
+        p= data.desc
+        br
+        a.button-block(href=data.link1)= data.link1d
+        a.button-block(href=data.link2)= data.link2d
+        a.button-block(href=data.link3)= data.link3d
+        br
+        a.button-block(href=) Show Events Here
+        br
 
 
