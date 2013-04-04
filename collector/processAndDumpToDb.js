@@ -9,6 +9,14 @@ var schema = mongoose.Schema({}, { strict: false });
 
 var Event = mongoose.model('Event', schema);
 
+var parseDate = function(datestring) {
+  var chunks = datestring.split('');
+  chunks.splice(-5, 0, ':');
+  chunks.splice(-3, 0, ':');
+  chunks.splice(6, 0, '-');
+  chunks.splice(4, 0, '-');
+  return new Date(chunks.join(''));
+};
 
 // argv[0] = 'node', argv[1] = 'processAndDumpToDb.js'
 // argv[2] is the input file
@@ -38,6 +46,9 @@ try {
             if (xprop && xprop.X_BEDEWORK_IMAGE) {
                 e.image = xprop.X_BEDEWORK_IMAGE.values.text;
             }
+
+            e.start.date = parseDate(e.start.utcdate);
+            e.end.date = parseDate(e.end.utcdate);
 
             Event.update({ guid: e.guid }, { $set: e }, { upsert: true }, cb);
         };
