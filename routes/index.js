@@ -25,8 +25,23 @@ exports.features = function(req, res) {
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.index = function(req, res) {
+  var date = util.getShortDate();
+  var dateregex = new RegExp(date);
   var query = Event.find({
-    'categories.category.value': 'Arts'
+    $and: [
+      { 'categories.category.value': 'Arts' },
+      {
+        $or: [{
+          'start.utcdate': dateregex
+        },{
+          'start.utcdate': { $gt: date }
+        }, {
+          'end.utcdate': dateregex
+        }, {
+          'end.utcdate': { $lt: date }
+        }]
+      }
+    ]
   }, null, {
     limit: 150,
     skip: 0

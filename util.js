@@ -9,6 +9,25 @@ var parseDate = function (datestring) {
   return new Date(chunks.join(''));
 };
 
+var pad = function(number, numDigit) {
+  var str = '';
+  while (numDigit--) {
+    str += '0'
+  }
+  str += number;
+  return str.slice(-numDigit);
+};
+
+exports.getShortDate = function() {
+  var d = new Date;
+  var date = '';
+  date += d.getFullYear();
+  date += pad(d.getMonth() + 1, 2);
+  date += pad(d.getDate(), 2);
+
+  return new RegExp(date);
+};
+
 exports.divideDate = function (data) {
   var d = new Date;
   var date = (d.getMonth() + 1) + '/' +

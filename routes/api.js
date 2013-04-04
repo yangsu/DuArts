@@ -5,11 +5,25 @@ var Event = require('../db.js').Event;
 var chunkSize = 100;
 
 exports.events = function (req, res) {
-    var skip = req.params.skip || 0;
-
-    var query = Event.find({
-        'categories.category.value': 'Arts'
-    }, null, {
+  var skip = req.params.skip || 0;
+  var date = util.getShortDate();
+  var dateregex = new RegExp(date);
+  var query = Event.find({
+    $and: [
+      { 'categories.category.value': 'Arts' },
+      {
+        $or: [{
+          'start.utcdate': dateregex
+        },{
+          'start.utcdate': { $gt: date }
+        }, {
+          'end.utcdate': dateregex
+        }, {
+          'end.utcdate': { $lt: date }
+        }]
+      }
+    ]
+  }, null, {
         limit: chunkSize,
         skip: skip
     })
