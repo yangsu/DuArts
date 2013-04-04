@@ -88,4 +88,44 @@
     "link2d": "Facebook",
     "link3": null,
     "link3d": null
+},{
+    "title": "Creative Writing (English Department)",
+    "desc": "The Duke English Department has long occupied a vital and distinctive place both in the discipline and in the university, where it has served as one of the defining spaces of thought, conversation, teaching, and inquiry.  We have played a crucial role in defining the history, present, and future of the practices of reading and interpretation and the paradigms of research, pedagogy, and critique common to and distributed across the humanities as a whole, and we are committed to continuing as a conversation-driving and paradigm-setting place within Duke.",
+    "img": "/img/orgs/english.jpg",
+    "link1": "http://english.duke.edu/",
+    "link1d": "Creative Writing (English Department)",
+    "link2": "https://www.facebook.com/DukeEnglishDepartment",
+    "link2d": "Facebook",
+    "link3": null,
+    "link3d": null
+},{
+    "title": "Theater Studies Department",
+    "desc": "The Department of Theater Studies combines cutting edge theater research with the creation and development of new works for the theater and offers new approaches to the study and interpretation of the riches of world drama.",
+    "img": "/img/orgs/theater.jpg",
+    "link1": "http://theaterstudies.duke.edu/",
+    "link1d": "Theater Studies Department",
+    "link2": "https://www.facebook.com/pages/Duke-Theater-Studies/137332400486",
+    "link2d": "Facebook",
+    "link3": null,
+    "link3d": null
+},{
+    "title": "duArts",
+    "desc": "duARTS aims to make the arts an integral part of the Duke undergraduate experience by promoting student arts events and media on campus and in Durham by fostering a creative, collaborative, diverse, and accessible community of students engaged in the arts.",
+    "img": "/img/orgs/duarts.jpg",
+    "link1": "http://duarts.org",
+    "link1d": "duArts",
+    "link2": null,
+    "link2d": null,
+    "link3": null,
+    "link3d": null
+},{
+    "title": "Duke Performances",
+    "desc": "Duke Performances is a Duke University & Durham, North Carolina based performing arts presenter. DP's robust slate of cross genre programming is willfully eclectic, handmade & always top-flight.",
+    "img": "/img/orgs/dukeperformances.jpg",
+    "link1": "http://dukeperformances.duke.edu/",
+    "link1d": "Duke Performances",
+    "link2": "https://www.facebook.com/dukeperformances",
+    "link2d": "Facebook",
+    "link3": null,
+    "link3d": null
 }]
