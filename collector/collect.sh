@@ -4,7 +4,7 @@
 YEAR=2013
 MONTH=03
 
-MONTHURL="http://calendar.duke.edu/events/index?date_span=month&user_date=$MONTH%2F01%2F$YEAR"
+MONTHURL="http://calendar.duke.edu/events/index.json?date_span=month&user_date=$MONTH%2F01%2F$YEAR"
 
 # Current Day URL
 DAYURL="http://calendar.duke.edu/events/index.json?date_span=day"
