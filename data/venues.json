@@ -9,8 +9,7 @@
     "link2d": null,
     "link3": null,
     "link3d": null
-}, 
-{
+}, {
     "title": "Reynolds Theater",
     "desc": "As you walk into the Bryan Center parking lot, the Bryan Student Center on is the building to your right. Reynolds Theater is directly behind the Box Office in this building.",
     "img": "/img/venues/Reynolds-Theater.jpg",
@@ -21,10 +20,10 @@
     "link2d": null,
     "link3": null,
     "link3d": null
-}, 
+},
 {
     "title": "Nelson Music Room",
-    "desc": "This 300-seat recital hall is located on Duke’s East Campus off Main Street in the East Duke Building.",
+    "desc": "This 300-seat recital hall is located on Duke's East Campus off Main Street in the East Duke Building.",
     "img": "/img/venues/Nelson.jpg",
     "location": "2810",
     "link1": "http://dukeperformances.duke.edu/venues/nelson-music-room",
@@ -72,7 +71,7 @@
 },
 {
     "title": "Baldwin Auditorium",
-    "desc": "Named in 1964 for historian Alice Baldwin, the first dean of Duke‘s Woman‘s College, Baldwin‘s domed roof provides the dominant architectural statement on East Campus. The 900-seat auditorium is the site of musical performances ranging from jazz to chamber music.",
+    "desc": "Named in 1964 for historian Alice Baldwin, the first dean of Duke's Woman's College, Baldwin's domed roof provides the dominant architectural statement on East Campus. The 900-seat auditorium is the site of musical performances ranging from jazz to chamber music.",
     "img": "/img/venues/baldwin.jpg",
     "location": "2926",
     "link1": "http://dukeperformances.duke.edu/directions/baldwin-auditorium",
@@ -96,7 +95,7 @@
 },
 {
     "title": "Duke Coffeehouse",
-    "desc": "Tucked behind Wilson Dorm on East Campus, the Duke Coffeehouse is a mecca for alternative culture at Duke as well as a link between the University and the Durham community. The Coffeehouse was founded in 1981 by SHARE (Student Housing for Academic and Residential Experimentation, Duke’s first non-Greek selective living group), and run by SHARE until 2003, when it reopened under the administrative umbrella of the Duke University Union. During the week, students study and socialize amidst the aroma of fresh brewed coffee. On the weekends, the Coffeehouse is transformed into a live venue for local and touring musicians, plays, open mics, student performances, and the occasional drag show.",
+    "desc": "Tucked behind Wilson Dorm on East Campus, the Duke Coffeehouse is a mecca for alternative culture at Duke as well as a link between the University and the Durham community. The Coffeehouse was founded in 1981 by SHARE (Student Housing for Academic and Residential Experimentation, Duke's first non-Greek selective living group), and run by SHARE until 2003, when it reopened under the administrative umbrella of the Duke University Union. During the week, students study and socialize amidst the aroma of fresh brewed coffee. On the weekends, the Coffeehouse is transformed into a live venue for local and touring musicians, plays, open mics, student performances, and the occasional drag show.",
     "img": "/img/venues/Coffeehouse.jpg",
     "location": "4744",
     "link1": "http://www.dukecoffeehouse.org/",
