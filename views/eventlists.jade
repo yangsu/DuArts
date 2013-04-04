@@ -14,7 +14,7 @@ ul.inset.list
         - var link = eventlist.header.toLowerCase().replace(/\s+/g, '-')
         - count++;
         li(id='#{link}', class='segmented-controller-item #{c}')
-            ul
+            ul.list
                 each event in eventlist.events
                     li
                         - var date = (eventlist.header == 'Today') ? event.start.time : event.start.shortdate;
