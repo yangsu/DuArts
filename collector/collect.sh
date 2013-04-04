@@ -2,7 +2,7 @@
 
 # Params
 YEAR=2013
-MONTH=03
+MONTH=04
 
 MONTHURL="http://calendar.duke.edu/events/index.json?date_span=month&user_date=$MONTH%2F01%2F$YEAR"
 
