@@ -1,8 +1,8 @@
 #! /bin/sh
 
 # Params
-YEAR=2013
-MONTH=04
+YEAR=$(date +'%Y')
+MONTH=${1:-$(date +'%m')}
 
 MONTHURL="http://calendar.duke.edu/events/index.json?date_span=month&user_date=$MONTH%2F01%2F$YEAR"
 
@@ -15,8 +15,8 @@ TIMESTAMP=$(date +%s)
 # Generate Output File name
 OUTPUT="$TIMESTAMP".json
 
-URL=$DAYURL
-# URL=$MONTHURL
+# URL=$DAYURL
+URL=$MONTHURL
 
 curl -H 'Accept: application/json' -s "$URL"  | python -mjson.tool > $OUTPUT
 
