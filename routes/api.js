@@ -2,6 +2,8 @@ var _ = require('underscore');
 var async = require('async');
 var Event = require('../db.js').Event;
 
+var util = require('../util');
+
 var chunkSize = 100;
 
 exports.events = function (req, res) {
