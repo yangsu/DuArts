@@ -1,0 +1,7 @@
+ul.list.inset
+    each galleryItem in data
+        li
+            a(href='galleries/#{galleryItem.title}', data-transition='slide-in')
+                | #{galleryItem.title}
+            span.chevron
+

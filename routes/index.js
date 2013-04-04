@@ -11,7 +11,7 @@ var util = require('../util');
 
 var venuesData = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
 var orgsData = JSON.parse(fs.readFileSync('data/orgs.json', 'ascii'));
-
+var galleriesData = JSON.parse(fs.readFileSync('data/orgs.json', 'ascii'));
 var features = JSON.parse(fs.readFileSync('data/features.json', 'ascii'));
 
 exports.features = function(req, res) {
@@ -110,6 +110,26 @@ exports.venuePage = function(req, res) {
     path: 'venuePage',
     title: 'Duke Arts',
     data: venueInfo
+  });
+};
+
+exports.galleries = function(req, res) {
+  res.render('galleries', {
+    path: 'galleries',
+    title: 'Duke Arts',
+    data: galleriesData
+  });
+};
+
+exports.galleryPage = function(req, res) {
+  var title = req.params.galleryTitle;
+  var galleryInfo = _.find(galleriesData, function (gallery){
+    return gallery.title == title;
+  });
+  res.render('galleryPage', {
+    path: 'galleryPage',
+    title: 'Duke Arts',
+    data: galleryInfo
   });
 };
 
