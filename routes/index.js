@@ -139,18 +139,6 @@ exports.search = function(req, res) {
   });
 };
 
-exports.pageaud = function(req, res) {
-  res.render('pageaud', {
-    title: 'Duke Arts'
-  });
-};
-
-exports.jazz = function(req, res) {
-  res.render('jazz', {
-    title: 'Duke Arts'
-  });
-};
-
 
 exports.event = function(req, res) {
   Event.findOne({

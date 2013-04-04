@@ -41,8 +41,6 @@ app.get('/venues/:venueTitle', routes.venuePage);
 app.get('/orgs', routes.orgs);
 app.get('/orgs/:orgTitle', routes.orgPage);
 app.get('/search', routes.search);
-app.get('/pageaud', routes.pageaud);
-app.get('/jazz', routes.jazz);
 
 app.get('/events.json', api.events);
 app.get('/events.json/:skip', api.events);
