@@ -7,9 +7,12 @@ block content
         br
         p= data.desc
         br
-        a.button-block(href=data.link1)= data.link1d
-        a.button-block(href=data.link2)= data.link2d
-        a.button-block(href=data.link3)= data.link3d
+        if data.link1
+            a.button-block(href=data.link1)= data.link1d
+        if data.link2
+            a.button-block(href=data.link2)= data.link2d
+        if data.link3
+            a.button-block(href=data.link3)= data.link3d
         br
         a.button-block(href=) Show Events Here
         br
