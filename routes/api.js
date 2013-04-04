@@ -8,20 +8,15 @@ var chunkSize = 100;
 
 exports.events = function (req, res) {
   var skip = req.params.skip || 0;
-  var date = util.getShortDate();
-  var dateregex = new RegExp(date);
+  var date = (new Date).toUTCString();
   var query = Event.find({
     $and: [
       { 'categories.category.value': 'Arts' },
       {
         $or: [{
-          'start.utcdate': dateregex
-        },{
-          'start.utcdate': { $gt: date }
+          'start.date': { $gte: date }
         }, {
-          'end.utcdate': dateregex
-        }, {
-          'end.utcdate': { $lt: date }
+          'end.utcdate': { $lte: date }
         }]
       }
     ]
