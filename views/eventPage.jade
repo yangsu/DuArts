@@ -18,12 +18,9 @@ block content
         #event-header-right
             h3= event.start.time
 
-        p= event.description.slice(0, 100) + '...'
+        p= event.description
 
         a.expand(href='#', data-target='#more') More »
-
-        #more.hidden
-            p= event.description
 
         ul.list.inset
             li
