@@ -9,17 +9,18 @@ var parseDate = function (datestring) {
   return new Date(chunks.join(''));
 };
 
+var day = 1000*60*60*24;
+var week = 1000*60*60*24*7;
+
 exports.divideDate = function (data) {
   var d = new Date;
-  var date = (d.getMonth() + 1) + '/' +
-              d.getDate() + '/' +
-              d.getFullYear().toString().slice(-2);
   var now = Date.now();
 
   return _.chain(data)
     .map(function(event) {
       event = event.toObject();
-      event.start.milis = parseDate(event.start.utcdate).getTime();
+      event.start.milis = new Date(event.start.date).getTime();
+      event.end.milis = new Date(event.end.date).getTime();
 
       return {
         _id: event._id,
@@ -30,27 +31,25 @@ exports.divideDate = function (data) {
         location: event.location
       };
     })
+    .filter(function(event) {
+      var diffstart = now - event.start.milis;
+      var diffend = event.end.milis - now;
+
+      return (diffstart >= 0 && diffend >= 0);
+    })
     .sortBy(function (event) {
       return event.start.milis;
     })
     .groupBy(function (event) {
-      var start = event.start;
-      var week = 1000*60*60*24*7;
+      var diffstart = now - event.start.milis;
+      var diffend = event.end.milis - now;
 
-      var diff = start.milis - now;
-
-      if (start.shortdate == date) {
+      if (diffend <= day) {
         return 'Today';
-      } else if (diff >= 0 && diff < week) {
+      } else if (diffstart < 0 && diffend < week) {
         return 'This Week';
-      } else if (diff >= week && diff < 2*week) {
-        return 'Next Week';
-      } else if (diff < 0 && Math.abs(diff) < week) {
-        return 'Past Week';
-      } else if (diff < 0 && Math.abs(diff) > week) {
-        return 'Past Events';
       } else {
-        return 'Near Future';
+        return 'Ongoing';
       }
     }).map(function(events, group) {
       return {
