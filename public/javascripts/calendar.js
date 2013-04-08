@@ -1,45 +1,19 @@
-var events = [
-    { Title: "Theology on Tap", Date: new Date("03/26/2013") },
-    { Title: "ChoreoLab 2013", Date: new Date("03/30/2013")},
-    { Title: "DCDT Showcase: Nuwa", Date: new Date("04/05/2013") },
-    { Title: "Momentum Showcase", Date: new Date("04/06/2013") }
-];
-
 duarts.on('push', function(path) {
   var transformed;
+  var dformat;
   if (path == '/calendar') {
     $('#calendar').datepicker({
 
-      beforeShowDay: function(date) {
-        var result = [true, '', null];
-        var matching = $.grep(events, function(event) {
-            return event.Date.valueOf() === date.valueOf();
-        });
-
-        if (matching.length) {
-            result = [true, 'highlight', null];
-        }
-        return result;
-      },
-      onSelect: function(dateText) {
-        var date,
-            selectedDate = new Date(dateText),
-            i = 0,
-            event = null;
-
-        while (i < events.length && !event) {
-            date = events[i].Date;
-
-            if (selectedDate.valueOf() === date.valueOf()) {
-                event = events[i];
-            }
-            i++;
-        }
-        if (event) {
-            alert(event.Title + " " + event.Date);
-        }
-      }
-
+       onSelect: function(){
+       var dateclick = $('#calendar').datepicker("getDate");
+      // alert(dateclick);
+      // console.log(dateclick);
+       var month = dateclick.getMonth()+1;
+       var day = dateclick.getDay();
+       var year = dateclick.getFullYear();
+       dformat = month + "/" + day + "/" + year;
+     //  console.log(dformat);
+       }
     });
   }
 
@@ -48,8 +22,7 @@ duarts.on('push', function(path) {
      alert(dateclick);
   });
 */
-
-/*  $.getJSON('/events', function(events) {
+  $.getJSON('/events', function(events) {
      transformed = _.map(events, function (event) {
       return {
         id: event._id,
@@ -72,6 +45,59 @@ duarts.on('push', function(path) {
       };
     });
 
-  });*/
+  /*Object.keys(transformed).forEach(function(key){
+    console.log(key, transformed[key]);
+  });
+*/
 
+$('#calendar').datepicker({
+  beforeShowDay: function(date) {
+     showEvent(date);
+     return [true, 'eventSelect', 'tooltip text'];
+  }
+})
+
+function showEvent(date) {
+  var eventname;
+  for (var key in transformed) {
+    var obj = transformed[key];
+    for (var prop in obj) {
+      //alert(prop + "=" + obj[prop]); //pops up id, name, date, desc, loc separately
+
+      if (prop==='name') {
+        eventname = obj[prop];
+        //alert("name of event = " + eventname);
+      }
+
+      else if(typeof(obj[prop])==='object') {  //checks to see if property is another object; for date and loc
+        //console.log("see another object");
+        var obj2 = obj[prop];
+        for (var prop2 in obj2) {
+          if(typeof(obj2[prop2])==='object'){
+            //console.log("got to the date!");
+
+            var obj3 = obj2[prop2];
+            for (var prop3 in obj3) {
+              var date = $('#calendar').datepicker("getDate");
+              var month = date.getMonth()+1;
+              var day = date.getDay();
+              var year = date.getFullYear();
+              d = month + "/" + day + "/" + "year";
+              if(obj3[prop3]==="d") {
+                //console.log("print the matched date!");
+                return eventname;
+              }
+            }
+
+          }
+        }
+      }
+
+    }
+  }
+  return;
+ }
+
+
+  });
 });
