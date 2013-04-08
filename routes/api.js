@@ -1,17 +1,18 @@
 var _ = require('underscore');
 var async = require('async');
-var Event = require('../db.js').Event;
+var db = require('../db');
+var Event = db.Event;
 
 var util = require('../util');
 
 var chunkSize = 100;
 
-exports.events = function (req, res) {
+exports.events = function(req, res) {
   var skip = req.params.skip || 0;
-  var date = (new Date).toUTCString();
+  var date = new Date;
   var query = Event.find({
     $and: [
-      { 'categories.category.value': 'Arts' },
+      db.artsQuery,
       {
         $or: [{
           'start.date': { $gte: date }
@@ -21,25 +22,25 @@ exports.events = function (req, res) {
       }
     ]
   }, null, {
-        limit: chunkSize,
-        skip: skip
-    })
-    .sort({'start.utcdate': -1})
-    .execFind(function (err, data) {
+    limit: chunkSize,
+    skip: skip
+  })
+  .sort({'start.utcdate': 1})
+  .execFind(function(err, data) {
         if (err) {
-            res.json(err);
+          res.json(err);
         } else {
-            res.json(data);
+          res.json(data);
         }
-    });
+      });
 };
 
-exports.eventlocation = function (req, res) {
+exports.eventlocation = function(req, res) {
     var id = req.params.id;
 
     var query = Event.findOne({
         _id: id
-    }, 'location', null, function (err, data) {
+    }, 'location', null, function(err, data) {
         if (err) {
             res.json(err);
         } else {

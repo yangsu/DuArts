@@ -32,10 +32,9 @@ exports.divideDate = function (data) {
       };
     })
     .filter(function(event) {
-      var diffstart = now - event.start.milis;
       var diffend = event.end.milis - now;
 
-      return (diffstart >= 0 && diffend >= 0);
+      return diffend >= 0;
     })
     .sortBy(function (event) {
       return event.start.milis;

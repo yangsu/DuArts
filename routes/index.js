@@ -6,7 +6,8 @@
 var fs = require('fs');
 var _ = require('underscore');
 var async = require('async');
-var Event = require('../db').Event;
+var db = require('../db');
+var Event = db.Event;
 var util = require('../util');
 
 var venuesData = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
@@ -25,10 +26,11 @@ exports.features = function(req, res) {
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.index = function(req, res) {
-  var date = (new Date).toUTCString();
+  var date = new Date;
+
   var query = Event.find({
     $and: [
-      { 'categories.category.value': 'Arts' },
+      db.artsQuery,
       {
         $or: [{
           'start.date': { $gte: date }
@@ -46,7 +48,6 @@ exports.index = function(req, res) {
     if (err) {
       res.json(err);
     } else {
-      // console.log();
       res.render('index', {
         path: 'events',
         title: 'Duke Arts',
