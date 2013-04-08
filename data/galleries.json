@@ -1,0 +1,60 @@
+[{
+    "title": "Allen Building (first floor)",
+    "desc": null,
+    "img": "/img/galleries/allen.gif",
+    "location": "2825",
+    "link1": null,
+    "link1d": null,
+    "link2": null,
+    "link2d": null,
+    "link3": null,
+    "link3d": null
+}, 
+{
+    "title": "Louise Jones Brown Gallery",
+    "desc": "As you walk into the Bryan Center parking lot, the Bryan Student Center on is the building to your right. The Louise Jones Brown Gallery is in the middle of the top floor.",
+    "img": "/img/galleries/louise.jpg",
+    "location": "4741",
+    "link1": null,
+    "link1d": null,
+    "link2": null,
+    "link2d": null,
+    "link3": null,
+    "link3d": null
+}, 
+{
+    "title": "Corridor Gallery, East Duke Building",
+    "desc": "This gallery is located on Duke’s East Campus off Main Street in the East Duke Building in the main hall.",
+    "img": "/img/galleries/eastduke.jpg",
+    "location": "2760",
+    "link1": null,
+    "link1d": null,
+    "link2": null,
+    "link2d": null,
+    "link3": null,
+    "link3d": null
+},
+{
+    "title": "Fredric Jameson Gallery",
+    "desc": "Located in Friedl Building",
+    "img": "/img/galleries/friedl.jpg",
+    "location": "2812",
+    "link1": "http://mfaeda2013.org/fredric-jameson-gallery/",
+    "link1d": "To MFA|EDA Site",
+    "link2": null,
+    "link2d": null,
+    "link3": null,
+    "link3d": null
+},
+{
+    "title": "Power Plant Gallery at ATC",
+    "desc": null,
+    "img": "/img/venues/Duke-Chapel.jpg",
+    "location": "2933",
+    "link1": "http://mfaeda2013.org/powerplant-gallery/",
+    "link1d": "To MFA|EDA Site",
+    "link2": null,
+    "link2d": null,
+    "link3": null,
+    "link3d": null
+}]
