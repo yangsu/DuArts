@@ -38,7 +38,9 @@ duarts.on('push', function(path) {
           return {
             id: event._id,
             name: event.summary,
-            location: event.location
+            location: event.location,
+            start: event.start.date,
+            end: event.end.date
           };
         })
         .filter(function(event) {
@@ -52,7 +54,21 @@ duarts.on('push', function(path) {
           lng: coord.lng,
           title: coord.markerName,
           click: function(point) {
-            infoWindow.setContent(event.name + '<br><a href="/event/'+ event.id + '" data-transition="slide-in">Go to Event Page</a>');
+            var start = new Date(event.start);
+            var end = new Date(event.end);
+            var now = new Date();
+            var day = 1000*60*60*24;
+
+            var dateLabel;
+
+            if (start.getTime() <= now.getTime() - day &&
+                end.getTime() >= now.getTime() + day) {
+                dateLabel = 'ongoing';
+            } else {
+                dateLabel = start.toLocaleDateString() + ' - ' + start.toLocaleTimeString();
+            }
+
+            infoWindow.setContent(event.name + '<br>' + dateLabel + '<br><a href="/event/'+ event.id + '" data-transition="slide-in">Go to Event Page</a>');
             infoWindow.setPosition(point.position);
             infoWindow.open(map.map);
           }

@@ -27,6 +27,7 @@ var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.index = function(req, res) {
   var date = new Date;
+  var limit = new Date(Date.now() + 1000*60*60*24*7);
 
   var query = Event.find({
     $and: [
@@ -35,7 +36,7 @@ exports.index = function(req, res) {
         $or: [{
           'start.date': { $gte: date }
         }, {
-          'end.utcdate': { $lte: date }
+          'end.date': { $lte: limit }
         }]
       }
     ]

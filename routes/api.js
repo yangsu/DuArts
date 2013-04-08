@@ -10,16 +10,13 @@ var chunkSize = 100;
 exports.events = function(req, res) {
   var skip = req.params.skip || 0;
   var date = new Date;
+  var limit = new Date(Date.now() + 1000*60*60*24*7);
+
   var query = Event.find({
     $and: [
       db.artsQuery,
-      {
-        $or: [{
-          'start.date': { $gte: date }
-        }, {
-          'end.utcdate': { $lte: date }
-        }]
-      }
+      { 'start.date': { $gte: date } },
+      { 'end.date': { $lte: limit } }
     ]
   }, null, {
     limit: chunkSize,
