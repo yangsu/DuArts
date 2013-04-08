@@ -4,8 +4,8 @@ extends layout
 block content
     .eventpage
         - var event = event.toObject();
-        #head-img
-            #event-date
+        .head-img
+            .event-date
                 .month= event.start.monthname
                 .date= event.start.day
             - var img = event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text
@@ -13,10 +13,10 @@ block content
                 #image
                     img.featured-img(src='#{img}')
 
-        #event-header-left
+        .event-header-left
             h2= event.summary
             h3= event.location.address
-        #event-header-right
+        .event-header-right
             h3= event.start.time
 
 
