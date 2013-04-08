@@ -15,17 +15,12 @@ block content
 
         #event-header-left
             h2= event.summary
+            h3= event.location.address
         #event-header-right
             h3= event.start.time
 
+
         p= event.description
-
-        //a.expand(href='#', data-target='#more') More »
-
-        //ul.list.inset
-            li
-                strong Additional Information
-                span.chevron
 
         if event.location
             - var loc = (event.location && event.location.coordinate) || {}
