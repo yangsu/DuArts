@@ -9,7 +9,7 @@
     "link2d": null,
     "link3": null,
     "link3d": null
-}, 
+},
 {
     "title": "Louise Jones Brown Gallery",
     "desc": "As you walk into the Bryan Center parking lot, the Bryan Student Center on is the building to your right. The Louise Jones Brown Gallery is in the middle of the top floor.",
@@ -21,10 +21,10 @@
     "link2d": null,
     "link3": null,
     "link3d": null
-}, 
+},
 {
     "title": "Corridor Gallery, East Duke Building",
-    "desc": "This gallery is located on Duke’s East Campus off Main Street in the East Duke Building in the main hall.",
+    "desc": "This gallery is located on Duke's East Campus off Main Street in the East Duke Building in the main hall.",
     "img": "/img/galleries/eastduke.jpg",
     "location": "2760",
     "link1": null,
