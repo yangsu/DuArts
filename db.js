@@ -11,6 +11,7 @@ var Venue = mongoose.model('Venue', emptySchema);
 var Organization = mongoose.model('Organization', emptySchema);
 var Gallery = mongoose.model('Gallery', emptySchema);
 var Feature = mongoose.model('Feature', emptySchema);
+var Marker = mongoose.model('Marker', emptySchema);
 
 module.exports = {
   Event: Event,
@@ -18,6 +19,7 @@ module.exports = {
   Organization: Organization,
   Gallery: Gallery,
   Feature: Feature,
+  Marker: Marker,
   artsQuery: {
     'categories.category.value': {
       $in: [

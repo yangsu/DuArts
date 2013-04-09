@@ -8,27 +8,29 @@ var venues = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
 var orgs = JSON.parse(fs.readFileSync('data/orgs.json', 'ascii'));
 var galleries = JSON.parse(fs.readFileSync('data/galleries.json', 'ascii'));
 var features = JSON.parse(fs.readFileSync('data/features.json', 'ascii'));
+var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
-var save = function(model, data) {
-  return function(cb) {
+var save = function(model, data, key) {
+  return function(callback) {
     async.parallel(_.map(data, function(item) {
       return function(cb) {
         db[model].update({
-          title: item.title
+          title: item[key]
         }, {
           $set: item
         }, {
           upsert: true
         }, cb);
       };
-    }), cb);
+    }), callback);
   };
 };
 async.parallel({
-  venues: save('Venue', venues),
-  orgs: save('Organization', orgs),
-  galleries: save('Gallery', galleries),
-  features: save('Feature', features)
+  venues: save('Venue', venues, 'title'),
+  orgs: save('Organization', orgs, 'title'),
+  galleries: save('Gallery', galleries, 'title'),
+  features: save('Feature', features, 'title'),
+  markers: save('Marker', markers, 'mrkId')
 }, function(err, data) {
   console.log(err, data);
   process.exit(0);
