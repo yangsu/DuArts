@@ -10,9 +10,16 @@ var db = require('../db');
 var Event = db.Event;
 var util = require('../util');
 
-var venuesData = JSON.parse(fs.readFileSync('data/venues.json', 'ascii'));
-var orgsData = JSON.parse(fs.readFileSync('data/orgs.json', 'ascii'));
-var galleriesData = JSON.parse(fs.readFileSync('data/galleries.json', 'ascii'));
+var wrapError = function(res, cb) {
+  return function(err, data) {
+    if (err) {
+      res.json(err);
+    } else {
+      cb(data);
+    }
+  }
+};
+
 var features = JSON.parse(fs.readFileSync('data/features.json', 'ascii'));
 
 exports.features = function(req, res) {
@@ -45,19 +52,15 @@ exports.index = function(req, res) {
     skip: 0
   })
   .sort({'start.utcdate': -1})
-  .execFind(function(err, data) {
-    if (err) {
-      res.json(err);
-    } else {
-      res.render('index', {
-        path: 'events',
-        title: 'Duke Arts',
-        page: 'home',
-        data: util.divideDate(data),
-        features: features
-      });
-    }
-  });
+  .exec(wrapError(res, function(data) {
+    res.render('index', {
+      path: 'events',
+      title: 'Duke Arts',
+      page: 'home',
+      data: util.divideDate(data),
+      features: features
+    });
+  }));
 };
 
 exports.marker = function(req, res) {
@@ -74,22 +77,22 @@ exports.notfound = function(req, res) {
 
 exports.page = function(req, res) {
   Event.find({}, null, {
-      limit: 50,
-      skip: 0
+    limit: 50,
+    skip: 0
   }, function(err, data) {
-      if (err) {
-          res.json(err);
-      } else {
-          res.render('index', {
-            path: 'events',
-            title: 'Duke Arts',
-            page: req.params.page,
-            data: [{
-              header: 'This Month',
-              events: data
-            }]
-          });
-      }
+    if (err) {
+      res.json(err);
+    } else {
+      res.render('index', {
+        path: 'events',
+        title: 'Duke Arts',
+        page: req.params.page,
+        data: [{
+          header: 'This Month',
+          events: data
+        }]
+      });
+    }
   });
 };
 
@@ -107,65 +110,43 @@ exports.aroundme = function(req, res) {
   });
 };
 
-exports.venues = function(req, res) {
-  res.render('venues', {
-    path: 'venues',
-    title: 'Duke Arts',
-    data: venuesData
-  });
-};
+function listEndpoint(model, path, template) {
+  return function(req, res) {
+    db[model].find({})
+    .sort('title')
+    .lean()
+    .exec(wrapError(res, function(data) {
+      res.render(template, {
+        path: path,
+        title: 'Duke Arts',
+        data: data
+      });
+    }));
+  };
+}
+function itemEndpoint(model, path, template) {
+  return function(req, res) {
+    db[model].findOne({
+      title: req.params.title
+    })
+    .sort('title')
+    .lean()
+    .exec(wrapError(res, function(data) {
+      res.render(template, {
+        path: path,
+        title: 'Duke Arts',
+        data: data
+      });
+    }));
+  };
+}
 
-exports.venuePage = function(req, res) {
-  var title = req.params.venueTitle;
-  var venueInfo = _.find(venuesData, function(venue){
-    return venue.title == title;
-  });
-  res.render('venuePage', {
-    path: 'venuePage',
-    title: 'Duke Arts',
-    data: venueInfo
-  });
-};
-
-exports.galleries = function(req, res) {
-  res.render('galleries', {
-    path: 'galleries',
-    title: 'Duke Arts',
-    data: galleriesData
-  });
-};
-
-exports.galleryPage = function(req, res) {
-  var title = req.params.galleryTitle;
-  var galleryInfo = _.find(galleriesData, function(gallery){
-    return gallery.title == title;
-  });
-  res.render('galleryPage', {
-    path: 'galleryPage',
-    title: 'Duke Arts',
-    data: galleryInfo
-  });
-};
-
-exports.orgs = function(req, res) {
-  res.render('orgs', {
-    path: 'orgs',
-    title: 'Duke Arts',
-    data: orgsData
-  });
-};
-
-exports.orgPage = function(req, res) {
-  var title = req.params.orgTitle;
-  var orgInfo = _.find(orgsData, function(org){
-    return org.title == title;
-  });
-  res.render('orgPage', {
-    path: 'orgPage',
-    title: 'Duke Arts',
-    data: orgInfo
-  });
-};
+exports.venues = listEndpoint('Venue', 'venues', 'list');
+exports.venuePage = itemEndpoint('Venue', 'venues', 'item');
+exports.galleries = listEndpoint('Gallery', 'galleries', 'list');
+exports.galleryPage = itemEndpoint('Gallery', 'galleries', 'item');
+exports.orgs = listEndpoint('Organization', 'orgs', 'list');
+exports.orgPage = itemEndpoint('Organization', 'orgs', 'item');
 
 exports.search = function(req, res) {
   res.render('search', {

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    ul.list.inset
+        each item in data
+            li
+                a(href='#{path}/#{item.title}', data-transition='slide-in')
+                    | #{item.title}
+                span.chevron
+

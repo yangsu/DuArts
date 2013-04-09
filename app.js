@@ -37,11 +37,11 @@ app.get('/markers', routes.markers);
 app.get('/marker/:mid', routes.marker);
 app.get('/calendar', routes.calendar);
 app.get('/venues', routes.venues);
-app.get('/venues/:venueTitle', routes.venuePage);
+app.get('/venues/:title', routes.venuePage);
 app.get('/galleries', routes.galleries);
-app.get('/galleries/:galleryTitle', routes.galleryPage);
+app.get('/galleries/:title', routes.galleryPage);
 app.get('/orgs', routes.orgs);
-app.get('/orgs/:orgTitle', routes.orgPage);
+app.get('/orgs/:title', routes.orgPage);
 app.get('/search', routes.search);
 
 app.get('/events.json', api.events);
