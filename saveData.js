@@ -13,10 +13,11 @@ var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 var save = function(model, data, key) {
   return function(callback) {
     async.parallel(_.map(data, function(item) {
+      var query = {};
+      query[key] = item[key];
+
       return function(cb) {
-        db[model].update({
-          title: item[key]
-        }, {
+        db[model].update(query, {
           $set: item
         }, {
           upsert: true

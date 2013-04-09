@@ -72,27 +72,6 @@ exports.notfound = function(req, res) {
   res.render('404', { title: 'Express' });
 };
 
-exports.page = function(req, res) {
-  Event.find({}, null, {
-    limit: 50,
-    skip: 0
-  }, function(err, data) {
-    if (err) {
-      res.json(err);
-    } else {
-      res.render('index', {
-        path: 'events',
-        title: 'Duke Arts',
-        page: req.params.page,
-        data: [{
-          header: 'This Month',
-          events: data
-        }]
-      });
-    }
-  });
-};
-
 exports.calendar = function(req, res) {
   res.render('calendar', {
     path: 'calendar',
@@ -151,6 +130,38 @@ exports.search = function(req, res) {
   });
 };
 
+exports.admin = function(req, res) {
+  var resource = req.params.resource;
+  if (db[resource]) {
+    db[resource].find({}).lean().exec(wrapError(res, function(data) {
+      res.render('admin', {
+        title: 'Duke Arts Admin',
+        resource: resource.toLowerCase(),
+        data: data
+      });
+    }));
+  } else {
+    res.send(400);
+  }
+};
+
+exports.adminSave = function(req, res) {
+  var item = req.body;
+  var resource = req.params.resource;
+  if (db[resource]) {
+    db[resource].update({
+      title: item.title
+    }, {
+      $set: item
+    }, {
+      upsert: true
+    }, wrapError(res, function(data) {
+      res.json(data);
+    }));
+  } else {
+    res.send(400);
+  }
+};
 
 exports.event = function(req, res) {
   Event.findOne({

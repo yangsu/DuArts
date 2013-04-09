@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .admin
+    .items
+      each item in data
+        form(data-id=item._id)
+          .input-group
+            .input-row
+              label Title
+              input(type='text', name='title', value=item.title, placeholder='')
+            .input-row
+              label Descriptions
+              input(type='text', name='description', value=item.description, placeholder='')
+            .input-row
+              label Image
+              input(type='text', name='img', value=item.img, placeholder='Image URL')
+
+            if (item.location)
+              .input-row
+                label Location
+                input(type='text', name='location', value=item.location, placeholder='location id')
+
+
+    a.button.button-block#add Add New
+    a.button.button-block#save Save All
+
+block scripts
+  script(src='/javascripts/admin.js')

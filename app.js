@@ -43,14 +43,13 @@ app.get('/galleries/:title', routes.galleryPage);
 app.get('/orgs', routes.orgs);
 app.get('/orgs/:title', routes.orgPage);
 app.get('/search', routes.search);
+app.get('/admin/:resource', routes.admin);
+app.post('/admin/:resource', routes.adminSave);
 
 app.get('/events.json', api.events);
 app.get('/events.json/:skip', api.events);
 app.get('/event/:id', routes.event);
 app.get('/eventlocation/:id', api.eventlocation);
-
-app.get('/:page', routes.page);
-
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
