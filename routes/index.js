@@ -45,7 +45,7 @@ exports.index = function(req, res) {
     skip: 0
   })
   .sort({'start.utcdate': -1})
-  .execFind(function (err, data) {
+  .execFind(function(err, data) {
     if (err) {
       res.json(err);
     } else {
@@ -76,7 +76,7 @@ exports.page = function(req, res) {
   Event.find({}, null, {
       limit: 50,
       skip: 0
-  }, function (err, data) {
+  }, function(err, data) {
       if (err) {
           res.json(err);
       } else {
@@ -117,7 +117,7 @@ exports.venues = function(req, res) {
 
 exports.venuePage = function(req, res) {
   var title = req.params.venueTitle;
-  var venueInfo = _.find(venuesData, function (venue){
+  var venueInfo = _.find(venuesData, function(venue){
     return venue.title == title;
   });
   res.render('venuePage', {
@@ -137,7 +137,7 @@ exports.galleries = function(req, res) {
 
 exports.galleryPage = function(req, res) {
   var title = req.params.galleryTitle;
-  var galleryInfo = _.find(galleriesData, function (gallery){
+  var galleryInfo = _.find(galleriesData, function(gallery){
     return gallery.title == title;
   });
   res.render('galleryPage', {
@@ -157,7 +157,7 @@ exports.orgs = function(req, res) {
 
 exports.orgPage = function(req, res) {
   var title = req.params.orgTitle;
-  var orgInfo = _.find(orgsData, function (org){
+  var orgInfo = _.find(orgsData, function(org){
     return org.title == title;
   });
   res.render('orgPage', {
@@ -177,7 +177,7 @@ exports.search = function(req, res) {
 exports.event = function(req, res) {
   Event.findOne({
     _id: req.params.id
-  }, null, null, function (err, data) {
+  }, null, null, function(err, data) {
       if (err) {
           res.json(err);
       } else {

@@ -6,23 +6,31 @@ mongoose.connect('colab-sbx-03.oit.duke.edu', 'duarts');
 
 var emptySchema = mongoose.Schema({}, { strict: false });
 
-console.log('Getting Events Collection ... ');
 var Event = mongoose.model('Event', emptySchema);
+var Venue = mongoose.model('Venue', emptySchema);
+var Organization = mongoose.model('Organization', emptySchema);
+var Gallery = mongoose.model('Gallery', emptySchema);
+var Feature = mongoose.model('Feature', emptySchema);
 
-exports.artsQuery = {
-  'categories.category.value': {
-    $in: [
-      'Arts',
-      'Comedy',
-      'Concert/Music',
-      'Dance Performance',
-      'Exhibit',
-      'Festival/Fair',
-      'Movie/Film',
-      'Reading',
-      'Theater'
-    ]
+module.exports = {
+  Event: Event,
+  Venue: Venue,
+  Organization: Organization,
+  Gallery: Gallery,
+  Feature: Feature,
+  artsQuery: {
+    'categories.category.value': {
+      $in: [
+        'Arts',
+        'Comedy',
+        'Concert/Music',
+        'Dance Performance',
+        'Exhibit',
+        'Festival/Fair',
+        'Movie/Film',
+        'Reading',
+        'Theater'
+      ]
+    }
   }
 };
-
-exports.Event = Event;

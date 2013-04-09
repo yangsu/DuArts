@@ -1,131 +1,129 @@
 [{
-    "title": "Music",
-    "desc": "Whether it's the Jazz Ensemble, Wind Symphony or Symphony Orchestra sharing the stage with celebrated guest artists in Baldwin Auditorium, the Chorale singing Britten's War Requiem in Duke Chapel, or world-renowned composers and performers working one-on-one in master classes, music is a part of Duke.",
-    "img": "/img/orgs/music.jpg",
-    "link1": "http://music.duke.edu",
-    "link1d": "Duke Music",
-    "link2": "https://www.facebook.com/MusicAtDuke",
-    "link2d": "Facebook",
-    "link3": null,
-    "link3d": null
-},{
-    "title": "Art, Art History & Visual Studies",
-    "desc": "The Department of Art, Art History & Visual Studies, as its name implies, has three distinct parts: (1) the Visual Arts unit that is devoted to all aspects of the practice of the arts, (2) the History of Art unit, with its emphasis on the historical and theoretical study of art, and our most recent addition (3) Visual Studies, which enables students to study the increasing complexity of the visual age at the interface of the humanities, the social sciences, and the sciences. All members of the Department are actively engaged in teaching and research as well as scholarly or artistic production.",
-    "img": "/img/orgs/aahvs.jpg",
-    "link1": "http://aahvs.duke.edu/",
-    "link1d": "Art, Art History & Visual Studies",
-    "link2": null,
-    "link2d": null,
-    "link3": null,
-    "link3d": null
-},{
-    "title": "Master of Fine Arts in Experimental & Documentary Arts (MFAEDA)",
-    "desc": "The Master of Fine Arts in Experimental & Documentary Arts at Duke University brings together two forms of artistic activity - the documentary approach and experimental production in analog, digital, and computational media - in a unique program that will foster collaborations across disciplines and media as it trains sophisticated, creative art practitioners. Successful completion of the program requires the development of a complex understanding of documentary practices and traditions as well as creative skills in experimental media and new technologies.",
-    "img": "/img/orgs/mfaeda.jpg",
-    "link1": "http://mfaeda.duke.edu",
-    "link1d": "MFAEDA at Duke",
-    "link2": "http://mfaeda.org/",
-    "link2d": "MFAEDA Viewfinder Blog",
-    "link3": "http://www.flickr.com/photos/mfaeda/",
-    "link3d": "Flickr"
-},{
-    "title": "Vice Provost for the Arts",
-    "desc": "The Vice Provost for the Arts works to realize Duke's strategic plan initiatives in the arts.  These include developing and strengthening the arts at Duke; integrating them more fully into the academic, co-curricular, and extra-curricular life of the university; and promoting greater collaboration among arts organizations at Duke as well as with arts organizations in the community.  The Vice Provost for the Arts works closely with the Dean of Arts and Sciences and the Dean of Humanities.  The Vice Provost for the Arts is an ex officio member of Duke's Council for the Arts and works closely with that body.",
-    "img": "/img/orgs/viceprovost.jpg",
-    "link1": "http://www.provost.duke.edu/units/Arts.html",
-    "link1d": "Vice Provost for the Arts",
-    "link2": null,
-    "link2d": null,
-    "link3": null,
-    "link3d": null
-},{
-    "title": "Program in Arts of the Moving Image (AMI)",
-    "desc": "The mission of the Arts of the Moving Image Certificate Program is to foster a critical understanding of the history, theory and technologies of motion picture and new media arts, while giving students the opportunities, tools and resources they would need to develop a career within the media industries, pursue graduate study in the field or become a media artist.",
-    "img": "/img/orgs/ami.jpg",
-    "link1": "http://ami.duke.edu",
-    "link1d": "Program in Arts of the Moving Image (AMI)",
-    "link2": null,
-    "link2d": null,
-    "link3": null,
-    "link3d": null
-},{
-    "title": "Nasher Museum of Art",
-    "desc": "The Nasher Museum of Art at Duke University opened in 2005 with a building designed by Rafael Viñoly as the center for the visual arts on campus. The museum promotes engagement with the visual arts among a broad community including Duke students, faculty, and staff, the greater Durham community, the Triangle region, and the national and international art community. The museum presents an ambitious schedule of exhibitions that travel to major institutions around the world, and has a growing collection of international contemporary art. The Nasher Museum has received more than 80,000 visits from students since it opened. Also in that time, the museum's community education programs have served more than 32,000 K-12 students.",
-    "img": "/img/orgs/nasher.jpg",
-    "link1": "http://nasher.duke.edu",
-    "link1d": "Nasher Museum of Art",
-    "link2": null,
-    "link2d": null,
-    "link3": null,
-    "link3d": null
-},{
-    "title": "Center for Documentary Studies (CDS)",
-    "desc": "Created in 1989 through an endowment from the Lyndhurst Foundation, the Center for Documentary Studies (CDS) opened its doors as a support corporation of Duke University in January 1990, in a historic art deco office building in Durham, North Carolina. It was the first institution in the United States dedicated solely to the rich legacy and continuing practice of the documentary tradition in the American experience.",
-    "img": "/img/orgs/cds.jpg",
-    "link1": "http://documentarystudies.duke.edu/",
-    "link1d": "Center for Documentary Studies (CDS)",
-    "link2": "https://www.facebook.com/CDS.Duke",
-    "link2d": "Facebook",
-    "link3": null,
-    "link3d": null
-},{
-    "title": "Freewater Presentations",
-    "desc": "Freewater Presentations, a committee of the Duke University Union, provides students with a variety of film screenings every semester that are free for Duke students.",
-    "img": "/img/orgs/freewater.jpg",
-    "link1": "http://duuke.org/movies/",
-    "link1d": "Freewater Presentations",
-    "link2": "http://facebook.com/movies.at.duke",
-    "link2d": "Facebook",
-    "link3": "http://twitter.com/freewater",
-    "link3d": "Twitter"
-},{
-    "title": "Dance Program",
-    "desc": "Dance at Duke encourages the total union of our physical, intellectual, and expressive capabilities. The student dancer develops skills of perception, analysis and expression that benefit many fields of endeavor beyond the dance world. The Program in Dance provides a wide choice of classes for everyone from the highly trained dance technician to the absolute beginner. Beyond the three main areas of emphasis in ballet, modern, and African dance, other courses including jazz, swing dance, floor-barre, tap, Flamenco and classical Indian dance are offered on a rotating schedule. Extensive full credit courses include areas of study in history, choreography, kinesiology, world dance cultures and dance writing.",
-    "img": "/img/orgs/dance.jpg",
-    "link1": "http://danceprogram.duke.edu/",
-    "link1d": "Duke Dance Program",
-    "link2": "https://www.facebook.com/pages/Duke-University-Dance-Program/146520115361236",
-    "link2d": "Facebook",
-    "link3": null,
-    "link3d": null
-},{
-    "title": "Creative Writing (English Department)",
-    "desc": "The Duke English Department has long occupied a vital and distinctive place both in the discipline and in the university, where it has served as one of the defining spaces of thought, conversation, teaching, and inquiry.  We have played a crucial role in defining the history, present, and future of the practices of reading and interpretation and the paradigms of research, pedagogy, and critique common to and distributed across the humanities as a whole, and we are committed to continuing as a conversation-driving and paradigm-setting place within Duke.",
-    "img": "/img/orgs/english.jpg",
-    "link1": "http://english.duke.edu/",
-    "link1d": "Creative Writing (English Department)",
-    "link2": "https://www.facebook.com/DukeEnglishDepartment",
-    "link2d": "Facebook",
-    "link3": null,
-    "link3d": null
-},{
-    "title": "Theater Studies Department",
-    "desc": "The Department of Theater Studies combines cutting edge theater research with the creation and development of new works for the theater and offers new approaches to the study and interpretation of the riches of world drama.",
-    "img": "/img/orgs/theater.jpg",
-    "link1": "http://theaterstudies.duke.edu/",
-    "link1d": "Theater Studies Department",
-    "link2": "https://www.facebook.com/pages/Duke-Theater-Studies/137332400486",
-    "link2d": "Facebook",
-    "link3": null,
-    "link3d": null
-},{
-    "title": "duArts",
-    "desc": "duARTS aims to make the arts an integral part of the Duke undergraduate experience by promoting student arts events and media on campus and in Durham by fostering a creative, collaborative, diverse, and accessible community of students engaged in the arts.",
-    "img": "/img/orgs/duarts.jpg",
-    "link1": "http://duarts.org",
-    "link1d": "duArts",
-    "link2": null,
-    "link2d": null,
-    "link3": null,
-    "link3d": null
-},{
-    "title": "Duke Performances",
-    "desc": "Duke Performances is a Duke University & Durham, North Carolina based performing arts presenter. DP's robust slate of cross genre programming is willfully eclectic, handmade & always top-flight.",
-    "img": "/img/orgs/dukeperformances.jpg",
-    "link1": "http://dukeperformances.duke.edu/",
-    "link1d": "Duke Performances",
-    "link2": "https://www.facebook.com/dukeperformances",
-    "link2d": "Facebook",
-    "link3": null,
-    "link3d": null
+  "title": "Music",
+  "description": "Whether it's the Jazz Ensemble, Wind Symphony or Symphony Orchestra sharing the stage with celebrated guest artists in Baldwin Auditorium, the Chorale singing Britten's War Requiem in Duke Chapel, or world-renowned composers and performers working one-on-one in master classes, music is a part of Duke.",
+  "img": "/img/orgs/music.jpg",
+  "links": [{
+    "link": "http://music.duke.edu",
+    "description": "Duke Music"
+  }, {
+    "link": "https://www.facebook.com/MusicAtDuke",
+    "description": "Facebook"
+  }]
+}, {
+  "title": "Art, Art History & Visual Studies",
+  "description": "The Department of Art, Art History & Visual Studies, as its name implies, has three distinct parts: (1) the Visual Arts unit that is devoted to all aspects of the practice of the arts, (2) the History of Art unit, with its emphasis on the historical and theoretical study of art, and our most recent addition (3) Visual Studies, which enables students to study the increasing complexity of the visual age at the interface of the humanities, the social sciences, and the sciences. All members of the Department are actively engaged in teaching and research as well as scholarly or artistic production.",
+  "img": "/img/orgs/aahvs.jpg",
+  "links": [{
+    "link": "http://aahvs.duke.edu/",
+    "description": "Art, Art History & Visual Studies"
+  }]
+}, {
+  "title": "Master of Fine Arts in Experimental & Documentary Arts (MFAEDA)",
+  "description": "The Master of Fine Arts in Experimental & Documentary Arts at Duke University brings together two forms of artistic activity - the documentary approach and experimental production in analog, digital, and computational media - in a unique program that will foster collaborations across disciplines and media as it trains sophisticated, creative art practitioners. Successful completion of the program requires the development of a complex understanding of documentary practices and traditions as well as creative skills in experimental media and new technologies.",
+  "img": "/img/orgs/mfaeda.jpg",
+  "links": [{
+    "link": "http://mfaeda.duke.edu",
+    "description": "MFAEDA at Duke"
+  }, {
+    "link": "http://mfaeda.org/",
+    "description": "MFAEDA Viewfinder Blog"
+  }]
+}, {
+  "title": "Vice Provost for the Arts",
+  "description": "The Vice Provost for the Arts works to realize Duke's strategic plan initiatives in the arts.  These include developing and strengthening the arts at Duke; integrating them more fully into the academic, co-curricular, and extra-curricular life of the university; and promoting greater collaboration among arts organizations at Duke as well as with arts organizations in the community.  The Vice Provost for the Arts works closely with the Dean of Arts and Sciences and the Dean of Humanities.  The Vice Provost for the Arts is an ex officio member of Duke's Council for the Arts and works closely with that body.",
+  "img": "/img/orgs/viceprovost.jpg",
+  "links": [{
+    "link": "http://www.provost.duke.edu/units/Arts.html",
+    "description": "Vice Provost for the Arts"
+  }]
+}, {
+  "title": "Program in Arts of the Moving Image (AMI)",
+  "description": "The mission of the Arts of the Moving Image Certificate Program is to foster a critical understanding of the history, theory and technologies of motion picture and new media arts, while giving students the opportunities, tools and resources they would need to develop a career within the media industries, pursue graduate study in the field or become a media artist.",
+  "img": "/img/orgs/ami.jpg",
+  "links": [{
+    "link": "http://ami.duke.edu",
+    "description": "Program in Arts of the Moving Image (AMI)"
+  }]
+}, {
+  "title": "Nasher Museum of Art",
+  "description": "The Nasher Museum of Art at Duke University opened in 2005 with a building designed by Rafael Viñoly as the center for the visual arts on campus. The museum promotes engagement with the visual arts among a broad community including Duke students, faculty, and staff, the greater Durham community, the Triangle region, and the national and international art community. The museum presents an ambitious schedule of exhibitions that travel to major institutions around the world, and has a growing collection of international contemporary art. The Nasher Museum has received more than 80,000 visits from students since it opened. Also in that time, the museum's community education programs have served more than 32,000 K-12 students.",
+  "img": "/img/orgs/nasher.jpg",
+  "links": [{
+    "link": "http://nasher.duke.edu",
+    "description": "Nasher Museum of Art"
+  }]
+}, {
+  "title": "Center for Documentary Studies (CDS)",
+  "description": "Created in 1989 through an endowment from the Lyndhurst Foundation, the Center for Documentary Studies (CDS) opened its doors as a support corporation of Duke University in January 1990, in a historic art deco office building in Durham, North Carolina. It was the first institution in the United States dedicated solely to the rich legacy and continuing practice of the documentary tradition in the American experience.",
+  "img": "/img/orgs/cds.jpg",
+  "links": [{
+    "link": "http://documentarystudies.duke.edu/",
+    "description": "Center for Documentary Studies (CDS)"
+  }, {
+    "link": "https://www.facebook.com/CDS.Duke",
+    "description": "Facebook"
+  }]
+}, {
+  "title": "Freewater Presentations",
+  "description": "Freewater Presentations, a committee of the Duke University Union, provides students with a variety of film screenings every semester that are free for Duke students.",
+  "img": "/img/orgs/freewater.jpg",
+  "links": [{
+    "link": "http://duuke.org/movies/",
+    "description": "Freewater Presentations"
+  }, {
+    "link": "http://facebook.com/movies.at.duke",
+    "description": "Facebook"
+  }]
+}, {
+  "title": "Dance Program",
+  "description": "Dance at Duke encourages the total union of our physical, intellectual, and expressive capabilities. The student dancer develops skills of perception, analysis and expression that benefit many fields of endeavor beyond the dance world. The Program in Dance provides a wide choice of classes for everyone from the highly trained dance technician to the absolute beginner. Beyond the three main areas of emphasis in ballet, modern, and African dance, other courses including jazz, swing dance, floor-barre, tap, Flamenco and classical Indian dance are offered on a rotating schedule. Extensive full credit courses include areas of study in history, choreography, kinesiology, world dance cultures and dance writing.",
+  "img": "/img/orgs/dance.jpg",
+  "links": [{
+    "link": "http://danceprogram.duke.edu/",
+    "description": "Duke Dance Program"
+  }, {
+    "link": "https://www.facebook.com/pages/Duke-University-Dance-Program/146520115361236",
+    "description": "Facebook"
+  }]
+}, {
+  "title": "Creative Writing (English Department)",
+  "description": "The Duke English Department has long occupied a vital and distinctive place both in the discipline and in the university, where it has served as one of the defining spaces of thought, conversation, teaching, and inquiry.  We have played a crucial role in defining the history, present, and future of the practices of reading and interpretation and the paradigms of research, pedagogy, and critique common to and distributed across the humanities as a whole, and we are committed to continuing as a conversation-driving and paradigm-setting place within Duke.",
+  "img": "/img/orgs/english.jpg",
+  "links": [{
+    "link": "http://english.duke.edu/",
+    "description": "Creative Writing (English Department)"
+  }, {
+    "link": "https://www.facebook.com/DukeEnglishDepartment",
+    "description": "Facebook"
+  }]
+}, {
+  "title": "Theater Studies Department",
+  "description": "The Department of Theater Studies combines cutting edge theater research with the creation and development of new works for the theater and offers new approaches to the study and interpretation of the riches of world drama.",
+  "img": "/img/orgs/theater.jpg",
+  "links": [{
+    "link": "http://theaterstudies.duke.edu/",
+    "description": "Theater Studies Department"
+  }, {
+    "link": "https://www.facebook.com/pages/Duke-Theater-Studies/137332400486",
+    "description": "Facebook"
+  }]
+}, {
+  "title": "duArts",
+  "description": "duARTS aims to make the arts an integral part of the Duke undergraduate experience by promoting student arts events and media on campus and in Durham by fostering a creative, collaborative, diverse, and accessible community of students engaged in the arts.",
+  "img": "/img/orgs/duarts.jpg",
+  "links": [{
+    "link": "http://duarts.org",
+    "description": "duArts"
+  }]
+}, {
+  "title": "Duke Performances",
+  "description": "Duke Performances is a Duke University & Durham, North Carolina based performing arts presenter. DP's robust slate of cross genre programming is willfully eclectic, handmade & always top-flight.",
+  "img": "/img/orgs/dukeperformances.jpg",
+  "links": [{
+    "link": "http://dukeperformances.duke.edu/",
+    "description": "Duke Performances"
+  }, {
+    "link": "https://www.facebook.com/dukeperformances",
+    "description": "Facebook"
+  }]
 }]
