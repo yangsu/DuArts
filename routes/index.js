@@ -20,45 +20,42 @@ var wrapError = function(res, cb) {
   }
 };
 
-var features = JSON.parse(fs.readFileSync('data/features.json', 'ascii'));
-
-exports.features = function(req, res) {
-  res.render('features', {
-    title: 'Express',
-    page: 'features',
-    features: features
-  });
-};
-
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
 
 exports.index = function(req, res) {
-  var date = new Date;
-  var limit = new Date(Date.now() + 1000*60*60*24*7);
+  async.parallel({
+    events: function(cb) {
+      var date = new Date;
+      var limit = new Date(Date.now() + 1000*60*60*24*7);
 
-  var query = Event.find({
-    $and: [
-      db.artsQuery,
-      {
-        $or: [{
-          'start.date': { $gte: date }
-        }, {
-          'end.date': { $lte: limit }
-        }]
-      }
-    ]
-  }, null, {
-    limit: 150,
-    skip: 0
-  })
-  .sort({'start.utcdate': -1})
-  .exec(wrapError(res, function(data) {
+      Event.find({
+        $and: [
+          db.artsQuery,
+          {
+            $or: [{
+              'start.date': { $gte: date }
+            }, {
+              'end.date': { $lte: limit }
+            }]
+          }
+        ]
+      }, null, {
+        limit: 150,
+        skip: 0
+      })
+      .sort({'start.utcdate': -1})
+      .exec(cb);
+    },
+    features: function(cb) {
+      db.Feature.find({}).lean().exec(cb);
+    }
+  }, wrapError(res, function(data) {
     res.render('index', {
       path: 'events',
       title: 'Duke Arts',
       page: 'home',
-      data: util.divideDate(data),
-      features: features
+      data: util.divideDate(data.events),
+      features: data.features
     });
   }));
 };
@@ -159,13 +156,13 @@ exports.event = function(req, res) {
   Event.findOne({
     _id: req.params.id
   }, null, null, function(err, data) {
-      if (err) {
-          res.json(err);
-      } else {
-          res.render('eventPage', {
-            title: 'Duke Arts',
-            event: data
-          });
-      }
+    if (err) {
+      res.json(err);
+    } else {
+      res.render('eventPage', {
+        title: 'Duke Arts',
+        event: data
+      });
+    }
   });
 };
