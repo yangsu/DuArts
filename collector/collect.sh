@@ -1,5 +1,7 @@
 #! /bin/sh
 
+cd /home/bitnami/DuArts/collector
+
 # Params
 YEAR=$(date +'%Y')
 MONTH=${1:-$(date +'%m')}
@@ -27,4 +29,6 @@ echo $(date)
 node processAndDumpToDb.js $OUTPUT
 
 # Clean up
-# rm $OUTPUT
+rm $OUTPUT
+
+cd -
