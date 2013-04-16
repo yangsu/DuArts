@@ -1,6 +1,12 @@
 duarts.on('push', function(path) {
   if (path == '/calendar') {
-    var calendar = $('#calendar');
+    var input = $('#calendar').pickadate({
+      clear: false,
+      today: false,
+      onSelect: displayEventsForDate,
+      onStart: displayEventsForDate
+    });
+    var calendar = input.data('pickadate');
     var eventsContainer = $('#events');
 
     var dateToEvent;
@@ -14,20 +20,15 @@ duarts.on('push', function(path) {
         }
         return memo;
       }, {});
-      displayEventsForDate(new Date);
+      var d = new Date;
+      calendar.setDate(d.getFullYear(), d.getMonth() + 1, d.getDate());
+      displayEventsForDate();
     });
 
-    function toShortDate(date) {
-      var month = date.getMonth() + 1;
-      var day = date.getDate();
-      var year = date.getFullYear().toString().slice(-2);
-      return month + '/' + day + '/' + year;
-    }
-
-    function displayEventsForDate(date) {
+    function displayEventsForDate() {
       if (!dateToEvent) return;
+      var date = calendar.getDate('m/d/yy');
 
-      date = toShortDate(date);
       var events = dateToEvent[date];
       var content = duarts.template('calendarEventList')({
         date: date,
@@ -35,12 +36,5 @@ duarts.on('push', function(path) {
       });
       eventsContainer.html(content);
     }
-
-    $('#calendar').datepicker({
-      onSelect: function() {
-        var date = calendar.datepicker('getDate');
-        displayEventsForDate(date);
-      }
-    });
   }
 });
