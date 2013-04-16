@@ -34,6 +34,18 @@ window.addEventListener('push', duarts.triggerRoute);
 
 duarts.on('push', function(path) {
   if (path == '/') {
+    var index = 0;
+    var sliders = $('.slider ul');
+    var count = sliders.children().length;
+    var sliderWidth = sliders.find('li').get(0).offsetWidth;
+    setInterval(function() {
+      index = (index + 1) % count;
+      var offsetX = (-index) * sliderWidth;
+      sliders.css({
+        '-webkit-transition-duration': '.35s',
+        webkitTransform: 'translate3d(' + offsetX + 'px,0,0)'
+      });
+    }, 3000);
   }
 });
 
