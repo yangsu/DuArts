@@ -18,8 +18,12 @@ duarts.on('push', function(path) {
           memo[item.name] = item.value;
           return memo;
         }, {});
-        $.post(location.pathname, data, function(data) {
-        });
+        if (_.any(data, function(value, key) {
+          return value.length > 0;
+        })) {
+          $.post(location.pathname, data, function(data) {
+          });
+        }
       });
 
       _.each(deleteItems, function(id) {
