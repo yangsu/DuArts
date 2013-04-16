@@ -120,10 +120,15 @@ exports.search = function(req, res) {
 };
 
 exports.admin = function(req, res) {
+  res.render('admin', {
+    title: 'Duke Arts Admin'
+  });
+};
+exports.adminPage = function(req, res) {
   var resource = req.params.resource;
   if (db[resource]) {
     db[resource].find({}).lean().exec(util.wrapError(res, function(data) {
-      res.render('admin', {
+      res.render('adminpage', {
         title: 'Duke Arts Admin',
         resource: resource,
         data: data

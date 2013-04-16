@@ -9,10 +9,11 @@ block content
         - var active = event.feature == 'true' ? 'active' : ''
         a(href='event/#{event._id}', data-transition='slide-in', data-guid='#{event.guid}')
           span.eventlabel #{event.summary}
-          span.count= date
         if (event.image)
           div(class="toggle #{active}", data-id=event._id)
             .toggle-handle
+        else
+          span.count= date
 
 block scripts
   script(src='/javascripts/features.js')

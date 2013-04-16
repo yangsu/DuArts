@@ -32,7 +32,6 @@ app.get('/', routes.index);
 app.get('/404', routes.notfound);
 app.get('/calendar', routes.calendar);
 app.get('/aroundme', routes.aroundme);
-app.get('/features', routes.features);
 app.get('/events', api.events);
 app.get('/markers', routes.markers);
 app.get('/marker/:mid', routes.marker);
@@ -44,7 +43,9 @@ app.get('/galleries/:title', routes.galleryPage);
 app.get('/orgs', routes.orgs);
 app.get('/orgs/:title', routes.orgPage);
 app.get('/search', routes.search);
-app.get('/admin/:resource', routes.admin);
+app.get('/admin', routes.admin);
+app.get('/admin/features', routes.features);
+app.get('/admin/:resource', routes.adminPage);
 app.post('/admin/:resource', routes.adminSave);
 app.delete('/admin/:resource/:id', routes.adminDelete);
 
