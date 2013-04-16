@@ -1,7 +1,8 @@
 .slider
-	ul
-		each feature in features
-			li
-				img.full-img(src=feature.image)
-				h2
-					span= feature.summary
+  ul
+    each feature in features
+      li
+        img.full-img(src=feature.image)
+        h2
+          a(href='event/#{feature._id}', data-transition='slide-in')
+            span= feature.summary
