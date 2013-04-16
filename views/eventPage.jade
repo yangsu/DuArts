@@ -31,4 +31,6 @@ block content
         //googleLink = "https://www.google.com/calendar/render?action=TEMPLATE&dates=" + event.start.unformatted +  "/" + event.end.unformatted + "&sprop=website:www.calendar.duke.edu&text=" + event.summary + "&location=" + event.location.address + "&details=" + event.description + "&sf=true&output=xml"
         a.button-block(href=googleLink)= "Add to Google Calendar"
         br
+        calLink = "http://calendar.duke.edu/events/show/event.ics?fq=id%3A" + event.guid + "_" + event.recurrenceId
+        a.button-block(href=calLink)= "Add to Calendar ICS"
         br
