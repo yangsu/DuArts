@@ -125,7 +125,7 @@ exports.admin = function(req, res) {
     db[resource].find({}).lean().exec(util.wrapError(res, function(data) {
       res.render('admin', {
         title: 'Duke Arts Admin',
-        resource: resource.toLowerCase(),
+        resource: resource,
         data: data
       });
     }));
@@ -144,6 +144,21 @@ exports.adminSave = function(req, res) {
       $set: item
     }, {
       upsert: true
+    }, util.wrapError(res, function(data) {
+      res.json(data);
+    }));
+  } else {
+    res.send(400);
+  }
+};
+
+exports.adminDelete = function(req, res) {
+  var resource = req.params.resource;
+  var id = req.params.id;
+
+  if (db[resource]) {
+    db[resource].remove({
+      _id: id
     }, util.wrapError(res, function(data) {
       res.json(data);
     }));

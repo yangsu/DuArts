@@ -2,6 +2,7 @@ extends layout
 
 block content
   .admin
+    h1.title= resource
     .items
       each item in data
         form(data-id=item._id)
@@ -21,6 +22,7 @@ block content
                 label Location
                 input(type='text', name='location', value=item.location, placeholder='location id')
 
+          a.button.button-block.button-negative Delete
 
     a.button.button-block#add Add New
     a.button.button-block#save Save All

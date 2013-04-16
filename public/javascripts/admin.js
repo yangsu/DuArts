@@ -17,9 +17,15 @@ function tmpl(templateName) {
 }
 
 $(function() {
-
+  var deleteItems = [];
   $('#add').click(function() {
     $('.items').append(tmpl('adminItem'));
+  });
+  $('.button-negative').click(function(e) {
+    var $e = $(e.currentTarget).parent();
+    var id = $e.data('id').replace(/\W+/g, '');
+    deleteItems.push(id);
+    $e.hide('slow');
   });
   $('#save').click(function() {
     $('.items form').each(function(i, e) {
@@ -29,12 +35,18 @@ $(function() {
         memo[item.name] = item.value;
         return memo;
       }, {});
-      // if ($e.data('id')) {
-      //   data._id = $e.data('id');
-      // }
       $.post(location.pathname, data, function(data) {
       });
     });
 
+    _.each(deleteItems, function(id) {
+      $.ajax({
+        type: 'DELETE',
+        url: location.pathname + '/' + id,
+        success: function(d) {
+        }
+      });
+    });
+    deleteItems = [];
   });
 });

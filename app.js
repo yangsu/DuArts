@@ -46,6 +46,7 @@ app.get('/orgs/:title', routes.orgPage);
 app.get('/search', routes.search);
 app.get('/admin/:resource', routes.admin);
 app.post('/admin/:resource', routes.adminSave);
+app.delete('/admin/:resource/:id', routes.adminDelete);
 
 app.get('/events.json', api.events);
 app.get('/events.json/:skip', api.events);
