@@ -9,47 +9,31 @@ var async = require('async');
 var db = require('../db');
 var Event = db.Event;
 var util = require('../util');
-
-var wrapError = function(res, cb) {
-  return function(err, data) {
-    if (err) {
-      res.json(err);
-    } else {
-      cb(data);
-    }
-  }
-};
+var api = require('./api');
 
 var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
+
+function extractFeatures(data) {
+  return data;
+}
 
 exports.index = function(req, res) {
   async.parallel({
     events: function(cb) {
-      var date = new Date;
-      var limit = new Date(Date.now() + 1000*60*60*24*7);
-
-      Event.find({
-        $and: [
-          db.artsQuery,
-          {
-            $or: [{
-              'start.date': { $gte: date }
-            }, {
-              'end.date': { $lte: limit }
-            }]
-          }
-        ]
-      }, null, {
-        limit: 150,
-        skip: 0
-      })
-      .sort({'start.utcdate': -1})
-      .exec(cb);
+      api.eventsApi({
+        options: util.parseOptions(req.params),
+        callback: cb
+      });
     },
     features: function(cb) {
-      db.Feature.find({}).lean().exec(cb);
+      api.eventsApi({
+        query: { feature: 'true' },
+        filter: { summary: 1, image: 1 },
+        options: util.parseOptions(req.params),
+        callback: cb
+      });
     }
-  }, wrapError(res, function(data) {
+  }, util.wrapError(res, function(data) {
     res.render('index', {
       path: 'events',
       title: 'Duke Arts',
@@ -60,12 +44,17 @@ exports.index = function(req, res) {
   }));
 };
 
-exports.marker = function(req, res) {
-  res.json(markers[req.params.mid]);
-};
-
-exports.markers = function(req, res) {
-  res.json(markers);
+exports.features = function(req, res) {
+  api.eventsApi({
+    options: util.parseOptions(req.params),
+    callback: util.wrapError(res, function(events) {
+      res.render('adminfeatures', {
+        title: 'Duke Arts',
+        page: 'features',
+        events: events
+      });
+    })
+  });
 };
 
 exports.notfound = function(req, res) {
@@ -91,7 +80,7 @@ function listEndpoint(model, path, template) {
     db[model].find({})
     .sort('title')
     .lean()
-    .exec(wrapError(res, function(data) {
+    .exec(util.wrapError(res, function(data) {
       res.render(template, {
         path: path,
         title: 'Duke Arts',
@@ -107,7 +96,7 @@ function itemEndpoint(model, path, template) {
     })
     .sort('title')
     .lean()
-    .exec(wrapError(res, function(data) {
+    .exec(util.wrapError(res, function(data) {
       res.render(template, {
         path: path,
         title: 'Duke Arts',
@@ -133,7 +122,7 @@ exports.search = function(req, res) {
 exports.admin = function(req, res) {
   var resource = req.params.resource;
   if (db[resource]) {
-    db[resource].find({}).lean().exec(wrapError(res, function(data) {
+    db[resource].find({}).lean().exec(util.wrapError(res, function(data) {
       res.render('admin', {
         title: 'Duke Arts Admin',
         resource: resource.toLowerCase(),
@@ -155,7 +144,7 @@ exports.adminSave = function(req, res) {
       $set: item
     }, {
       upsert: true
-    }, wrapError(res, function(data) {
+    }, util.wrapError(res, function(data) {
       res.json(data);
     }));
   } else {

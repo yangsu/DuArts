@@ -5,43 +5,49 @@ var Event = db.Event;
 
 var util = require('../util');
 
-var chunkSize = 100;
+function eventsApi(options) {
+  var current = util.timeInEDT();
+  var nextWeek = util.timeNextWeek();
 
-exports.events = function(req, res) {
-  var skip = req.params.skip || 0;
-  var date = new Date;
-  var limit = new Date(Date.now() + 1000*60*60*24*7);
-
-  var query = Event.find({
+  var query = _.extend(options.query || {}, {
     $and: [
       db.artsQuery,
-      { 'start.date': { $gte: date } },
-      { 'end.date': { $lte: limit } }
+      { 'start.date': { $gte: current } },
+      { 'end.date': { $lte: nextWeek } }
     ]
-  }, null, {
-    limit: chunkSize,
-    skip: skip
-  })
-  .sort({'start.utcdate': 1})
-  .execFind(function(err, data) {
-        if (err) {
-          res.json(err);
-        } else {
-          res.json(data);
-        }
-      });
+  });
+  var filter = options.filter || {};
+  var opts = _.extend(options.options || {}, {
+    lean: true
+  });
+
+  Event.find(query, filter, opts)
+    .sort({'start.utcdate': 1})
+    .execFind(options.callback);
+}
+
+exports.eventsApi = eventsApi;
+exports.events = function(req, res) {
+  eventsApi({
+    options: util.parseOptions(req.params),
+    callback: util.returnData(res)
+  });
 };
 
 exports.eventlocation = function(req, res) {
-    var id = req.params.id;
+  var id = req.params.id;
 
-    var query = Event.findOne({
-        _id: id
-    }, 'location', null, function(err, data) {
-        if (err) {
-            res.json(err);
-        } else {
-            res.json(data);
-        }
-    });
+  var query = Event.findOne({
+    _id: id
+  }, 'location', null, util.returnData(res));
+};
+
+exports.postEvent = function(req, res) {
+  var id = req.params.id;
+
+  Event.update({
+    _id: id
+  }, { $set: req.body }, {}, util.wrapError(res, function(data) {
+    res.json(data);
+  }));
 };

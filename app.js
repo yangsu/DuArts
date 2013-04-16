@@ -32,6 +32,7 @@ app.get('/', routes.index);
 app.get('/404', routes.notfound);
 app.get('/calendar', routes.calendar);
 app.get('/aroundme', routes.aroundme);
+app.get('/features', routes.features);
 app.get('/events', api.events);
 app.get('/markers', routes.markers);
 app.get('/marker/:mid', routes.marker);
@@ -49,6 +50,7 @@ app.post('/admin/:resource', routes.adminSave);
 app.get('/events.json', api.events);
 app.get('/events.json/:skip', api.events);
 app.get('/event/:id', routes.event);
+app.post('/event/:id', api.postEvent);
 app.get('/eventlocation/:id', api.eventlocation);
 
 http.createServer(app).listen(app.get('port'), function() {

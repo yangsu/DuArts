@@ -1,13 +1,7 @@
 .slider
 	ul
-		//li
-		//	img.full-img(src='/img/feature-music.jpg')
-		//	h2
-		//		span Feature Caption
-		//li
-		//	img.full-img(src='/img/feature-dance.jpg')
 		each feature in features
 			li
-				img.full-img(src=feature.img)
+				img.full-img(src=feature.image)
 				h2
-					span= feature.caption
+					span= feature.summary

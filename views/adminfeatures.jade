@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  ul.inset.list
+    li.list-divider Features
+    each event in events
+      li
+        - var date = event.start.shortdate
+        - var active = event.feature == 'true' ? 'active' : ''
+        a(href='event/#{event._id}', data-transition='slide-in', data-guid='#{event.guid}')
+          span.eventlabel #{event.summary}
+          span.count= date
+        if (event.image)
+          div(class="toggle #{active}", data-id=event._id)
+            .toggle-handle
+
+block scripts
+  script(src='/javascripts/features.js')

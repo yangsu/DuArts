@@ -1,24 +1,20 @@
 ul.segmented-controller
-    - var count = 0
-    each eventlist in data
-        - var c = count === 0 ? 'active' : ''
-        - var link = eventlist.header.toLowerCase().replace(/\s+/g, '-')
-        - count++;
-        li(class='list-divider #{c}')
-            a(href='##{link}')= eventlist.header
+  each eventlist, i in data
+    - var c = i === 0 ? 'active' : ''
+    - var link = eventlist.header.toLowerCase().replace(/\s+/g, '-')
+    li(class='list-divider #{c}')
+      a(href='##{link}')= eventlist.header
 
 ul.inset.list
-    - count = 0
-    each eventlist in data
-        - var c = count === 0 ? 'active' : ''
-        - var link = eventlist.header.toLowerCase().replace(/\s+/g, '-')
-        - count++;
-        li(id='#{link}', class='segmented-controller-item #{c}')
-            ul.list
-                each event in eventlist.events
-                    li
-                        - var date = (eventlist.header == 'Today') ? event.start.time : event.start.shortdate;
-                        a(href='event/#{event._id}', data-transition='slide-in', data-guid='#{event.guid}')
-                            span.eventlabel #{event.summary}
-                            span.chevron
-                            span.count= date
+  each eventlist, i in data
+    - var c = i === 0 ? 'active' : ''
+    - var link = eventlist.header.toLowerCase().replace(/\s+/g, '-')
+    li(id='#{link}', class='segmented-controller-item #{c}')
+      ul.list
+        each event in eventlist.events
+          li
+            - var date = (eventlist.header == 'Today') ? event.start.time : event.start.shortdate;
+            a(href='event/#{event._id}', data-transition='slide-in', data-guid='#{event.guid}')
+              span.eventlabel #{event.summary}
+              span.chevron
+              span.count= date

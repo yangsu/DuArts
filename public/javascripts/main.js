@@ -5,7 +5,6 @@ window.duarts = {
   Views: {},
   Routers: {},
   init: function() {
-    console.log('Hello from Backbone!');
   },
   triggerRoute: function() {
     var path = window.location.pathname;
