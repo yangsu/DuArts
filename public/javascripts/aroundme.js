@@ -32,7 +32,7 @@ duarts.on('push', function(path) {
       }
     });
 
-    $.getJSON('/events', function(events) {
+    $.getJSON('/events.json', function(events) {
       var es = _.chain(events)
         .map(function(event) {
           return {

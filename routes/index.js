@@ -21,7 +21,7 @@ exports.index = function(req, res) {
   async.parallel({
     events: function(cb) {
       api.eventsApi({
-        options: util.parseOptions(req.params),
+        options: util.parseOptions(req.query),
         callback: cb
       });
     },
@@ -29,7 +29,7 @@ exports.index = function(req, res) {
       api.eventsApi({
         query: { feature: 'true' },
         filter: { summary: 1, image: 1 },
-        options: util.parseOptions(req.params),
+        options: util.parseOptions(req.query),
         callback: cb
       });
     }
@@ -46,7 +46,7 @@ exports.index = function(req, res) {
 
 exports.features = function(req, res) {
   api.eventsApi({
-    options: util.parseOptions(req.params),
+    options: util.parseOptions(req.query),
     callback: util.wrapError(res, function(events) {
       res.render('adminfeatures', {
         title: 'Duke Arts',

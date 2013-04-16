@@ -10,7 +10,7 @@ duarts.on('push', function(path) {
     var eventsContainer = $('#events');
 
     var dateToEvent;
-    $.getJSON('/events', function(events) {
+    $.getJSON('/events.json?all=true&limit=250', function(events) {
       dateToEvent = _.reduce(events, function(memo, event) {
         var date = event.start.shortdate;
         if (memo[date]) {

@@ -9,13 +9,14 @@ function eventsApi(options) {
   var current = util.timeInEDT();
   var nextWeek = util.timeNextWeek();
 
-  var query = _.extend(options.query || {}, {
-    $and: [
-      db.artsQuery,
-      { 'start.date': { $gte: current } },
-      { 'end.date': { $lte: nextWeek } }
-    ]
+  var query = _.extend(options.query || {}, db.artsQuery, {
+    'start.date': { $gte: current }
   });
+  if (!options.options.all) {
+    _.extend(query, {
+      'end.date': { $lte: nextWeek }
+    });
+  }
   var filter = options.filter || {};
   var opts = _.extend(options.options || {}, {
     lean: true
@@ -29,7 +30,7 @@ function eventsApi(options) {
 exports.eventsApi = eventsApi;
 exports.events = function(req, res) {
   eventsApi({
-    options: util.parseOptions(req.params),
+    options: util.parseOptions(req.query),
     callback: util.returnData(res)
   });
 };
