@@ -94,7 +94,6 @@ function itemEndpoint(model, path, template) {
     db[model].findOne({
       _id: req.params.id
     })
-    .sort('title')
     .lean()
     .exec(util.wrapError(res, function(data) {
       res.render(template, {
@@ -106,10 +105,30 @@ function itemEndpoint(model, path, template) {
   };
 }
 
+function itemLocationEndpoint(model, path, template) {
+  return function(req, res) {
+    db[model].findOne({
+      _id: req.params.id
+    })
+    .lean()
+    .exec(util.wrapError(res, function(item) {
+      db.Marker.findOne({
+        mrkId: item.location
+      })
+      .lean()
+      .exec(util.wrapError(res, function(location) {
+        res.json(location);
+      }));
+    }));
+  };
+}
+
 exports.venues = listEndpoint('Venue', 'venues', 'list');
 exports.venuePage = itemEndpoint('Venue', 'venues', 'item');
+exports.venueLocation = itemLocationEndpoint('Venue', 'venues', 'item');
 exports.galleries = listEndpoint('Gallery', 'galleries', 'list');
 exports.galleryPage = itemEndpoint('Gallery', 'galleries', 'item');
+exports.galleryLocation = itemLocationEndpoint('Gallery', 'galleries', 'item');
 exports.orgs = listEndpoint('Organization', 'orgs', 'list');
 exports.orgPage = itemEndpoint('Organization', 'orgs', 'item');
 

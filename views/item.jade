@@ -7,9 +7,9 @@ block content
         br
         p= data.description
         br
+        #map(style="height: 200px")
+        br
 
         if data.links
             each link in data.links
                 a.button-block(href=link.link)= link.description
-        br
-        br

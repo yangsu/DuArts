@@ -32,13 +32,13 @@ app.get('/', routes.index);
 app.get('/404', routes.notfound);
 app.get('/calendar', routes.calendar);
 app.get('/aroundme', routes.aroundme);
-app.get('/markers', routes.markers);
-app.get('/marker/:mid', routes.marker);
 app.get('/calendar', routes.calendar);
 app.get('/venues', routes.venues);
 app.get('/venues/:id', routes.venuePage);
+app.get('/venues/:id/location', routes.venueLocation);
 app.get('/galleries', routes.galleries);
 app.get('/galleries/:id', routes.galleryPage);
+app.get('/galleries/:id/location', routes.galleryLocation);
 app.get('/orgs', routes.orgs);
 app.get('/orgs/:id', routes.orgPage);
 app.get('/search', routes.search);
@@ -52,7 +52,7 @@ app.get('/events.json', api.events);
 app.get('/events.json/:skip', api.events);
 app.get('/event/:id', routes.event);
 app.post('/event/:id', api.postEvent);
-app.get('/eventlocation/:id', api.eventlocation);
+app.get('/event/:id/location', api.eventlocation);
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
