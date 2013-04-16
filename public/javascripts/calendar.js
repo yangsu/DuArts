@@ -1,27 +1,23 @@
 duarts.on('push', function(path) {
   var transformed;
-  var dformat;
   if (path == '/calendar') {
     $('#calendar').datepicker({
-
        onSelect: function(){
-       var dateclick = $('#calendar').datepicker("getDate");
-      // alert(dateclick);
-      // console.log(dateclick);
-       var month = dateclick.getMonth()+1;
-       var day = dateclick.getDay();
-       var year = dateclick.getFullYear();
-       dformat = month + "/" + day + "/" + year;
-     //  console.log(dformat);
+         var dateclick = $('#calendar').datepicker("getDate");
+         alert(dateclick);
+        // console.log(dateclick);
        }
+       beforeShowDay: function(date){
+          var date = $('#calendar').datepicker("getDate");
+          var month = date.getMonth()+1;
+          var day = date.getDay();
+          var year = date.getFullYear();
+          var d = month + "/" + day + "/" + "year";
+          showEvent(d);
+      }
     });
   }
 
-/*  $('#calendar').bind('onSelect', function() {
-     var dateclick = $('#calendar').datepicker("getDate");
-     alert(dateclick);
-  });
-*/
   $.getJSON('/events', function(events) {
      transformed = _.map(events, function (event) {
       return {
@@ -45,17 +41,12 @@ duarts.on('push', function(path) {
       };
     });
 
-  /*Object.keys(transformed).forEach(function(key){
-    console.log(key, transformed[key]);
-  });
-*/
-
-$('#calendar').datepicker({
+/*$('#calendar').datepicker({
   beforeShowDay: function(date) {
-     showEvent(date);
+     showEvent;
      return [true, 'eventSelect', 'tooltip text'];
   }
-})
+});*/
 
 function showEvent(date) {
   var eventname;
@@ -78,14 +69,10 @@ function showEvent(date) {
 
             var obj3 = obj2[prop2];
             for (var prop3 in obj3) {
-              var date = $('#calendar').datepicker("getDate");
-              var month = date.getMonth()+1;
-              var day = date.getDay();
-              var year = date.getFullYear();
-              d = month + "/" + day + "/" + "year";
-              if(obj3[prop3]==="d") {
+              if(obj3[prop3]===date) {
                 //console.log("print the matched date!");
-                return eventname;
+                //alert("name of event = " + eventname);
+                return [true, 'eventSelect', eventname];
               }
             }
 
@@ -98,6 +85,5 @@ function showEvent(date) {
   return;
  }
 
-
-  });
+});
 });
