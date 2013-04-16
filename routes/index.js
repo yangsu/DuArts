@@ -92,7 +92,7 @@ function listEndpoint(model, path, template) {
 function itemEndpoint(model, path, template) {
   return function(req, res) {
     db[model].findOne({
-      title: req.params.title
+      _id: req.params.id
     })
     .sort('title')
     .lean()
