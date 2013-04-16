@@ -44,8 +44,11 @@ html.no-js
     body
         header.bar-title
             img#logo(src='/img/duke_arts_logo.png')
-        header.nav
-            nav.bar-tab
+        .content
+            .content-padded
+                block content
+        //header.nav
+        nav.bar-tab
                 ul.tab-inner
                     - var path = arguments[0].path || 'events'
                     - var eventsActive = (path == 'events') ? 'active' : ''
@@ -78,11 +81,6 @@ html.no-js
                         a(href='/calendar')
                             img.tab-icon(src='/img/icon-cal.png')
                             .tab-label Calendar
-
-        .content
-            .content-padded
-                block content
-
         //if lt IE 7
             p.chromeframe
                 | You are using an outdated browser.
