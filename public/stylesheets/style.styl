@@ -33,19 +33,6 @@ a
   margin-right: 10px
 .content-padded
   padding: 0
-.slider
-  height: 100%
-.slider h2
-  position: absolute
-  left: 10px
-  bottom: 17%
-.slider h2 span
-  color: white
-  font: bold 24px/45px Helvetica, Sans-Serif
-  letter-spacing: -1px
-  background: rgb(0, 0, 0) /* fallback color */
-  background: rgba(0, 0, 0, 0.7)
-  padding: 10px
 
 .slider
   li
@@ -76,9 +63,25 @@ a
   margin: 0 10px
   border-radius: 3px
 
-/* Individual slide */
-.slider > ul > li
-  position: relative
+.slider
+  height: 100%
+  & > ul > li
+    position: relative
+  h2
+    position: absolute
+    left: 10px
+    bottom: 10px
+    width: 100%
+    span
+      color: white
+      font: bold 24px/45px Helvetica, Sans-Serif
+      letter-spacing: -1px
+      background: rgb(0, 0, 0) /* fallback color */
+      background: rgba(0, 0, 0, 0.7)
+      padding: 10px
+      max-width: 90%
+      white-space: normal
+      display: inline-block
 
 @import 'maps'
 @import 'classes'
