@@ -1,25 +1,9 @@
-var templates = {};
 
-function tmpl(templateName) {
-  var path = '/javascripts/templates/' + templateName + '.html';
-
-  return (function(context) {
-    if (!templates[path]) {
-      $.ajax({
-        url: path,
-        async: false
-      }).then(function(contents) {
-        return templates[path] = _.template(contents);
-      });
-    }
-    return templates[path](context);
-  });
-}
 
 $(function() {
   var deleteItems = [];
   $('#add').click(function() {
-    $('.items').append(tmpl('adminItem'));
+    $('.items').append(duarts.template('adminItem'));
   });
   $('.button-negative').click(function(e) {
     var $e = $(e.currentTarget).parent();

@@ -1,0 +1,16 @@
+<ul class="list inset">
+    <li class="list-divider"><%= date %></li>
+    <% if (events && events.length) {%>
+        <% _.each(events, function (event) { %>
+        <li>
+            <a href="event/<%= event._id %>" data-transition="slide-in">
+                <span class="eventlabel"><%= event.summary %></span>
+                <span class="count"><%= event.start.time %></span>
+                <span class="chevron"></span>
+            </a>
+        </li>
+        <% }); %>
+    <% } else { %>
+        <li>No Events Listed</li>
+    <% } %>
+</ul>

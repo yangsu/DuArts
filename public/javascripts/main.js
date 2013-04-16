@@ -4,11 +4,27 @@ window.duarts = {
   Collections: {},
   Views: {},
   Routers: {},
+  Templates: {},
   init: function() {
   },
   triggerRoute: function() {
     var path = window.location.pathname;
     duarts.trigger('push', path);
+  },
+  template: function(templateName) {
+    var path = '/javascripts/templates/' + templateName + '.html';
+
+    return (function(context) {
+      if (!duarts.Templates[path]) {
+        $.ajax({
+          url: path,
+          async: false
+        }).then(function(contents) {
+          return duarts.Templates[path] = _.template(contents);
+        });
+      }
+      return duarts.Templates[path](context);
+    });
   }
 };
 
