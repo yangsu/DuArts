@@ -21,7 +21,8 @@ duarts.on('push', function(path) {
         if (_.any(data, function(value, key) {
           return value.length > 0;
         })) {
-          $.post(location.pathname, data, function(data) {
+          var id = $e.data('id').replace(/\W+/g, '');
+          $.post(location.pathname + '/' + id, data, function(data) {
           });
         }
       });

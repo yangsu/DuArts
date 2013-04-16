@@ -141,10 +141,11 @@ exports.adminPage = function(req, res) {
 
 exports.adminSave = function(req, res) {
   var item = req.body;
+  var id = req.params.id;
   var resource = req.params.resource;
   if (db[resource]) {
     db[resource].update({
-      title: item.title
+      _id: id
     }, {
       $set: item
     }, {
