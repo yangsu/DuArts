@@ -19,9 +19,9 @@ block content
         .event-header-right
             h3= event.start.time
 
-
+        br
         p= event.description
-
+        br
         if event.location
             - var loc = (event.location && event.location.coordinate) || {}
             #map(style="height: 200px")
