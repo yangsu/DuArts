@@ -26,3 +26,8 @@ block content
             - var loc = (event.location && event.location.coordinate) || {}
             #map(style="height: 200px")
             script(async, defer)
+        br
+        googleLink = "https://www.google.com/calendar/render?action=TEMPLATE&dates=" + event.start.unformatted +  "/" + event.end.unformatted + "&sprop=website:www.calendar.duke.edu&text=" + event.summary + "&location=" + event.location.address + "&details=" + event.description + "&sf=true&output=xml"
+        a.button-block(href=googleLink)= "Add to Google Calendar"
+        br
+        br
