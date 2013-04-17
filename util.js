@@ -97,5 +97,20 @@ exports.divideDate = function(data) {
           events: events
         };
       })
-    .value();
+      .sortBy(function(eventlist) {
+        var returnval = 0;
+        switch (eventlist.header) {
+          case 'Today':
+            returnval = -1;
+            break;
+          case 'This Week':
+            returnval = 0;
+            break;
+          case 'Ongoing':
+            returnval = 1;
+            break;
+        }
+        return returnval;
+      })
+      .value();
 };

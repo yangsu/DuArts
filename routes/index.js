@@ -14,6 +14,11 @@ exports.index = function(req, res) {
         callback: cb
       });
     },
+    ongoing: function(cb) {
+      Event.find({
+        'categories.category.value': 'Ongoing'
+      }, {}, { lean: true }, cb);
+    },
     features: function(cb) {
       api.eventsApi({
         query: { feature: 'true' },
@@ -23,11 +28,12 @@ exports.index = function(req, res) {
       });
     }
   }, util.wrapError(res, function(data) {
+    console.log(data.ongoing.length);
     res.render('index', {
       path: 'events',
       title: 'Duke Arts',
       page: 'home',
-      data: util.divideDate(data.events),
+      data: util.divideDate(data.events.concat(data.ongoing)),
       features: data.features
     });
   }));
