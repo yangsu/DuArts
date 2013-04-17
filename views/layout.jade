@@ -43,11 +43,38 @@ html.no-js
 
     body
         header.bar-title
-            img#logo(src='/img/duke_arts_logo.png')
+            a(href='#infoPanel')
+                img#logo(src='/img/duke_arts_logo.png')
         .content
             .content-padded
                 block content
-        //header.nav
+
+        #infoPanel.popover
+            header.popover-header
+                h3.title Duke Arts Mobile
+            ul.list
+                li.list-divider About
+                li
+                  | Duke Arts is a project created by students in Professor
+                  | Szabo's ISIS 495S class during Spring 2013
+                li.list-divider Members
+                li Aaron Rales
+                li Amrita Dixit
+                li Angie Yu
+                li Ann Niou
+                li Austin Benesh
+                li Jacqueline Sun
+                li Jonathan Zhang
+                li Karen He
+                li Kate Scholick
+                li Lex Butler
+                li Ross Tucker
+                li Wynne Lok
+                li Yang Su
+
+            a.button-block.button-main(href='http://arts.duke.edu/') Duke Arts Website
+            a.button-block.button-positive(href='mailto:suyang1@gmail.com') Contact Us
+
         nav.bar-tab
                 ul.tab-inner
                     - var path = arguments[0].path || 'events'
