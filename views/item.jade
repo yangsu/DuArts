@@ -1,15 +1,15 @@
 extends layout
 
 block content
-    img.full-img(src=data.img)
-    #detail
-        h2= data.title
-        br
-        p= data.description
-        br
-        #map(style="height: 200px")
-        br
+  img.full-img(src=data.img)
+  #detail
+    h2= data.title
+    br
+    p= data.description
+    br
+    #map(style="height: 200px")
+    br
 
-        if data.links
-            each link in data.links
-                a.button-block(href=link.link)= link.description
+    if data.links
+      each link in data.links
+        a.button-block(href=link.link)= link.description

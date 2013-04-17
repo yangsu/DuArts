@@ -1,22 +1,22 @@
 extends layout
 
 block content
-    .slider
-      ul
-        each item in data
-          li
-            img.full-img(src=item.img)
-            h2
-              a(href='#{path}/#{item._id}', data-transition='slide-in')
-                span= item.title
+  .slider
+    ul
+      each item in data
+        li
+          img.full-img(src=item.img)
+          h2
+            a(href='#{path}/#{item._id}', data-transition='slide-in')
+              span= item.title
 
-    br
+  br
 
-    ul.list.inset
-      li.list-divider= path.toUpperCase().slice(0, 1) + path.slice(1)
-        each item in data
-            li
-                a(href='#{path}/#{item._id}', data-transition='slide-in')
-                    | #{item.title}
-                span.chevron
-    br
+  ul.list.inset
+    li.list-divider= path.toUpperCase().slice(0, 1) + path.slice(1)
+      each item in data
+        li
+          a(href='#{path}/#{item._id}', data-transition='slide-in')
+            | #{item.title}
+          span.chevron
+  br

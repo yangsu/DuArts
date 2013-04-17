@@ -1,8 +1,3 @@
-
-/*
- * GET home page.
- */
-
 var fs = require('fs');
 var _ = require('underscore');
 var async = require('async');
@@ -11,11 +6,6 @@ var Event = db.Event;
 var util = require('../util');
 var api = require('./api');
 
-var markers = JSON.parse(fs.readFileSync('data/markersloc.json', 'ascii'));
-
-function extractFeatures(data) {
-  return data;
-}
 
 exports.index = function(req, res) {
   async.parallel({

@@ -1,16 +1,16 @@
 extends layout
 
 block content
-    .slider
-      ul
-        each feature in features
-          li
-            img.full-img(src=feature.image)
-            h2
-              a(href='event/#{feature._id}', data-transition='slide-in')
-                span= feature.summary
+  .slider
+    ul
+      each feature in features
+        li
+          img.full-img(src=feature.image)
+          h2
+            a(href='event/#{feature._id}', data-transition='slide-in')
+              span= feature.summary
 
 
-    br
+  br
 
-    include eventlists
+  include eventlists

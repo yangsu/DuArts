@@ -2,35 +2,34 @@ extends layout
 
 
 block content
-    .eventpage
-        - var event = event.toObject();
-        .head-img
-            .event-date
-                .month= event.start.monthname
-                .date= event.start.day
-            - var img = event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text
-            if img
-                #image
-                    img.featured-img(src='#{img}')
+  .eventpage
+    - var event = event.toObject();
+    .head-img
+      .event-date
+        .month= event.start.monthname
+        .date= event.start.day
+      - var img = event.xproperties && event.xproperties.X_BEDEWORK_IMAGE && event.xproperties.X_BEDEWORK_IMAGE.values && event.xproperties.X_BEDEWORK_IMAGE.values.text
+      if img
+        #image
+          img.featured-img(src='#{img}')
 
-        .event-header-left
-            h2= event.summary
-            h3= event.location.address
-        .event-header-right
-            h3= event.start.time
+    .event-header-left
+      h2= event.summary
+      h3= event.location.address
+    .event-header-right
+      h3= event.start.time
 
-        br
-        p= event.description
-        br
-        if event.location
-            - var loc = (event.location && event.location.coordinate) || {}
-            #map(style="height: 200px")
-            script(async, defer)
-        br
-        googleLink = "https://www.google.com/calendar/render?action=TEMPLATE&dates=" + event.start.unformatted +  "/" + event.end.unformatted + "&sprop=website:www.calendar.duke.edu&text=" + event.summary + "&location=" + event.location.address + "&sf=true&output=xml"
-        //googleLink = "https://www.google.com/calendar/render?action=TEMPLATE&dates=" + event.start.unformatted +  "/" + event.end.unformatted + "&sprop=website:www.calendar.duke.edu&text=" + event.summary + "&location=" + event.location.address + "&details=" + event.description + "&sf=true&output=xml"
-        a.button-block(href=googleLink)= "Add to Google Calendar"
-        br
-        //calLink = "http://calendar.duke.edu/events/show/event.ics?fq=id%3A" + event.guid + "_" + event.recurrenceId + "&mobile=mobile_bypass"
-        //a.button-block(href=calLink)= "Add to Calendar ICS"
-        br
+    br
+    p= event.description
+    br
+    if event.location
+      - var loc = (event.location && event.location.coordinate) || {}
+      #map(style='height: 200px')
+      script(async, defer)
+    br
+    - var googleLink = 'https://www.google.com/calendar/render?action=TEMPLATE&dates=' + event.start.unformatted +  '/' + event.end.unformatted + '&sprop=website:www.calendar.duke.edu&text=' + event.summary + '&location=' + event.location.address + '&sf=true&output=xml'
+    a.button-block(href=googleLink) Add to Google Calendar
+    br
+    - var calLink = 'http://calendar.duke.edu/events/show/event.ics?fq=id%3A' + event.guid + '_' + event.recurrenceId + '&mobile=mobile_bypass'
+    a.button-block(href=calLink) Add to Calendar ICS
+    br
