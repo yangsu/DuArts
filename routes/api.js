@@ -39,7 +39,9 @@ exports.eventlocation = function(req, res) {
   var id = req.params.id;
   var query = Event.findOne({
     _id: id
-  }, 'location', null, util.returnData(res));
+  }, 'location', { lean: true }, util.wrapError(res, function(data) {
+    res.json(data.location)
+  }));
 };
 
 exports.postEvent = function(req, res) {

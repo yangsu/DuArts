@@ -1,5 +1,5 @@
 duarts.on('push', function(path) {
-  if (/\/(venues|galleries)\/([a-z0-9]+)/.test(path)) {
+  if (/\/(venues|galleries|event)\/([a-z0-9]+)/.test(path)) {
     $.getJSON(path + '/location', function(loc) {
       if (loc) {
         var map = new GMaps({

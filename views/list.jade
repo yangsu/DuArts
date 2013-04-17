@@ -10,7 +10,10 @@ block content
               a(href='#{path}/#{item._id}', data-transition='slide-in')
                 span= item.title
 
+    br
+
     ul.list.inset
+      li.list-divider= path.toUpperCase().slice(0, 1) + path.slice(1)
         each item in data
             li
                 a(href='#{path}/#{item._id}', data-transition='slide-in')
