@@ -1,11 +1,10 @@
 var fs = require('fs');
 var _ = require('underscore');
 var async = require('async');
+var api = require('./api');
 var db = require('../db');
 var Event = db.Event;
 var util = require('../util');
-var api = require('./api');
-
 
 exports.index = function(req, res) {
   async.parallel({
@@ -71,12 +70,12 @@ function listEndpoint(model, path, template) {
     .sort('title')
     .lean()
     .exec(util.wrapError(res, function(data) {
-      res.render(template, {
-        path: path,
-        title: 'Duke Arts',
-        data: data
-      });
-    }));
+          res.render(template, {
+            path: path,
+            title: 'Duke Arts',
+            data: data
+          });
+        }));
   };
 }
 function itemEndpoint(model, path, template) {
@@ -86,12 +85,12 @@ function itemEndpoint(model, path, template) {
     })
     .lean()
     .exec(util.wrapError(res, function(data) {
-      res.render(template, {
-        path: path,
-        title: 'Duke Arts',
-        data: data
-      });
-    }));
+          res.render(template, {
+            path: path,
+            title: 'Duke Arts',
+            data: data
+          });
+        }));
   };
 }
 
@@ -102,14 +101,14 @@ function itemLocationEndpoint(model, path, template) {
     })
     .lean()
     .exec(util.wrapError(res, function(item) {
-      db.Marker.findOne({
-        mrkId: item.location
-      })
+          db.Marker.findOne({
+            mrkId: item.location
+          })
       .lean()
       .exec(util.wrapError(res, function(location) {
-        res.json(location);
-      }));
-    }));
+                res.json(location);
+              }));
+        }));
   };
 }
 
@@ -121,12 +120,6 @@ exports.galleryPage = itemEndpoint('Gallery', 'galleries', 'item');
 exports.galleryLocation = itemLocationEndpoint('Gallery', 'galleries', 'item');
 exports.orgs = listEndpoint('Organization', 'orgs', 'list');
 exports.orgPage = itemEndpoint('Organization', 'orgs', 'item');
-
-exports.search = function(req, res) {
-  res.render('search', {
-    title: 'Duke Arts'
-  });
-};
 
 exports.admin = function(req, res) {
   res.render('admin', {
@@ -195,4 +188,23 @@ exports.event = function(req, res) {
       });
     }
   });
+};
+
+exports.postEvent = function(req, res) {
+  var id = req.params.id;
+
+  Event.update({
+    _id: id
+  }, { $set: req.body }, {}, util.wrapError(res, function(data) {
+    res.json(data);
+  }));
+};
+
+exports.eventlocation = function(req, res) {
+  var id = req.params.id;
+  var query = Event.findOne({
+    _id: id
+  }, 'location', { lean: true }, util.wrapError(res, function(data) {
+    res.json(data.location);
+  }));
 };

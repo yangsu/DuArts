@@ -5,8 +5,6 @@ window.duarts = {
   Views: {},
   Routers: {},
   Templates: {},
-  init: function() {
-  },
   triggerRoute: function() {
     var path = window.location.pathname;
     duarts.trigger('push', path);
@@ -49,20 +47,6 @@ duarts.on('push', function(path) {
   }
 });
 
-$(document).ready(function() {
-  duarts.init();
+$(function() {
   duarts.triggerRoute();
-  // new FingerBlast('body');
-
-  var genN = function(selector) {
-    var e = $(selector);
-    return function() {
-      e.toggleClass('hidden');
-    };
-  };
-  $('a.expand').each(function(i, a) {
-    var $a = $(a);
-    var targetSelector = $a.data('target');
-    $a.click(genN(targetSelector));
-  });
 });

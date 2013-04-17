@@ -1,5 +1,4 @@
 var _ = require('underscore');
-var async = require('async');
 var db = require('../db');
 var Event = db.Event;
 
@@ -33,23 +32,4 @@ exports.events = function(req, res) {
     options: util.parseOptions(req.query),
     callback: util.returnData(res)
   });
-};
-
-exports.eventlocation = function(req, res) {
-  var id = req.params.id;
-  var query = Event.findOne({
-    _id: id
-  }, 'location', { lean: true }, util.wrapError(res, function(data) {
-    res.json(data.location)
-  }));
-};
-
-exports.postEvent = function(req, res) {
-  var id = req.params.id;
-
-  Event.update({
-    _id: id
-  }, { $set: req.body }, {}, util.wrapError(res, function(data) {
-    res.json(data);
-  }));
 };

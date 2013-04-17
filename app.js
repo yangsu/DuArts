@@ -29,10 +29,11 @@ app.configure('development', function() {
 });
 
 app.get('/', routes.index);
-app.get('/404', routes.notfound);
+
 app.get('/calendar', routes.calendar);
 app.get('/aroundme', routes.aroundme);
 app.get('/calendar', routes.calendar);
+
 app.get('/venues', routes.venues);
 app.get('/venues/:id', routes.venuePage);
 app.get('/venues/:id/location', routes.venueLocation);
@@ -41,18 +42,19 @@ app.get('/galleries/:id', routes.galleryPage);
 app.get('/galleries/:id/location', routes.galleryLocation);
 app.get('/orgs', routes.orgs);
 app.get('/orgs/:id', routes.orgPage);
-app.get('/search', routes.search);
+
 app.get('/admin', routes.admin);
 app.get('/admin/features', routes.features);
 app.get('/admin/:resource', routes.adminPage);
 app.post('/admin/:resource/:id', routes.adminSave);
 app.delete('/admin/:resource/:id', routes.adminDelete);
 
+app.get('/event/:id', routes.event);
+app.post('/event/:id', routes.postEvent);
+app.get('/event/:id/location', routes.eventlocation);
+
 app.get('/events.json', api.events);
 app.get('/events.json/:skip', api.events);
-app.get('/event/:id', routes.event);
-app.post('/event/:id', api.postEvent);
-app.get('/event/:id/location', api.eventlocation);
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
