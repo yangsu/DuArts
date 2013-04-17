@@ -7,13 +7,9 @@ block content
       li
         - var date = event.start.shortdate
         - var active = event.feature == 'true' ? 'active' : ''
-        a(href='event/#{event._id}', data-transition='slide-in', data-guid='#{event.guid}')
-          span.eventlabel #{event.summary}
+        span.eventlabel #{event.summary}
         if (event.image)
           div(class="toggle #{active}", data-id=event._id)
             .toggle-handle
         else
           span.count= date
-
-block scripts
-  script(src='/javascripts/features.js')
