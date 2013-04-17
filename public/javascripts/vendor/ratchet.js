@@ -628,7 +628,7 @@
 
     offsetX = slideNumber * sliderWidth;
 
-    slider.style['-webkit-transition-duration'] = '.2s';
+    slider.style['-webkit-transition-duration'] = '.5s';
     slider.style.webkitTransform = 'translate3d(' + offsetX + 'px,0,0)';
 
     e = new CustomEvent('slide', {

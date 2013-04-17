@@ -42,7 +42,7 @@ duarts.on('push', function(path) {
       index = (index + 1) % count;
       var offsetX = (-index) * sliderWidth;
       sliders.css({
-        '-webkit-transition-duration': '.35s',
+        '-webkit-transition-duration': '.5s',
         webkitTransform: 'translate3d(' + offsetX + 'px,0,0)'
       });
     }, 3000);
