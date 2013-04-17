@@ -33,7 +33,7 @@ _.extend(duarts, Backbone.Events);
 window.addEventListener('push', duarts.triggerRoute);
 
 duarts.on('push', function(path) {
-  if (path == '/') {
+  if (path == '/' || /^\/(venues|galleries)$/.test(path)) {
     var index = 0;
     var sliders = $('.slider ul');
     var count = sliders.children().length;
