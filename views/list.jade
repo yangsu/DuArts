@@ -1,7 +1,15 @@
 extends layout
 
 block content
-    br
+    .slider
+      ul
+        each item in data
+          li
+            img.full-img(src=item.img)
+            h2
+              a(href='#{path}/#{item._id}', data-transition='slide-in')
+                span= item.title
+
     ul.list.inset
         each item in data
             li
@@ -9,5 +17,3 @@ block content
                     | #{item.title}
                 span.chevron
     br
-    br
-
