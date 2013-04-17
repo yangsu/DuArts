@@ -1,5 +1,5 @@
 duarts.on('push', function(path) {
-  if (path == '/calendar') {
+  if (/\/admin\/features/.test(path)) {
     $('.toggle').on('toggle', function(e) {
       var $e = $(e.currentTarget);
       var isFeature = $e.hasClass('active');

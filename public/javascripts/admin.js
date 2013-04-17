@@ -1,5 +1,5 @@
 duarts.on('push', function(path) {
-  if (/admin/.test(path)) {
+  if (/\/admin\/(Venue|Organization|Gallery)/.test(path)) {
     var deleteItems = [];
     $('#add').click(function() {
       $('.items').append(duarts.template('adminItem'));
