@@ -30,7 +30,6 @@ exports.returnData = function(res) {
 var defaultLimit = 100;
 
 exports.parseOptions = function(params) {
-  console.log(params);
   return {
     all: params.all || false,
     skip: params.skip || 0,
