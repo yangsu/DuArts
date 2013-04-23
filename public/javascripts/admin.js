@@ -1,16 +1,28 @@
 duarts.on('push', function(path) {
+  if (/admin/.test(path)) {
+    new FingerBlast('.admin');
+  }
   if (/\/admin\/(Venue|Organization|Gallery)/.test(path)) {
     var deleteItems = [];
-    $('#add').click(function() {
+    var add = function() {
       $('.items').append(duarts.template('adminItem'));
+    };
+    $('#add').on({
+      'click': add,
+      'touchend': add
     });
-    $('.button-negative').click(function(e) {
+    var negative = function(e) {
       var $e = $(e.currentTarget).parent();
       var id = $e.data('id').replace(/\W+/g, '');
       deleteItems.push(id);
       $e.hide('slow');
+    };
+    $('.button-negative').on({
+      'click': negative,
+      'touchend': negative
     });
-    $('#save').click(function() {
+
+    var save = function() {
       $('.items form').each(function(i, e) {
         var $e = $(e);
         var data = $e.serializeArray();
@@ -36,6 +48,10 @@ duarts.on('push', function(path) {
         });
       });
       deleteItems = [];
+    };
+    $('#save').on({
+      'click': save,
+      'touchend': save
     });
   }
 });
