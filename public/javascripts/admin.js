@@ -11,13 +11,25 @@ duarts.on('push', function(path) {
       'click': add,
       'touchend': add
     });
+    var addLink = function(e) {
+      var $e = $(e.currentTarget).parent();
+      $e.find('.input-group').append(duarts.template('adminItemLink'));
+      // var id = $e.data('id').replace(/\W+/g, '');
+      // deleteItems.push(id);
+      // $e.hide('slow');
+    };
+    $('.item-link-add').on({
+      'click': addLink,
+      'touchend': addLink
+    });
+
     var negative = function(e) {
       var $e = $(e.currentTarget).parent();
       var id = $e.data('id').replace(/\W+/g, '');
       deleteItems.push(id);
       $e.hide('slow');
     };
-    $('.button-negative').on({
+    $('.item-delete').on({
       'click': negative,
       'touchend': negative
     });
@@ -27,7 +39,19 @@ duarts.on('push', function(path) {
         var $e = $(e);
         var data = $e.serializeArray();
         data = _.reduce(data, function(memo, item) {
-          memo[item.name] = item.value;
+          if (item.name == 'link' && item.value) {
+            memo.links = memo.links || [];
+            memo.links.push({
+              link: item.value
+            });
+          } else if (item.name == 'linkdescription' && item.value && memo.links) {
+            var link = memo.links[memo.links.length - 1];
+            if (link) {
+              link.description = item.value;
+            }
+          } else {
+            memo[item.name] = item.value;
+          }
           return memo;
         }, {});
         if (_.any(data, function(value, key) {

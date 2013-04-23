@@ -22,7 +22,18 @@ block content
                 label Location
                 input(type='text', name='location', value=item.location, placeholder='location id')
 
-          a.button.button-block.button-negative Delete
+            if (item.links)
+              each link in item.links
+                .input-row
+                  label Link
+                  input(type='text', name='link', value=link.link, placeholder='Link')
+                .input-row
+                  label Link Description
+                  input(type='text', name='linkdescription', value=link.description, placeholder='Description')
+
+
+          a.button.button-block.button-positive.item-link-add Add Link
+          a.button.button-block.button-negative.item-delete Delete
 
     a.button-block.button-main#add Add New
     a.button-block.button-positive#save Save All
