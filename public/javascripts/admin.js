@@ -7,10 +7,6 @@ duarts.on('push', function(path) {
     var add = function() {
       $('.items').append(duarts.template('adminItem'));
     };
-    $('#add').on({
-      'click': add,
-      'touchend': add
-    });
     var addLink = function(e) {
       var $e = $(e.currentTarget).parent();
       $e.find('.input-group').append(duarts.template('adminItemLink'));
@@ -18,10 +14,6 @@ duarts.on('push', function(path) {
       // deleteItems.push(id);
       // $e.hide('slow');
     };
-    $('.item-link-add').on({
-      'click': addLink,
-      'touchend': addLink
-    });
 
     var negative = function(e) {
       var $e = $(e.currentTarget).parent();
@@ -29,10 +21,6 @@ duarts.on('push', function(path) {
       deleteItems.push(id);
       $e.hide('slow');
     };
-    $('.item-delete').on({
-      'click': negative,
-      'touchend': negative
-    });
 
     var save = function() {
       $('.items form').each(function(i, e) {
@@ -74,9 +62,11 @@ duarts.on('push', function(path) {
       });
       deleteItems = [];
     };
-    $('#save').on({
-      'click': save,
-      'touchend': save
-    });
+
+    $('.admin')
+      .on('click touchend', '#add', add)
+      .on('click touchend', '.item-link-add', addLink)
+      .on('click touchend', '.item-delete', negative)
+      .on('click touchend', '#save', save);
   }
 });
