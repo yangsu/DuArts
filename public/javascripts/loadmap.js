@@ -7,11 +7,17 @@ duarts.on('push', function(path) {
           lat: loc.lat || 36.0001922,
           lng: loc.lng || -78.93740
         });
+
+        var infoWindow = new google.maps.InfoWindow({});
+
         map.addMarker({
           lat: loc.lat || 36.0001922,
           lng: loc.lng || -78.937401,
           title: loc.markerName,
-          click: function(e) {
+          click: function(point) {
+            infoWindow.setContent(loc.markerName);
+            infoWindow.setPosition(point.position);
+            infoWindow.open(map.map);
           }
         });
       }
