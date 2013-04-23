@@ -7,7 +7,8 @@ block content
     br
     p= data.description
     br
-    #map(style="height: 200px")
+    if path != 'orgs'
+      #map(style="height: 200px")
     br
 
     if data.links
