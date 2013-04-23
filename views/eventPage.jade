@@ -30,6 +30,10 @@ block content
     - var googleLink = 'https://www.google.com/calendar/render?action=TEMPLATE&dates=' + event.start.unformatted +  '/' + event.end.unformatted + '&sprop=website:www.calendar.duke.edu&text=' + event.summary + '&location=' + event.location.address + '&sf=true&output=xml'
     a.button-block(href=googleLink) Add to Google Calendar
     br
-    - var calLink = 'http://calendar.duke.edu/events/show/event.ics?fq=id%3A' + event.guid + '_' + event.recurrenceId + '&mobile=mobile_bypass'
+    if event.recurrenceId
+      - var calLink = 'http://calendar.duke.edu/events/show/event.ics?fq=id%3A' + event.guid + '_' + event.recurrenceId + '&mobile=mobile_bypass'
+    else
+      - var calLink = 'http://calendar.duke.edu/events/show/event.ics?fq=id%3A' + event.guid + '&mobile=mobile_bypass'
+
     a.button-block(href=calLink) Add to Calendar ICS
     br
