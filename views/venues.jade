@@ -24,14 +24,14 @@ block content
         ul.list
           each item in data.performances
             li
-              a(href='#{path}/#{item._id}', data-transition='slide-in')
+              a(href='performances/#{item._id}', data-transition='slide-in')
                 | #{item.title}
               span.chevron
       li(id='studio', class='segmented-controller-item')
         ul.list
           each item in data.studios
             li
-              a(href='#{path}/#{item._id}', data-transition='slide-in')
+              a(href='studios/#{item._id}', data-transition='slide-in')
                 | #{item.title}
               span.chevron
     br
