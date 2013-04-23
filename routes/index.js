@@ -211,6 +211,6 @@ exports.eventlocation = function(req, res) {
   var query = Event.findOne({
     _id: id
   }, 'location', { lean: true }, util.wrapError(res, function(data) {
-    res.json(data.location);
+    res.json(data.location && data.location.coordinate);
   }));
 };
