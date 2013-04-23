@@ -118,9 +118,40 @@ function itemLocationEndpoint(model, path, template) {
   };
 }
 
-exports.venues = listEndpoint('Venue', 'venues', 'list');
+var getVenue = function(model, cb) {
+  db[model].find({})
+  .sort('title')
+  .lean()
+  .exec(cb);
+};
+
+exports.venues = function(req, res) {
+  async.parallel({
+    performances: function(cb) {
+      getVenue('Performance', cb);
+    },
+    studios: function(cb) {
+      getVenue('Studio', cb);
+    },
+    venues: function(cb) {
+      getVenue('Venue', cb);
+    }
+  }, util.wrapError(res, function(data) {
+    res.render('venues', {
+      path: 'venues',
+      title: 'Duke Arts',
+      data: data
+    });
+  }));
+};
 exports.venuePage = itemEndpoint('Venue', 'venues', 'item');
 exports.venueLocation = itemLocationEndpoint('Venue', 'venues', 'item');
+exports.performances = listEndpoint('Performance', 'performances', 'list');
+exports.performancePage = itemEndpoint('Performance', 'performances', 'item');
+exports.performanceLocation = itemLocationEndpoint('Performance', 'performances', 'item');
+exports.studios = listEndpoint('Studio', 'studios', 'list');
+exports.studioPage = itemEndpoint('Studio', 'studios', 'item');
+exports.studioLocation = itemLocationEndpoint('Studio', 'studios', 'item');
 exports.galleries = listEndpoint('Gallery', 'galleries', 'list');
 exports.galleryPage = itemEndpoint('Gallery', 'galleries', 'item');
 exports.galleryLocation = itemLocationEndpoint('Gallery', 'galleries', 'item');
@@ -159,6 +190,18 @@ exports.adminSave = function(req, res) {
     }, {
       upsert: true
     }, util.wrapError(res, function(data) {
+      res.json(data);
+    }));
+  } else {
+    res.send(400);
+  }
+};
+
+exports.adminCreate = function(req, res) {
+  var item = req.body;
+  var resource = req.params.resource;
+  if (db[resource]) {
+    db[resource].create(item, util.wrapError(res, function(data) {
       res.json(data);
     }));
   } else {

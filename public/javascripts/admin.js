@@ -2,7 +2,7 @@ duarts.on('push', function(path) {
   if (/admin/.test(path)) {
     new FingerBlast('.admin');
   }
-  if (/\/admin\/(Venue|Organization|Gallery)/.test(path)) {
+  if (/\/admin\/(Venue|Organization|Gallery|Performance|Studio)/.test(path)) {
     var deleteItems = [];
     var add = function() {
       $('.items').append(duarts.template('adminItem'));
@@ -33,8 +33,9 @@ duarts.on('push', function(path) {
         if (_.any(data, function(value, key) {
           return value.length > 0;
         })) {
-          var id = $e.data('id').replace(/\W+/g, '');
-          $.post(location.pathname + '/' + id, data, function(data) {
+          var id = $e.data('id');
+          id = !!id ? ('/' + id.replace(/\W+/g, '')) : '';
+          $.post(location.pathname + id, data, function(data) {
           });
         }
       });

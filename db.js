@@ -8,6 +8,8 @@ var emptySchema = mongoose.Schema({}, { strict: false });
 
 var Event = mongoose.model('Event', emptySchema);
 var Venue = mongoose.model('Venue', emptySchema);
+var Performance = mongoose.model('Performance', emptySchema);
+var Studio = mongoose.model('Studio', emptySchema);
 var Organization = mongoose.model('Organization', emptySchema);
 var Gallery = mongoose.model('Gallery', emptySchema);
 var Marker = mongoose.model('Marker', emptySchema);
@@ -15,6 +17,8 @@ var Marker = mongoose.model('Marker', emptySchema);
 module.exports = {
   Event: Event,
   Venue: Venue,
+  Performance: Performance,
+  Studio: Studio,
   Organization: Organization,
   Gallery: Gallery,
   Marker: Marker,
