@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  .admin
+    .slider
+      ul
+        each item in data.venues
+          li
+            img.full-img(src=item.img)
+            h2
+              a(href='#{path}/#{item._id}', data-transition='slide-in')
+                span= item.title
+
+    br
+
+    ul.segmented-controller
+      li(class='list-divider active')
+        a(href='#performance') Performance
+      li(class='list-divider')
+        a(href='#studio') Studio
+
+    ul.list.inset
+      li(id='performance', class='segmented-controller-item active')
+        ul.list
+          each item in data.performances
+            li
+              a(href='#{path}/#{item._id}', data-transition='slide-in')
+                | #{item.title}
+              span.chevron
+      li(id='studio', class='segmented-controller-item')
+        ul.list
+          each item in data.studios
+            li
+              a(href='#{path}/#{item._id}', data-transition='slide-in')
+                | #{item.title}
+              span.chevron
+    br
