@@ -21,11 +21,18 @@ node app.js
 
 * Open up **Chrome** (for the easiest configuration).
 * Go to [http://localhost:3000](http://localhost:3000)
-* Right click on the webpage and click on **Inspect Element**
-* Click on the gear icon at the bottom right corner of the popped up window
-* A settings page will pop up. Configure the options as shown below.
 
-![Settings](http://f.cl.ly/items/0v2u3B3g0f0H072S3u3a/Screen%20Shot%202013-02-19%20at%2012.00.38%20PM.png)
+## Running the Server
+
+Use `screen` to start the server with the command `supervisor app.js`
+
+To run the server on port 80, simply do `sudo PORT=80 supervisor app.js`
+
+## Notes about DB
+
+The data is collected on the server using `cron`. SSH into the server and using `crontab -e` to edit frequency.
+
+The database resides on the server, which is currently [here](http://colab-sbx-03.oit.duke.edu:3000). The path is set [here](https://github.com/yangsu/DuArts/blob/master/db.js#L5).
 
 ## Tech Stack
 
